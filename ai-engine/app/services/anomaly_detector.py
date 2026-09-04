@@ -57,6 +57,6 @@ def detect_anomaly(readings, current):
     )
 
     return {
-        "isAnomaly": prediction == -1,
-        "anomalyScore": anomaly_score
+    "isAnomaly": bool(prediction == -1),
+    "anomalyScore": float(anomaly_score)
     }
