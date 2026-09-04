@@ -5,6 +5,7 @@ import "dotenv/config";
 import healthRoutes from "./routes/healthRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import environmentRoutes from "./routes/environmentRoutes.js";
+import aiRoutes from "./routes/aiRoutes.js";
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/health", healthRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/environment", environmentRoutes); 
+app.use("/api/ai", aiRoutes);
 
 app.get("/", (req, res) => {
     res.json({
