@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2173434,
+    "totalFocusTime": 2176191,
     "totalActiveTime": 787955
   },
   "files": {
@@ -23,7 +23,7 @@
     },
     "app/main.py": {
       "pending": 51211,
-      "focus": 177829
+      "focus": 180579
     },
     "app/services/data_loader.py": {
       "pending": 0,
