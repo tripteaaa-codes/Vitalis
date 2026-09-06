@@ -1,0 +1,117 @@
+{
+  "version": "1.0",
+  "project": {
+    "totalFocusTime": 63602730,
+    "totalActiveTime": 2756257
+  },
+  "files": {
+    "vitalis/backend/.env": {
+      "pending": 7752,
+      "focus": 119323
+    },
+    "vitalis/backend/prisma/schema.prisma": {
+      "pending": 175296,
+      "focus": 1999874
+    },
+    "vitalis/backend/src/server.js": {
+      "pending": 64472,
+      "focus": 1880954
+    },
+    "vitalis/backend/package.json": {
+      "pending": 28028,
+      "focus": 423085
+    },
+    "vitalis/backend/.gitignore": {
+      "pending": 3580,
+      "focus": 531584
+    },
+    "vitalis/backend/src/routes/healthRoutes.js": {
+      "pending": 567742,
+      "focus": 1692827
+    },
+    "vitalis/backend/src/config/prisma.js": {
+      "pending": 10721,
+      "focus": 482335
+    },
+    "vitalis/backend/src/routes/userRoutes.js": {
+      "pending": 185850,
+      "focus": 310773
+    },
+    "vitalis/backend/src/generated/prisma/client.ts": {
+      "pending": 508,
+      "focus": 156032
+    },
+    "vitalis/backend/simulator/healthSimulator.cjs": {
+      "pending": 397880,
+      "focus": 1150466
+    },
+    "vitalis/backend/src/routes/environmentRoutes.js": {
+      "pending": 171593,
+      "focus": 434458
+    },
+    "vitalis/backend/simulator/environmentSimulator.cjs": {
+      "pending": 513090,
+      "focus": 1944874
+    },
+    "app/services/data_loader.py": {
+      "pending": 0,
+      "focus": 308709
+    },
+    "app/services/baseline.py": {
+      "pending": 15787,
+      "focus": 387614
+    },
+    "vitalis/backend/src/routes/aiRoutes.js": {
+      "pending": 23750,
+      "focus": 992450
+    },
+    "vitalis/ai-engine/.gitignore": {
+      "pending": 2095,
+      "focus": 294053
+    },
+    "vitalis/ai-engine/app/services/anomaly_detector.py": {
+      "pending": 4137,
+      "focus": 59677
+    },
+    "vitalis/ai-engine/app/test_anomaly.py": {
+      "pending": 0,
+      "focus": 26269
+    },
+    "vitalis/backend/src/middleware/authMiddleware.js": {
+      "pending": 175340,
+      "focus": 268181
+    },
+    "vitalis/backend/src/generated/prisma/internal/class.ts": {
+      "pending": 1015,
+      "focus": 43855
+    },
+    "vitalis/android/app/build.gradle.kts": {
+      "pending": 343193,
+      "focus": 3724470
+    },
+    "vitalis/android/app/src/main/AndroidManifest.xml": {
+      "pending": 22934,
+      "focus": 3715626
+    },
+    "vitalis/android/app/src/main/com/vitalis/companion/MainActivity.kt": {
+      "pending": 2959,
+      "focus": 499480
+    },
+    "vitalis/android/gradle.properties": {
+      "pending": 3965,
+      "focus": 459465
+    },
+    "vitalis/android/app/src/main/java/com/vitalis/companion/MainActivity.kt": {
+      "pending": 34570,
+      "focus": 27904288
+    },
+    "vitalis/android/.gradle/libs.versions.toml": {
+      "pending": 0,
+      "focus": 158044
+    }
+  },
+  "deleted": {
+    "active": 0,
+    "focus": 8544
+  }
+}
