@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "project": {
+    "totalFocusTime": 2310477,
+    "totalActiveTime": 789493
+  },
+  "files": {
+    "app/services/risk_engine.py": {
+      "pending": 629701,
+      "focus": 1292849
+    },
+    "app/test_risk.py": {
+      "pending": 5891,
+      "focus": 221650
+    },
+    "app/services/anomaly_detector.py": {
+      "pending": 2573,
+      "focus": 6673216
+    },
+    "app/test_anomaly.py": {
+      "pending": 2747,
+      "focus": 29984
+    },
+    "app/main.py": {
+      "pending": 51211,
+      "focus": 216933
+    },
+    "app/services/data_loader.py": {
+      "pending": 0,
+      "focus": 1898
+    },
+    "app/__init__.py": {
+      "pending": 0,
+      "focus": 10963
+    }
+  },
+  "deleted": {
+    "active": 97370,
+    "focus": 187003
+  }
+}

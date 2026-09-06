@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VITALIS</string>
+
+    <string name="health_permissions_rationale">
+        VITALIS uses health data for personalized monitoring, risk detection, and emergency support.
+    </string>
+
+</resources>
