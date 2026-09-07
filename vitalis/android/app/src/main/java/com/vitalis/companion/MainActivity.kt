@@ -1,366 +1,1032 @@
 package com.vitalis.companion
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.bluetooth.BluetoothDevice
+import android.bluetooth.BluetoothGatt
+import android.bluetooth.BluetoothGattCallback
+import android.bluetooth.BluetoothGattCharacteristic
+import android.bluetooth.BluetoothGattDescriptor
+import android.bluetooth.BluetoothManager
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.ScrollView
+import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.result.ActivityResultLauncher
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.health.connect.client.HealthConnectClient
-import androidx.health.connect.client.PermissionController
-import androidx.health.connect.client.permission.HealthPermission
-import androidx.health.connect.client.records.HeartRateRecord
-import androidx.health.connect.client.records.OxygenSaturationRecord
-import androidx.health.connect.client.records.StepsRecord
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import java.util.UUID
 
 class MainActivity : ComponentActivity() {
 
-    private lateinit var healthConnectClient: HealthConnectClient
-    private lateinit var permissionLauncher: ActivityResultLauncher<Set<String>>
-    private lateinit var healthConnectReader: HealthConnectReader
+    companion object {
 
-    private val healthConnectPermissions = setOf(
-        HealthPermission.getReadPermission(HeartRateRecord::class),
-        HealthPermission.getReadPermission(OxygenSaturationRecord::class),
-        HealthPermission.getReadPermission(StepsRecord::class)
-    )
+        private const val WATCH_NAME = "NF_2_8FE9"
+        private const val WATCH_ADDRESS = "04:CA:8F:3C:8F:E9"
 
-    private var healthConnectAvailable = false
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        Log.d("VITALIS_HEALTH", "VITALIS NEW BUILD STARTED")
-
-        val sdkStatus = HealthConnectClient.getSdkStatus(
-            this,
-            "com.google.android.apps.healthdata"
-        )
-
-        Log.d(
-            "VITALIS_HEALTH",
-            "Health Connect SDK status: $sdkStatus"
-        )
-
-        healthConnectAvailable =
-            sdkStatus == HealthConnectClient.SDK_AVAILABLE
-
-        if (healthConnectAvailable) {
-            healthConnectClient =
-                HealthConnectClient.getOrCreate(this)
-
-            healthConnectReader =
-                HealthConnectReader(this)
-        }
-
-        permissionLauncher =
-            registerForActivityResult(
-                PermissionController.createRequestPermissionResultContract()
-            ) {
-                Log.d(
-                    "VITALIS_HEALTH",
-                    "Permission request completed"
-                )
-
-                checkPermissions()
-            }
-
-        setContent {
-            var permissionsGranted by remember {
-                mutableStateOf(false)
-            }
-
-            var heartRate by remember {
-                mutableStateOf("--")
-            }
-
-            var spo2 by remember {
-                mutableStateOf("--")
-            }
-
-            var steps by remember {
-                mutableStateOf("--")
-            }
-
-            var status by remember {
-                mutableStateOf(
-                    if (healthConnectAvailable)
-                        "Health Connect available"
-                    else
-                        "Health Connect unavailable"
-                )
-            }
-
-            LaunchedEffect(healthConnectAvailable) {
-                if (healthConnectAvailable) {
-                    permissionsGranted =
-                        getPermissionsGranted()
-
-                    if (permissionsGranted) {
-                        status = "Health Connect connected"
-                    }
-                }
-            }
-
-            VitalisScreen(
-                healthConnectAvailable = healthConnectAvailable,
-                permissionsGranted = permissionsGranted,
-                status = status,
-                heartRate = heartRate,
-                spo2 = spo2,
-                steps = steps,
-
-                onConnect = {
-                    requestHealthPermissions()
-                },
-
-                onReadData = {
-                    lifecycleScope.launch {
-                        try {
-                            status = "Reading health data..."
-
-                            Log.d(
-                                "VITALIS_DATA",
-                                "Reading Health Connect data..."
-                            )
-
-                            val data =
-                                healthConnectReader
-                                    .readLatestHealthData()
-
-                            heartRate =
-                                data.heartRate
-                                    ?.toString()
-                                    ?: "--"
-
-                            spo2 =
-                                data.spo2
-                                    ?.toString()
-                                    ?: "--"
-
-                            steps =
-                                data.steps
-                                    ?.toString()
-                                    ?: "--"
-
-                            status =
-                                "Health data read successfully"
-
-                            Log.d(
-                                "VITALIS_DATA",
-                                "Heart Rate: ${data.heartRate}"
-                            )
-
-                            Log.d(
-                                "VITALIS_DATA",
-                                "SpO2: ${data.spo2}"
-                            )
-
-                            Log.d(
-                                "VITALIS_DATA",
-                                "Steps: ${data.steps}"
-                            )
-
-                        } catch (error: Exception) {
-
-                            status = "Failed to read health data"
-
-                            Log.e(
-                                "VITALIS_DATA",
-                                "Failed to read health data",
-                                error
-                            )
-                        }
-                    }
-                }
+        private val NOISE_SERVICE_UUID =
+            UUID.fromString(
+                "16186f00-0000-1000-8000-00807f9b34fb"
             )
-        }
+
+        private val NOTIFICATION_CHARACTERISTIC_UUID =
+            UUID.fromString(
+                "16186f01-0000-1000-8000-00807f9b34fb"
+            )
+
+        private val COMMAND_CHARACTERISTIC_UUID =
+            UUID.fromString(
+                "16186f02-0000-1000-8000-00807f9b34fb"
+            )
+
+        private val NOTIFICATION_DESCRIPTOR_UUID =
+            UUID.fromString(
+                "00002902-0000-1000-8000-00805f9b34fb"
+            )
     }
 
-    private fun requestHealthPermissions() {
+    private lateinit var logView: TextView
 
-        if (!healthConnectAvailable) {
-            Log.e(
-                "VITALIS_HEALTH",
-                "Health Connect unavailable"
-            )
-            return
-        }
+    private var bluetoothGatt: BluetoothGatt? = null
 
-        lifecycleScope.launch {
+    private var notificationCharacteristic:
+            BluetoothGattCharacteristic? = null
+
+    private var commandCharacteristic:
+            BluetoothGattCharacteristic? = null
+
+    private val permissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestMultiplePermissions()
+        ) { permissions ->
 
             val granted =
-                getPermissionsGranted()
+                permissions[
+                    Manifest.permission.BLUETOOTH_SCAN
+                ] == true &&
+                        permissions[
+                            Manifest.permission.BLUETOOTH_CONNECT
+                        ] == true
 
             if (granted) {
 
-                Log.d(
-                    "VITALIS_HEALTH",
-                    "All permissions already granted"
+                log(
+                    getString(
+                        R.string.bluetooth_permission_granted
+                    )
                 )
 
-                return@launch
+                findPairedWatch()
+
+            } else {
+
+                log(
+                    getString(
+                        R.string.bluetooth_permission_required
+                    )
+                )
+            }
+        }
+
+    private val gattCallback =
+        object : BluetoothGattCallback() {
+
+            @SuppressLint("MissingPermission")
+            override fun onConnectionStateChange(
+                gatt: BluetoothGatt,
+                status: Int,
+                newState: Int
+            ) {
+
+                runOnUiThread {
+
+                    when (newState) {
+
+                        android.bluetooth.BluetoothProfile.STATE_CONNECTED -> {
+
+                            log(
+                                getString(
+                                    R.string.watch_connected,
+                                    status
+                                )
+                            )
+
+                            if (hasBluetoothPermission()) {
+
+                                log(
+                                    getString(
+                                        R.string.discovering_services
+                                    )
+                                )
+
+                                gatt.discoverServices()
+                            }
+                        }
+
+                        android.bluetooth.BluetoothProfile.STATE_DISCONNECTED -> {
+
+                            log(
+                                getString(
+                                    R.string.watch_disconnected,
+                                    status
+                                )
+                            )
+
+                            notificationCharacteristic = null
+                            commandCharacteristic = null
+                        }
+                    }
+                }
             }
 
-            Log.d(
-                "VITALIS_HEALTH",
-                "Launching Health Connect permission request"
+            override fun onServicesDiscovered(
+                gatt: BluetoothGatt,
+                status: Int
+            ) {
+
+                runOnUiThread {
+
+                    if (status != BluetoothGatt.GATT_SUCCESS) {
+
+                        log(
+                            getString(
+                                R.string.discovery_failed,
+                                status
+                            )
+                        )
+
+                        return@runOnUiThread
+                    }
+
+                    log(
+                        getString(
+                            R.string.services_discovered
+                        )
+                    )
+
+                    var noiseServiceFound = false
+
+                    for (service in gatt.services) {
+
+                        log(
+                            getString(
+                                R.string.service_found,
+                                service.uuid.toString()
+                            )
+                        )
+
+                        for (
+                        characteristic
+                        in service.characteristics
+                        ) {
+
+                            log(
+                                getString(
+                                    R.string.characteristic_found,
+                                    characteristic.uuid.toString()
+                                )
+                            )
+
+                            log(
+                                getString(
+                                    R.string.characteristic_properties,
+                                    getProperties(
+                                        characteristic.properties
+                                    )
+                                )
+                            )
+
+                            if (
+                                service.uuid ==
+                                NOISE_SERVICE_UUID
+                            ) {
+
+                                noiseServiceFound = true
+
+                                when (characteristic.uuid) {
+
+                                    NOTIFICATION_CHARACTERISTIC_UUID -> {
+
+                                        notificationCharacteristic =
+                                            characteristic
+
+                                        log(
+                                            getString(
+                                                R.string.notification_characteristic_found
+                                            )
+                                        )
+                                    }
+
+                                    COMMAND_CHARACTERISTIC_UUID -> {
+
+                                        commandCharacteristic =
+                                            characteristic
+
+                                        log(
+                                            getString(
+                                                R.string.command_characteristic_found
+                                            )
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (noiseServiceFound) {
+
+                        log(
+                            getString(
+                                R.string.protocol_found
+                            )
+                        )
+
+                        enableNotifications()
+
+                    } else {
+
+                        log(
+                            getString(
+                                R.string.protocol_not_found
+                            )
+                        )
+                    }
+                }
+            }
+
+            @Deprecated("Deprecated BluetoothGatt callback")
+            @Suppress("DEPRECATION")
+            override fun onCharacteristicChanged(
+                gatt: BluetoothGatt,
+                characteristic: BluetoothGattCharacteristic
+            ) {
+                val data = characteristic.value
+                processIncomingPacket(data)
+            }
+
+            override fun onCharacteristicWrite(
+                gatt: BluetoothGatt,
+                characteristic: BluetoothGattCharacteristic,
+                status: Int
+            ) {
+
+                runOnUiThread {
+
+                    log(
+                        getString(
+                            R.string.write_status,
+                            status
+                        )
+                    )
+                }
+            }
+
+            override fun onDescriptorWrite(
+                gatt: BluetoothGatt,
+                descriptor: BluetoothGattDescriptor,
+                status: Int
+            ) {
+
+                runOnUiThread {
+
+                    log(
+                        getString(
+                            R.string.notification_write_status,
+                            status
+                        )
+                    )
+                }
+            }
+        }
+
+    override fun onCreate(
+        savedInstanceState: Bundle?
+    ) {
+
+        super.onCreate(savedInstanceState)
+
+        buildInterface()
+
+        requestBluetoothPermission()
+    }
+
+    private fun buildInterface() {
+
+        val root =
+            LinearLayout(this).apply {
+
+                orientation =
+                    LinearLayout.VERTICAL
+
+                setPadding(
+                    32,
+                    32,
+                    32,
+                    32
+                )
+            }
+
+        val title =
+            TextView(this).apply {
+
+                text =
+                    getString(
+                        R.string.app_title
+                    )
+
+                textSize = 24f
+            }
+
+        val watchInfo =
+            TextView(this).apply {
+
+                text =
+                    getString(
+                        R.string.watch_information,
+                        WATCH_ADDRESS
+                    )
+
+                textSize = 16f
+            }
+
+        val connectButton =
+            Button(this).apply {
+
+                text =
+                    getString(
+                        R.string.connect_watch
+                    )
+
+                setOnClickListener {
+                    findPairedWatch()
+                }
+            }
+
+        val testButton =
+            Button(this).apply {
+
+                text =
+                    getString(
+                        R.string.test_watch
+                    )
+
+                setOnClickListener {
+                    testProtocol()
+                }
+            }
+
+        val clearButton =
+            Button(this).apply {
+
+                text =
+                    getString(
+                        R.string.clear_log
+                    )
+
+                setOnClickListener {
+                    logView.text = ""
+                }
+            }
+
+        logView =
+            TextView(this).apply {
+
+                textSize = 14f
+            }
+
+        val scrollView =
+            ScrollView(this).apply {
+
+                addView(logView)
+
+                layoutParams =
+                    LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        0,
+                        1f
+                    )
+            }
+
+        root.addView(title)
+        root.addView(watchInfo)
+        root.addView(connectButton)
+        root.addView(testButton)
+        root.addView(clearButton)
+        root.addView(scrollView)
+
+        setContentView(root)
+    }
+
+    private fun requestBluetoothPermission() {
+
+        if (hasBluetoothPermission()) {
+
+            log(
+                getString(
+                    R.string.bluetooth_permission_granted
+                )
             )
 
+            findPairedWatch()
+
+        } else {
+
             permissionLauncher.launch(
-                healthConnectPermissions
+                arrayOf(
+                    Manifest.permission.BLUETOOTH_SCAN,
+                    Manifest.permission.BLUETOOTH_CONNECT
+                )
             )
         }
     }
 
-    private suspend fun getPermissionsGranted(): Boolean {
+    private fun hasBluetoothPermission(): Boolean {
 
-        return try {
+        return ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.BLUETOOTH_SCAN
+        ) == PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.BLUETOOTH_CONNECT
+                ) == PackageManager.PERMISSION_GRANTED
+    }
 
-            val granted =
-                healthConnectClient
-                    .permissionController
-                    .getGrantedPermissions()
+    @SuppressLint("MissingPermission")
+    private fun findPairedWatch() {
 
-            Log.d(
-                "VITALIS_HEALTH",
-                "Currently granted permissions: $granted"
+        if (!hasBluetoothPermission()) {
+
+            log(
+                getString(
+                    R.string.bluetooth_permission_required
+                )
             )
 
-            healthConnectPermissions
-                .all { it in granted }
+            return
+        }
+
+        try {
+
+            val bluetoothManager =
+                getSystemService(
+                    BluetoothManager::class.java
+                )
+
+            val adapter =
+                bluetoothManager.adapter
+
+            if (!adapter.isEnabled) {
+
+                log(
+                    getString(
+                        R.string.bluetooth_disabled
+                    )
+                )
+
+                return
+            }
+
+            val devices =
+                adapter.bondedDevices
+
+            val watch =
+                devices.firstOrNull {
+
+                    it.address.equals(
+                        WATCH_ADDRESS,
+                        ignoreCase = true
+                    )
+
+                } ?: devices.firstOrNull {
+
+                    it.name == WATCH_NAME
+                }
+
+            if (watch == null) {
+
+                log(
+                    getString(
+                        R.string.watch_not_paired
+                    )
+                )
+
+                return
+            }
+
+            log(
+                getString(
+                    R.string.watch_found,
+                    watch.name ?: WATCH_NAME
+                )
+            )
+
+            log(
+                getString(
+                    R.string.watch_address,
+                    watch.address
+                )
+            )
+
+            connectUsingGatt(watch)
+
+        } catch (_: SecurityException) {
+
+            log(
+                getString(
+                    R.string.bluetooth_permission_required
+                )
+            )
 
         } catch (error: Exception) {
 
-            Log.e(
-                "VITALIS_HEALTH",
-                "Permission check failed",
-                error
-            )
-
-            false
-        }
-    }
-
-    private fun checkPermissions() {
-
-        if (!healthConnectAvailable) return
-
-        lifecycleScope.launch {
-
-            val granted =
-                getPermissionsGranted()
-
-            Log.d(
-                "VITALIS_HEALTH",
-                "All required permissions granted: $granted"
+            log(
+                getString(
+                    R.string.bluetooth_error,
+                    error.message
+                        ?: getString(
+                            R.string.unknown_error
+                        )
+                )
             )
         }
     }
-}
 
-@Composable
-fun VitalisScreen(
-    healthConnectAvailable: Boolean,
-    permissionsGranted: Boolean,
-    status: String,
-    heartRate: String,
-    spo2: String,
-    steps: String,
-    onConnect: () -> Unit,
-    onReadData: () -> Unit
-) {
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(24.dp),
-
-        horizontalAlignment = Alignment.CenterHorizontally,
-
-        verticalArrangement = Arrangement.Center
+    @SuppressLint("MissingPermission")
+    @Suppress("DEPRECATION")
+    private fun connectUsingGatt(
+        device: BluetoothDevice
     ) {
 
-        Text(
-            text = "VITALIS",
-            style = MaterialTheme.typography.headlineLarge
-        )
+        try {
 
-        Spacer(
-            modifier = Modifier.height(12.dp)
-        )
+            bluetoothGatt?.close()
 
-        Text(
-            text = status
-        )
+            bluetoothGatt = null
 
-        Spacer(
-            modifier = Modifier.height(24.dp)
-        )
+            log(
+                getString(
+                    R.string.connecting
+                )
+            )
 
-        Button(
-            onClick = onConnect,
-            enabled = healthConnectAvailable &&
-                    !permissionsGranted
-        ) {
-            Text(
-                text = if (permissionsGranted)
-                    "Health Data Connected"
-                else
-                    "Connect Health Data"
+            bluetoothGatt =
+                device.connectGatt(
+                    this,
+                    false,
+                    gattCallback
+                )
+
+            log(
+                getString(
+                    R.string.gatt_requested
+                )
+            )
+
+        } catch (_: SecurityException) {
+
+            log(
+                getString(
+                    R.string.bluetooth_permission_required
+                )
             )
         }
+    }
 
-        Spacer(
-            modifier = Modifier.height(16.dp)
-        )
+    @SuppressLint("MissingPermission")
+    private fun enableNotifications() {
 
-        Button(
-            onClick = onReadData,
-            enabled = healthConnectAvailable &&
-                    permissionsGranted
-        ) {
-            Text(
-                text = "Read Health Data"
-            )
+        if (!hasBluetoothPermission()) {
+            return
         }
 
-        Spacer(
-            modifier = Modifier.height(32.dp)
+        val gatt =
+            bluetoothGatt
+                ?: return
+
+        val characteristic =
+            notificationCharacteristic
+                ?: run {
+
+                    log(
+                        getString(
+                            R.string.notification_characteristic_missing
+                        )
+                    )
+
+                    return
+                }
+
+        try {
+
+            val subscribed =
+                gatt.setCharacteristicNotification(
+                    characteristic,
+                    true
+                )
+
+            log(
+                getString(
+                    R.string.notifications_enabled,
+                    subscribed
+                )
+            )
+
+            val descriptor =
+                characteristic.getDescriptor(
+                    NOTIFICATION_DESCRIPTOR_UUID
+                )
+
+            if (descriptor == null) {
+
+                log(
+                    getString(
+                        R.string.notification_descriptor_missing
+                    )
+                )
+
+                return
+            }
+
+            val descriptorValue =
+                BluetoothGattDescriptor
+                    .ENABLE_NOTIFICATION_VALUE
+
+            if (Build.VERSION.SDK_INT >= 33) {
+
+                val result =
+                    gatt.writeDescriptor(
+                        descriptor,
+                        descriptorValue
+                    )
+
+                log(
+                    getString(
+                        R.string.notification_subscription,
+                        result ==
+                                BluetoothGatt.GATT_SUCCESS
+                    )
+                )
+
+            } else {
+
+                @Suppress("DEPRECATION")
+                descriptor.value =
+                    descriptorValue
+
+                @Suppress("DEPRECATION")
+                val requested =
+                    gatt.writeDescriptor(
+                        descriptor
+                    )
+
+                log(
+                    getString(
+                        R.string.notification_subscription,
+                        requested
+                    )
+                )
+            }
+
+        } catch (_: SecurityException) {
+
+            log(
+                getString(
+                    R.string.bluetooth_permission_required
+                )
+            )
+        }
+    }
+
+    private fun testProtocol() {
+
+        val command =
+            commandCharacteristic
+
+        val notification =
+            notificationCharacteristic
+
+        if (
+            command == null ||
+            notification == null
+        ) {
+
+            log(
+                getString(
+                    R.string.watch_not_ready
+                )
+            )
+
+            return
+        }
+
+        log(
+            getString(
+                R.string.protocol_test_started
+            )
         )
 
-        Text(
-            text = "Heart Rate: $heartRate BPM"
+        sendPacket(
+            "PING",
+            hexToBytes(
+                "00 00 00 00 01 00"
+            ),
+            command
         )
 
-        Spacer(
-            modifier = Modifier.height(12.dp)
-        )
+        window.decorView.postDelayed({
 
-        Text(
-            text = "SpO₂: $spo2 %"
-        )
+            sendPacket(
+                "ACK_OK",
+                hexToBytes(
+                    "00 00 01 01 00 00"
+                ),
+                notification
+            )
 
-        Spacer(
-            modifier = Modifier.height(12.dp)
-        )
+        }, 400)
 
-        Text(
-            text = "Steps: $steps"
-        )
+        window.decorView.postDelayed({
+
+            log(
+                getString(
+                    R.string.protocol_test_finished
+                )
+            )
+
+        }, 800)
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun sendPacket(
+        name: String,
+        packet: ByteArray,
+        characteristic: BluetoothGattCharacteristic
+    ) {
+
+        val gatt =
+            bluetoothGatt
+                ?: return
+
+        if (!hasBluetoothPermission()) {
+            return
+        }
+
+        try {
+
+            log(
+                getString(
+                    R.string.packet_sending,
+                    name,
+                    bytesToHex(packet)
+                )
+            )
+
+            if (Build.VERSION.SDK_INT >= 33) {
+
+                val result =
+                    gatt.writeCharacteristic(
+                        characteristic,
+                        packet,
+                        BluetoothGattCharacteristic
+                            .WRITE_TYPE_DEFAULT
+                    )
+
+                log(
+                    getString(
+                        R.string.write_status,
+                        result
+                    )
+                )
+
+            } else {
+
+                @Suppress("DEPRECATION")
+                characteristic.value =
+                    packet
+
+                @Suppress("DEPRECATION")
+                val requested =
+                    gatt.writeCharacteristic(
+                        characteristic
+                    )
+
+                log(
+                    getString(
+                        R.string.write_requested,
+                        requested
+                    )
+                )
+            }
+
+        } catch (_: SecurityException) {
+
+            log(
+                getString(
+                    R.string.bluetooth_permission_required
+                )
+            )
+        }
+    }
+
+    private fun processIncomingPacket(
+        data: ByteArray
+    ) {
+
+        val hex =
+            bytesToHex(data)
+
+        runOnUiThread {
+
+            log(
+                getString(
+                    R.string.packet_received,
+                    hex
+                )
+            )
+
+            savePacket(hex)
+        }
+    }
+
+    private fun savePacket(
+        packet: String
+    ) {
+
+        try {
+
+            val directory =
+                getExternalFilesDir(null)
+
+            if (directory == null) {
+
+                log(
+                    getString(
+                        R.string.packet_directory_error
+                    )
+                )
+
+                return
+            }
+
+            val file =
+                File(
+                    directory,
+                    "vitalis_packets.txt"
+                )
+
+            val timestamp =
+                SimpleDateFormat(
+                    "yyyy-MM-dd HH:mm:ss.SSS",
+                    Locale.US
+                ).format(Date())
+
+            file.appendText(
+                "$timestamp  $packet\n"
+            )
+
+            log(
+                getString(
+                    R.string.packet_saved
+                )
+            )
+
+        } catch (error: Exception) {
+
+            log(
+                getString(
+                    R.string.packet_save_error,
+                    error.message
+                        ?: getString(
+                            R.string.unknown_error
+                        )
+                )
+            )
+        }
+    }
+
+    private fun getProperties(
+        properties: Int
+    ): String {
+
+        val names =
+            mutableListOf<String>()
+
+        if (
+            properties and
+            BluetoothGattCharacteristic
+                .PROPERTY_READ != 0
+        ) {
+            names.add("READ")
+        }
+
+        if (
+            properties and
+            BluetoothGattCharacteristic
+                .PROPERTY_WRITE != 0
+        ) {
+            names.add("WRITE")
+        }
+
+        if (
+            properties and
+            BluetoothGattCharacteristic
+                .PROPERTY_WRITE_NO_RESPONSE != 0
+        ) {
+            names.add("WRITE_NO_RESPONSE")
+        }
+
+        if (
+            properties and
+            BluetoothGattCharacteristic
+                .PROPERTY_NOTIFY != 0
+        ) {
+            names.add("NOTIFY")
+        }
+
+        if (
+            properties and
+            BluetoothGattCharacteristic
+                .PROPERTY_INDICATE != 0
+        ) {
+            names.add("INDICATE")
+        }
+
+        return if (names.isEmpty()) {
+
+            getString(
+                R.string.unknown_properties
+            )
+
+        } else {
+
+            names.joinToString(", ")
+        }
+    }
+
+    private fun hexToBytes(
+        input: String
+    ): ByteArray {
+
+        return input
+            .trim()
+            .split(Regex("\\s+"))
+            .filter { it.isNotEmpty() }
+            .map {
+                it.toInt(16).toByte()
+            }
+            .toByteArray()
+    }
+
+    private fun bytesToHex(
+        bytes: ByteArray
+    ): String {
+
+        return bytes.joinToString(" ") {
+            "%02X".format(
+                it.toInt() and 0xFF
+            )
+        }
+    }
+
+    private fun log(
+        message: String
+    ) {
+
+        runOnUiThread {
+
+            val timestamp =
+                SimpleDateFormat(
+                    "HH:mm:ss",
+                    Locale.US
+                ).format(Date())
+
+            logView.append(
+                "[$timestamp] $message\n"
+            )
+        }
+    }
+
+    override fun onDestroy() {
+
+        try {
+
+            bluetoothGatt?.disconnect()
+            bluetoothGatt?.close()
+
+        } catch (_: SecurityException) {
+            // Bluetooth permission may have been revoked.
+        }
+
+        bluetoothGatt = null
+
+        super.onDestroy()
     }
 }

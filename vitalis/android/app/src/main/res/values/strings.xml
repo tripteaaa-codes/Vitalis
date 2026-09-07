@@ -2,9 +2,126 @@
 <resources>
 
     <string name="app_name">VITALIS</string>
+    <string name="app_title">VITALIS Watch Bridge</string>
 
-    <string name="health_permissions_rationale">
-        VITALIS uses health data for personalized monitoring, risk detection, and emergency support.
+    <!-- Watch information -->
+    <string name="watch_information">Watch address: %1$s</string>
+    <string name="watch_address">Address: %1$s</string>
+    <string name="watch_found">Watch found: %1$s</string>
+    <string name="watch_not_paired">NF_2_8FE9 is not paired</string>
+
+    <!-- Buttons -->
+    <string name="connect_watch">Connect to Watch</string>
+    <string name="test_watch">Test Protocol Communication</string>
+    <string name="clear_log">Clear Log</string>
+
+    <!-- Bluetooth -->
+    <string name="bluetooth_permission_required">Bluetooth permission is required</string>
+    <string name="bluetooth_permission_granted">Bluetooth permission granted</string>
+    <string name="bluetooth_disabled">Bluetooth is disabled</string>
+    <string name="bluetooth_error">Bluetooth error: %1$s</string>
+
+    <!-- Connection -->
+    <string name="connecting">Connecting…</string>
+    <string name="gatt_requested">GATT connection requested</string>
+    <string name="watch_connected">Watch connected. Status: %1$d</string>
+    <string name="watch_disconnected">Watch disconnected. Status: %1$d</string>
+
+    <!-- Services -->
+    <string name="discovering_services">Discovering services…</string>
+    <string name="discovery_failed">Service discovery failed. Status: %1$d</string>
+    <string name="services_discovered">Services discovered</string>
+    <string name="service_found">Service: %1$s</string>
+    <string name="characteristic_found">Characteristic: %1$s</string>
+    <string name="characteristic_properties">Properties: %1$s</string>
+    <string name="unknown_properties">UNKNOWN</string>
+
+    <!-- Noise protocol -->
+    <string name="protocol_found">VITALIS Noise protocol service found</string>
+    <string name="protocol_not_found">VITALIS Noise protocol service not found</string>
+
+    <string name="command_characteristic_found">
+        Command characteristic found
+    </string>
+
+    <string name="notification_characteristic_found">
+        Notification characteristic found
+    </string>
+
+    <string name="notification_characteristic_missing">
+        Notification characteristic missing
+    </string>
+
+    <!-- Notifications -->
+    <string name="notifications_enabled">
+        Notifications enabled: %1$b
+    </string>
+
+    <string name="notification_descriptor_missing">
+        Notification descriptor missing
+    </string>
+
+    <string name="notification_subscription">
+        Notification subscription requested: %1$b
+    </string>
+
+    <string name="notification_write_status">
+        Notification descriptor write status: %1$d
+    </string>
+
+    <!-- Protocol testing -->
+    <string name="watch_not_ready">
+        Watch communication is not ready. Connect first.
+    </string>
+
+    <string name="protocol_test_started">
+        Starting protocol handshake…
+    </string>
+
+    <string name="protocol_test_finished">
+        Initial Noise handshake completed
+    </string>
+
+    <string name="protocol_test_error">
+        Protocol test error: %1$s
+    </string>
+
+    <string name="pre_ping">PING</string>
+    <string name="ack_ok">ACK_OK</string>
+
+    <!-- Packets -->
+    <string name="packet_sending">
+        Sending %1$s: %2$s
+    </string>
+
+    <string name="packet_received">
+        Watch packet: %1$s
+    </string>
+
+    <string name="write_status">
+        Write status: %1$d
+    </string>
+
+    <string name="write_requested">
+        Write requested: %1$b
+    </string>
+
+    <!-- Packet capture -->
+    <string name="packet_saved">
+        Packet saved to capture file
+    </string>
+
+    <string name="packet_directory_error">
+        Packet file directory unavailable
+    </string>
+
+    <string name="packet_save_error">
+        Packet save error: %1$s
+    </string>
+
+    <!-- Errors -->
+    <string name="unknown_error">
+        Unknown error
     </string>
 
 </resources>
