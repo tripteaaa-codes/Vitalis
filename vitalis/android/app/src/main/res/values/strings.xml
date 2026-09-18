@@ -2,126 +2,239 @@
 <resources>
 
     <string name="app_name">VITALIS</string>
-    <string name="app_title">VITALIS Watch Bridge</string>
+    <string name="app_title">VITALIS</string>
 
-    <!-- Watch information -->
-    <string name="watch_information">Watch address: %1$s</string>
-    <string name="watch_address">Address: %1$s</string>
-    <string name="watch_found">Watch found: %1$s</string>
-    <string name="watch_not_paired">NF_2_8FE9 is not paired</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="connecting">Connecting</string>
+    <string name="connected">Connected</string>
+    <string name="connect">Connect Watch</string>
+    <string name="clear">Clear Log</string>
 
-    <!-- Buttons -->
-    <string name="connect_watch">Connect to Watch</string>
-    <string name="test_watch">Test Protocol Communication</string>
-    <string name="clear_log">Clear Log</string>
+    <string name="voice_assistant">Voice Assistant</string>
+    <string name="voice_listening">Listening. Please tell me what you need.</string>
+    <string name="voice_unavailable">Voice recognition is not available on this device.</string>
+    <string name="voice_not_heard">I did not hear that. Please try again.</string>
 
-    <!-- Bluetooth -->
-    <string name="bluetooth_permission_required">Bluetooth permission is required</string>
-    <string name="bluetooth_permission_granted">Bluetooth permission granted</string>
+    <string name="voice_unknown_command">I do not understand that command. You can ask for health status, heart rate, oxygen level, steps, calories, distance, pressure, or emergency assistance.</string>
+
+    <string name="voice_health_status">
+        Your current health readings are. %1$s. %2$s. %3$s. %4$s. %5$s. %6$s.
+    </string>
+
+    <string name="voice_sos_request">VOICE SOS REQUEST</string>
+
+    <string name="emergency_confirmation">
+        Emergency mode activated. Please confirm if you want to trigger SOS.
+    </string>
+
+    <string name="heart_rate_default">Heart Rate: BPM</string>
+    <string name="spo2_default">SpO2: percent</string>    <string name="steps_default">Steps:</string>
+    <string name="calories_default">Calories: kcal</string>
+    <string name="distance_default">Distance: m</string>
+    <string name="pressure_default">Pressure:</string>
+
+    <string name="bluetooth_permission_denied">Bluetooth permission denied</string>
+    <string name="bluetooth_unavailable">Bluetooth unavailable</string>
     <string name="bluetooth_disabled">Bluetooth is disabled</string>
-    <string name="bluetooth_error">Bluetooth error: %1$s</string>
 
-    <!-- Connection -->
-    <string name="connecting">Connecting…</string>
-    <string name="gatt_requested">GATT connection requested</string>
-    <string name="watch_connected">Watch connected. Status: %1$d</string>
-    <string name="watch_disconnected">Watch disconnected. Status: %1$d</string>
+    <string name="connecting_noise_watch">
+        Connecting directly to Noise watch.
+    </string>
 
-    <!-- Services -->
-    <string name="discovering_services">Discovering services…</string>
-    <string name="discovery_failed">Service discovery failed. Status: %1$d</string>
-    <string name="services_discovered">Services discovered</string>
-    <string name="service_found">Service: %1$s</string>
-    <string name="characteristic_found">Characteristic: %1$s</string>
-    <string name="characteristic_properties">Properties: %1$s</string>
-    <string name="unknown_properties">UNKNOWN</string>
+    <string name="watch_address">WATCH: %1$s</string>
+    <string name="unknown_device">Unknown</string>
 
-    <!-- Noise protocol -->
-    <string name="protocol_found">VITALIS Noise protocol service found</string>
-    <string name="protocol_not_found">VITALIS Noise protocol service not found</string>
+    <string name="bluetooth_error">
+        Bluetooth error: %1$s
+    </string>
 
-    <string name="command_characteristic_found">
-        Command characteristic found
+    <string name="invalid_bluetooth_address">
+        Invalid Bluetooth address: %1$s
+    </string>
+
+    <string name="ble_device">
+        BLE DEVICE: %1$s | %2$s | RSSI: %3$d
+    </string>
+
+    <string name="noise_watch_found">Noise watch found</string>
+    <string name="address">Address: %1$s</string>
+
+    <string name="scan_failed">
+        Scan failed: %1$d
+    </string>
+
+    <string name="connecting_discovered_watch">
+        Connecting to discovered watch
+    </string>
+
+    <string name="connected_status">
+        Connected. Status: %1$d
+    </string>
+
+    <string name="disconnected_status">
+        Disconnected. Status: %1$d
+    </string>
+
+    <string name="services_discovered">
+        Services discovered. Status: %1$d
+    </string>
+
+    <string name="descriptor_write">
+        Descriptor write: %1$s status=%2$d
+    </string>
+
+    <string name="notifications_enabled">
+        Notifications enabled
+    </string>
+
+    <string name="searching_noise_characteristics">
+        Searching Noise protocol characteristics
+    </string>
+
+    <string name="service">
+        SERVICE: %1$s
+    </string>
+
+    <string name="characteristic">
+        CHARACTERISTIC: %1$s
     </string>
 
     <string name="notification_characteristic_found">
-        Notification characteristic found
+        Noise notification characteristic found
     </string>
 
-    <string name="notification_characteristic_missing">
-        Notification characteristic missing
+    <string name="command_characteristic_found">
+        Noise command characteristic found
     </string>
 
-    <!-- Notifications -->
-    <string name="notifications_enabled">
-        Notifications enabled: %1$b
+    <string name="noise_protocol_detected">
+        VITALIS Noise protocol detected
     </string>
 
-    <string name="notification_descriptor_missing">
-        Notification descriptor missing
+    <string name="noise_protocol_incomplete">
+        Noise protocol characteristics incomplete
     </string>
 
-    <string name="notification_subscription">
-        Notification subscription requested: %1$b
+    <string name="local_notification_enable">
+        Local notification enable: %1$b
     </string>
 
-    <string name="notification_write_status">
-        Notification descriptor write status: %1$d
+    <string name="notification_descriptor_not_found">
+        Bluetooth notification descriptor not found
     </string>
 
-    <!-- Protocol testing -->
-    <string name="watch_not_ready">
-        Watch communication is not ready. Connect first.
+    <string name="protocol_not_ready">
+        Protocol start skipped: notifications not ready
     </string>
 
-    <string name="protocol_test_started">
-        Starting protocol handshake…
+    <string name="starting_noise_protocol">
+        STARTING NOISE PROTOCOL
     </string>
 
-    <string name="protocol_test_finished">
-        Initial Noise handshake completed
+    <string name="ping_completed">
+        PING completed
     </string>
 
-    <string name="protocol_test_error">
-        Protocol test error: %1$s
+    <string name="ping_failed">
+        PING failed: command characteristic missing
     </string>
 
-    <string name="pre_ping">PING</string>
-    <string name="ack_ok">ACK_OK</string>
-
-    <!-- Packets -->
-    <string name="packet_sending">
-        Sending %1$s: %2$s
+    <string name="tx_ping">
+        TX PING: %1$s
     </string>
 
-    <string name="packet_received">
-        Watch packet: %1$s
+    <string name="protocol_initialization">
+        Sending protocol initialization
     </string>
 
-    <string name="write_status">
-        Write status: %1$d
+    <string name="time_sync">
+        Sending time synchronization
     </string>
 
-    <string name="write_requested">
-        Write requested: %1$b
+    <string name="realtime_starting">
+        Starting realtime health data
     </string>
 
-    <!-- Packet capture -->
-    <string name="packet_saved">
-        Packet saved to capture file
+    <string name="realtime_request_sent">
+        Realtime data request sent
     </string>
 
-    <string name="packet_directory_error">
-        Packet file directory unavailable
+    <string name="command_unavailable">
+        Command unavailable for opcode 0x%1$s
     </string>
 
-    <string name="packet_save_error">
-        Packet save error: %1$s
+    <string name="tx_frame">
+        TX opcode=0x%1$s payload=%2$s
     </string>
 
-    <!-- Errors -->
-    <string name="unknown_error">
-        Unknown error
+    <string name="write_failed">
+        Write failed: %1$s
     </string>
+
+    <string name="rx_header">
+        RX [%1$s]
+    </string>
+
+    <string name="rx_size">
+        RX %1$d bytes
+    </string>
+
+    <string name="noise_opcode">
+        Noise opcode: 0x%1$s
+    </string>
+
+    <string name="fitness_metadata">
+        0x70 FITNESS METADATA RESPONSE
+    </string>
+
+    <string name="fitness_record">
+        0x71 FITNESS RECORD RESPONSE
+    </string>
+
+    <string name="fitness_ack">
+        0x73 FITNESS ACK RESPONSE
+    </string>
+
+    <string name="fitness_complete">
+        0x75 FITNESS SYNC COMPLETE
+    </string>
+
+    <string name="device_status">
+        0xA4 DEVICE STATUS RESPONSE
+    </string>
+
+    <string name="status_telemetry">
+        0xC3 STATUS/TELEMETRY RESPONSE
+    </string>
+
+    <string name="unknown_opcode">
+        Unknown Noise opcode
+    </string>
+
+    <string name="realtime_command_pending">
+        Realtime command identified in SDK; waiting for exact protobuf bytes
+    </string>
+
+    <string name="realtime_candidate">
+        REALTIME CANDIDATE: %1$s
+    </string>
+
+    <string name="connection_attempts_finished">
+        Connection attempts finished
+    </string>
+
+    <string name="retrying_connection">
+        Retrying connection
+    </string>
+
+    <string name="health_data_privacy_title">VITALIS Health Data Privacy</string>
+
+    <string name="health_data_privacy_message">VITALIS uses health data such as heart rate, oxygen saturation, steps, calories, and distance to provide personal health monitoring and risk analysis.
+
+This data is used only for the health-monitoring features of VITALIS.
+
+You control which Health Connect permissions are granted. You can revoke access at any time from Android Health Connect settings.
+
+VITALIS does not sell your health data.</string>
 
 </resources>

@@ -19,8 +19,9 @@ android {
 dependencies {
     implementation(libs.kotlinx.coroutines.android)
 
-    implementation(platform(libs.androidx.compose.bom))
+    implementation("androidx.health.connect:connect-client:1.1.0")
 
+    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.ui)

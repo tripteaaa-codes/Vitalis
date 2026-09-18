@@ -1,0 +1,1137 @@
+Bluetooth Status
+  enabled: true
+  state: ON
+  address: 00:00:00:B7:69:73
+  isSupportBluetoothHalfOn: false
+  BluetoothHalfOnState: false
+  name: Redmi 9 Power
+  time since enabled: 00:02:29.388
+
+Enable log:
+  09-13 01:54:38  Enabled  due to SYSTEM_BOOT by android
+  09-13 02:01:18 Disabled  due to APPLICATION_REQUEST by com.android.systemui
+  09-13 02:01:22  Enabled  due to APPLICATION_REQUEST by com.google.android.gms
+  09-13 02:01:34  Enabled  due to APPLICATION_REQUEST by com.android.systemui
+
+Bluetooth crashed 0 times
+
+1 BLE app registered
+  com.google.android.gms
+
+BluetoothManagerService:
+  mEnable:true
+  mQuietEnable:false
+  mEnableExternal:true
+  mQuietEnableExternal:false
+
+
+AdapterProperties
+  Name: Redmi 9 Power
+  Address: 22:22:F7:B7:69:73
+  BluetoothClass: null
+  ScanMode: SCAN_MODE_CONNECTABLE
+  ConnectionState: STATE_CONNECTED
+  State: ON
+  MaxConnectedAudioDevices: 5
+  A2dpOffloadEnabled: true
+  Discovering: false
+  DiscoveryEndMs: 0
+  Bonded devices:
+    D8:57:EF:6B:B0:AF [BR/EDR] boAt Stone 260
+    41:42:FB:21:9C:43 [BR/EDR] BLITZ 1508
+    70:2E:5D:A8:32:94 [BR/EDR] Airdopes 131
+    40:8E:17:02:7B:51 [BR/EDR] I0JaTTf8n14AAAAAAAAAHCJ6ED8tz4uQ8WE3n7u5TGz2CkdJT05FRSBNQVg
+    33:33:22:41:E1:76 [BR/EDR] boAt Rockerz 510
+    F5:1E:4E:60:0E:35 [  LE  ] FB BSW049
+    9C:0C:35:E0:38:19 [  LE  ] ABBLE
+    41:42:FF:D7:CB:66 [BR/EDR] ZEB-MIST
+    41:42:F4:C3:FA:0D [BR/EDR] Airdopes 91 Prime
+    1B:31:29:8E:02:FF [BR/EDR] Stone 358
+    E8:26:CF:07:B6:3A [BR/EDR] JBL Go 3
+    34:75:63:E8:39:DA [ DUAL ] JioSTB81952Android TV
+    41:42:38:11:1C:94 [BR/EDR] Airpods Pro
+    04:CA:8F:3C:8F:E9 [ DUAL ] NF 2_8FE9
+mSnoopLogSettingAtEnable = full
+mDefaultSnoopLogSettingAtEnable = null
+
+AdapterState:
+ total records=4
+ rec[0]: time=09-13 02:01:24.093 processed=OffState org=OffState dest=TurningBleOnState what=3(0x3) BLE_TURN_ON
+ rec[1]: time=09-13 02:01:25.324 processed=TurningBleOnState org=TurningBleOnState dest=BleOnState what=7(0x7) BLE_STARTED
+ rec[2]: time=09-13 02:01:34.265 processed=BleOnState org=BleOnState dest=TurningOnState what=1(0x1) USER_TURN_ON
+ rec[3]: time=09-13 02:01:35.045 processed=TurningOnState org=TurningOnState dest=OnState what=5(0x5) BREDR_STARTED
+curState=OnState
+
+SilenceDeviceManager:
+  Address            | Is silenced?
+  04:CA:8F:3C:8F:E9  | false
+
+Profile: GattService
+  mAdvertisingServiceUuids:
+  mMaxScanFilters: 0
+
+GATT Advertiser Map
+  Bluetooth advertise(started/stopped)         : 0 / 0
+
+Registered App
+  Scanner:
+      app_if: 4, appName: com.google.uid.shared:10193
+      app_if: 7, appName: com.google.uid.shared:10193
+      app_if: 5, appName: android.uid.bluetooth:1002
+  Client:
+      app_if: 9, appName: com.noisefit
+  Server:
+
+
+GATT Scanner Map
+  Entries for mApps: 3
+
+
+  Application Id: 4
+
+  name=com.google.uid.shared:10193 
+  UUID: 4e48373f-caf4-4a9f-bdfe-3a6b132700af
+  Connections: 0
+
+  Application Id: 7
+
+  name=com.google.uid.shared:10193 
+  UUID: 85143b69-f89a-4b6e-9a7d-57f12e94dc52
+  Connections: 0
+
+  Application Id: 5
+
+  name=android.uid.bluetooth:1002 
+  UUID: f486bd9d-95b7-4224-bd90-b303746eee5f
+  Connections: 0
+
+  Entries for mAppScanStats: 3
+
+  com.google.uid.shared:10193 (Registered)
+  LE scans (started/stopped)                                  : 3 / 1
+  Scan time in ms (active/suspend/total)                      : 306144 / 0 / 306144
+  Scan time with mode in ms (Opp/LowPower/Balanced/LowLatency/AmbientDiscovery):0 / 0 / 157958 / 0 / 0
+  Scan mode counter (Opp/LowPower/Balanced/LowLatency/AmbientDiscovery):0 / 0 / 2 / 0 / 148187
+  Score                                                       : 39489
+  Total number of results                                     : 99
+  Last 1 scans                                                :
+    09-13 02:01:25 - 9555ms Filter 4 results (4)              ConfiguredScanSettingMode           : BALANCED
+CB Regular Scan
+      └ Scan Config: [ ScanMode=BALANCED, callbackType=ALL_MATCHES ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fff6-0000-1000-8000-00805f9b34fb ServiceData=[0] ServiceDataMask=[0] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fe2c-0000-1000-8000-00805f9b34fb ServiceData=[0] ServiceDataMask=[0] ]
+  Ongoing scans                                               :
+    09-13 02:01:35 - 148403ms Filter 61 results (4)              ConfiguredScanSettingMode           : BALANCED
+CB Regular Scan
+      └ Scan Config: [ ScanMode=BALANCED, callbackType=ALL_MATCHES ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fff6-0000-1000-8000-00805f9b34fb ServiceData=[0] ServiceDataMask=[0] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fe2c-0000-1000-8000-00805f9b34fb ServiceData=[0] ServiceDataMask=[0] ]
+    09-13 02:01:35 - 148186ms Filter 34 results (7)              ConfiguredScanSettingMode           : AMBIENT_DISCOVERY
+CB Regular Scan
+      └ Scan Config: [ ScanMode=AMBIENT_DISCOVERY, callbackType=ALL_MATCHES ]
+      └ BluetoothLeScanFilter [ ServiceUuid=0000fef3-0000-1000-8000-00805f9b34fb ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fef3-0000-1000-8000-00805f9b34fb ServiceData=[0] ServiceDataMask=[0] ]
+  Application ID                     : 4
+  UUID                               : 4e48373f-caf4-4a9f-bdfe-3a6b132700af
+  Connections: 0
+
+  android.uid.bluetooth:1002 (Registered)
+  LE scans (started/stopped)                                  : 4 / 3
+  Scan time in ms (active/suspend/total)                      : 145391 / 0 / 145391
+  Scan time with mode in ms (Opp/LowPower/Balanced/LowLatency/AmbientDiscovery):0 / 125400 / 0 / 0 / 19991
+  Scan mode counter (Opp/LowPower/Balanced/LowLatency/AmbientDiscovery):0 / 3 / 0 / 0 / 1
+  Score                                                       : 16538
+  Total number of results                                     : 0
+  Last 3 scans                                                :
+    09-13 02:01:37 - 19991ms Filter 0 results (8)              ConfiguredScanSettingMode           : AMBIENT_DISCOVERY
+CB Regular Scan
+      └ Scan Config: [ ScanMode=AMBIENT_DISCOVERY, callbackType=ALL_MATCHES ]
+      └ BluetoothLeScanFilter [ ManufacturerId=911 ManufacturerData=[] ]
+      └ BluetoothLeScanFilter [ ManufacturerId=65535 ManufacturerData=[77] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fe95-0000-1000-8000-00805f9b34fb ServiceData=[] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fdaa-0000-1000-8000-00805f9b34fb ServiceData=[] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fdee-0000-1000-8000-00805f9b34fb ServiceData=[1, 1, 1] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fd2d-0000-1000-8000-00805f9b34fb ServiceData=[] ]
+    09-13 02:01:58 - 38958ms Filter 0 results (5)              ConfiguredScanSettingMode           : LOW_POWER
+CB Regular Scan
+      └ Scan Config: [ ScanMode=LOW_POWER, callbackType=ALL_MATCHES ]
+      └ BluetoothLeScanFilter [ ManufacturerId=911 ManufacturerData=[] ]
+      └ BluetoothLeScanFilter [ ManufacturerId=65535 ManufacturerData=[77] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fe95-0000-1000-8000-00805f9b34fb ServiceData=[] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fdaa-0000-1000-8000-00805f9b34fb ServiceData=[] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fdee-0000-1000-8000-00805f9b34fb ServiceData=[1, 1, 1] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fd2d-0000-1000-8000-00805f9b34fb ServiceData=[] ]
+    09-13 02:02:37 - 59960ms Filter 0 results (5)              ConfiguredScanSettingMode           : LOW_POWER
+CB Regular Scan
+      └ Scan Config: [ ScanMode=LOW_POWER, callbackType=ALL_MATCHES ]
+      └ BluetoothLeScanFilter [ ManufacturerId=911 ManufacturerData=[] ]
+      └ BluetoothLeScanFilter [ ManufacturerId=65535 ManufacturerData=[77] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fe95-0000-1000-8000-00805f9b34fb ServiceData=[] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fdaa-0000-1000-8000-00805f9b34fb ServiceData=[] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fdee-0000-1000-8000-00805f9b34fb ServiceData=[1, 1, 1] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fd2d-0000-1000-8000-00805f9b34fb ServiceData=[] ]
+  Ongoing scans                                               :
+    09-13 02:03:37 - 26482ms Filter 0 results (5)              ConfiguredScanSettingMode           : LOW_POWER
+CB Regular Scan
+      └ Scan Config: [ ScanMode=LOW_POWER, callbackType=ALL_MATCHES ]
+      └ BluetoothLeScanFilter [ ManufacturerId=911 ManufacturerData=[] ]
+      └ BluetoothLeScanFilter [ ManufacturerId=65535 ManufacturerData=[77] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fe95-0000-1000-8000-00805f9b34fb ServiceData=[] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fdaa-0000-1000-8000-00805f9b34fb ServiceData=[] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fdee-0000-1000-8000-00805f9b34fb ServiceData=[1, 1, 1] ]
+      └ BluetoothLeScanFilter [ ServiceDataUuid=0000fd2d-0000-1000-8000-00805f9b34fb ServiceData=[] ]
+  Application ID                     : 5
+  UUID                               : f486bd9d-95b7-4224-bd90-b303746eee5f
+  Connections: 0
+
+  com.noisefit
+  LE scans (started/stopped)                                  : 1 / 1
+  Scan time in ms (active/suspend/total)                      : 16013 / 0 / 16013
+  Scan time with mode in ms (Opp/LowPower/Balanced/LowLatency/AmbientDiscovery):0 / 0 / 0 / 16013 / 0
+  Scan mode counter (Opp/LowPower/Balanced/LowLatency/AmbientDiscovery):0 / 0 / 0 / 1 / 0
+  Score                                                       : 16013
+  Total number of results                                     : 22
+  Last 1 scans                                                :
+    09-13 02:01:35 - 16013ms Filter 22 results (5)              ConfiguredScanSettingMode           : LOW_LATENCY
+CB Regular Scan
+      └ Scan Config: [ ScanMode=LOW_LATENCY, callbackType=ALL_MATCHES ]
+      └ BluetoothLeScanFilter [ ]
+
+
+Controlled Background Scanner
+GATT Client Map
+  Entries for mApps: 1
+
+
+  Application Id: 9
+
+  name=com.noisefit 
+  UUID: 23733f36-24cc-42f5-a2a2-f8108012a39f
+  Connections: 1
+    9: 04:CA:8F:3C:8F:E9  appId=9
+
+  Entries for mAppScanStats: 1
+
+  com.noisefit (Registered)
+  LE scans (started/stopped)                                  : 0 / 0
+  Scan time in ms (active/suspend/total)                      : 0 / 0 / 0
+  Scan time with mode in ms (Opp/LowPower/Balanced/LowLatency/AmbientDiscovery):0 / 0 / 0 / 0 / 0
+  Scan mode counter (Opp/LowPower/Balanced/LowLatency/AmbientDiscovery):0 / 0 / 0 / 0 / 0
+  Score                                                       : 0
+  Total number of results                                     : 0
+  Application ID                     : 9
+  UUID                               : 23733f36-24cc-42f5-a2a2-f8108012a39f
+  Connections: 1
+    09-13 02:01:42 - 140865ms : 04:CA:8F:3C:8F:E9 (9)
+
+GATT Server Map
+  Entries for mApps: 0
+
+
+  Entries for mAppScanStats: 0
+
+GATT Handle Map
+  Entries: 0
+  Requests: 0
+
+Profile: HeadsetService
+  mMaxHeadsetConnections: 5
+  DefaultMaxHeadsetConnections: 5
+  mActiveDevice: 04:CA:8F:3C:8F:E9
+  isInbandRingingEnabled: false
+  isInbandRingingSupported: true
+  mInbandRingingRuntimeDisable: false
+  mAudioRouteAllowed: true
+  mVoiceRecognitionStarted: false
+  mVoiceRecognitionTimeoutEvent: null
+  mVirtualCallStarted: false
+  mDialingOutTimeoutEvent: null
+  mForceScoAudio: false
+  mCreated: true
+  mStarted: true
+  AudioManager.isBluetoothScoOn(): false
+  Telecom.isInCall(): false
+  Telecom.isRinging(): false
+  ==== StateMachine for 04:CA:8F:3C:8F:E9 ====
+    mCurrentDevice: 04:CA:8F:3C:8F:E9
+    mCurrentState: Connected
+    mPrevState: Connecting
+    mConnectionState: 2
+    mAudioState: 10
+    mNeedDialingOutReply: false
+    mSpeakerVolume: 15
+    mMicVolume: 15
+    mConnectingTimestampMs(uptimeMillis): 444599
+    StateMachine: name=HeadsetStateMachine state=Connected
+    StateMachineLog:
+      HeadsetStateMachine:
+       total records=14
+       rec[0]: time=09-13 02:01:36.411 processed=Disconnected org=Disconnected dest=Connecting what=1(0x1) CONNECT: arg1=0, arg2=0, obj=04:CA:8F:3C:8F:E9
+       rec[1]: time=09-13 02:01:38.230 processed=Connecting org=Connecting dest=<null> what=101(0x65) STACK_EVENT: arg1=0, arg2=0, obj=EVENT_TYPE_CONNECTION_STATE_CHANGED[1], valInt=2, valInt2=0, valString=***********, valObject=null, device=04:CA:8F:3C:8F:E9
+       rec[2]: time=09-13 02:01:38.246 processed=Connecting org=Connecting dest=<null> what=101(0x65) STACK_EVENT: arg1=0, arg2=0, obj=EVENT_TYPE_WBS[17], valInt=2, valInt2=0, valString=***********, valObject=null, device=04:CA:8F:3C:8F:E9
+       rec[3]: time=09-13 02:01:38.266 processed=Connecting org=Connecting dest=<null> what=101(0x65) STACK_EVENT: arg1=0, arg2=0, obj=EVENT_TYPE_AT_CIND[12], valInt=0, valInt2=0, valString=***********, valObject=null, device=04:CA:8F:3C:8F:E9
+       rec[4]: time=09-13 02:01:38.287 processed=Connecting org=Connecting dest=Connected what=101(0x65) STACK_EVENT: arg1=0, arg2=0, obj=EVENT_TYPE_CONNECTION_STATE_CHANGED[1], valInt=3, valInt2=0, valString=***********, valObject=null, device=04:CA:8F:3C:8F:E9
+       rec[5]: time=09-13 02:01:38.329 processed=Connected org=Connected dest=<null> what=10(0xa) DEVICE_STATE_CHANGED: arg1=0, arg2=0, obj=HeadsetDeviceState[hasCellularService=1, isRoaming=0, signalStrength5, batteryCharge=2]
+       rec[6]: time=09-13 02:01:38.355 processed=Connected org=Connected dest=<null> what=101(0x65) STACK_EVENT: arg1=0, arg2=0, obj=EVENT_TYPE_NOISE_REDUCTION[9], valInt=0, valInt2=0, valString=***********, valObject=null, device=04:CA:8F:3C:8F:E9
+       rec[7]: time=09-13 02:01:38.374 processed=Connected org=Connected dest=<null> what=101(0x65) STACK_EVENT: arg1=0, arg2=0, obj=EVENT_TYPE_UNKNOWN_AT[15], valInt=0, valInt2=0, valString=***********, valObject=null, device=04:CA:8F:3C:8F:E9
+       rec[8]: time=09-13 02:01:38.412 processed=Connected org=Connected dest=<null> what=18(0x12) UNKNOWN(18): arg1=0, arg2=0, obj=null
+       rec[9]: time=09-13 02:01:38.633 processed=Connected org=Connected dest=<null> what=101(0x65) STACK_EVENT: arg1=0, arg2=0, obj=EVENT_TYPE_VOLUME_CHANGED[6], valInt=0, valInt2=15, valString=***********, valObject=null, device=04:CA:8F:3C:8F:E9
+       rec[10]: time=09-13 02:01:38.634 processed=Connected org=Connected dest=<null> what=101(0x65) STACK_EVENT: arg1=0, arg2=0, obj=EVENT_TYPE_VOLUME_CHANGED[6], valInt=1, valInt2=15, valString=***********, valObject=null, device=04:CA:8F:3C:8F:E9
+       rec[11]: time=09-13 02:01:38.646 processed=Connected org=Connected dest=<null> what=101(0x65) STACK_EVENT: arg1=0, arg2=0, obj=EVENT_TYPE_SUBSCRIBER_NUMBER_REQUEST[11], valInt=0, valInt2=0, valString=***********, valObject=null, device=04:CA:8F:3C:8F:E9
+       rec[12]: time=09-13 02:02:39.179 processed=Connected org=Connected dest=<null> what=10(0xa) DEVICE_STATE_CHANGED: arg1=0, arg2=0, obj=HeadsetDeviceState[hasCellularService=1, isRoaming=0, signalStrength4, batteryCharge=2]
+       rec[13]: time=09-13 02:02:43.107 processed=Connected org=Connected dest=<null> what=10(0xa) DEVICE_STATE_CHANGED: arg1=0, arg2=0, obj=HeadsetDeviceState[hasCellularService=1, isRoaming=0, signalStrength5, batteryCharge=2]
+      curState=Connected
+
+Profile: A2dpService
+  mActiveDevice: null
+AVRCP:
+  mMediaAttributes: [MediaAttributes: none]
+  mCurrentPlayState: PlaybackState {state=2, position=-1, buffered position=0, speed=0.0, updated=444363, actions=0, custom actions=[], active item id=-1, error=null}
+  mPlayStatusChangedNT: 1
+  mTrackChangedNT: 1
+  mLastStateUpdate: 444363
+  mSongLengthMs: 0
+  mPlaybackIntervalMs: 0
+  mPlayPosChangedNT: 1
+  mNextPosMs: -1
+  mPrevPosMs: -1
+  mFeatures: 0
+  mRemoteVolume: -1
+  mLastRemoteVolume: -1
+  mLastDirection: 0
+  mAudioStreamMax: 15
+  mVolCmdSetInProgress: false
+  mVolCmdAdjustInProgress: false
+  mAbsVolRetryTimes: 0
+  mMediaAttributes: [MediaAttributes: none]
+  mCurrentPlayState: PlaybackState {state=2, position=-1, buffered position=0, speed=0.0, updated=444363, actions=0, custom actions=[], active item id=-1, error=null}
+  mPlayStatusChangedNT: 1
+  mTrackChangedNT: 1
+  mLastStateUpdate: 444363
+  mSongLengthMs: 0
+  mPlaybackIntervalMs: 0
+  mPlayPosChangedNT: 1
+  mNextPosMs: -1
+  mPrevPosMs: -1
+  mFeatures: 0
+  mRemoteVolume: -1
+  mLastRemoteVolume: -1
+  mLastDirection: 0
+  mAudioStreamMax: 15
+  mVolCmdSetInProgress: false
+  mVolCmdAdjustInProgress: false
+  mAbsVolRetryTimes: 0
+  mMediaAttributes: [MediaAttributes: none]
+  mCurrentPlayState: PlaybackState {state=2, position=-1, buffered position=0, speed=0.0, updated=444363, actions=0, custom actions=[], active item id=-1, error=null}
+  mPlayStatusChangedNT: 1
+  mTrackChangedNT: 1
+  mLastStateUpdate: 444363
+  mSongLengthMs: 0
+  mPlaybackIntervalMs: 0
+  mPlayPosChangedNT: 1
+  mNextPosMs: -1
+  mPrevPosMs: -1
+  mFeatures: 0
+  mRemoteVolume: -1
+  mLastRemoteVolume: -1
+  mLastDirection: 0
+  mAudioStreamMax: 15
+  mVolCmdSetInProgress: false
+  mVolCmdAdjustInProgress: false
+  mAbsVolRetryTimes: 0
+  mMediaAttributes: [MediaAttributes: none]
+  mCurrentPlayState: PlaybackState {state=2, position=-1, buffered position=0, speed=0.0, updated=444363, actions=0, custom actions=[], active item id=-1, error=null}
+  mPlayStatusChangedNT: 1
+  mTrackChangedNT: 1
+  mLastStateUpdate: 444363
+  mSongLengthMs: 0
+  mPlaybackIntervalMs: 0
+  mPlayPosChangedNT: 1
+  mNextPosMs: -1
+  mPrevPosMs: -1
+  mFeatures: 0
+  mRemoteVolume: -1
+  mLastRemoteVolume: -1
+  mLastDirection: 0
+  mAudioStreamMax: 15
+  mVolCmdSetInProgress: false
+  mVolCmdAdjustInProgress: false
+  mAbsVolRetryTimes: 0
+  mMediaAttributes: [MediaAttributes: none]
+  mCurrentPlayState: PlaybackState {state=2, position=-1, buffered position=0, speed=0.0, updated=444363, actions=0, custom actions=[], active item id=-1, error=null}
+  mPlayStatusChangedNT: 1
+  mTrackChangedNT: 1
+  mLastStateUpdate: 444363
+  mSongLengthMs: 0
+  mPlaybackIntervalMs: 0
+  mPlayPosChangedNT: 1
+  mNextPosMs: -1
+  mPrevPosMs: -1
+  mFeatures: 0
+  mRemoteVolume: -1
+  mLastRemoteVolume: -1
+  mLastDirection: 0
+  mAudioStreamMax: 15
+  mVolCmdSetInProgress: false
+  mVolCmdAdjustInProgress: false
+  mAbsVolRetryTimes: 0
+  
+  Media Players:
+    #1: MediaPlayerInfo com.miui.player (as 'Music') Type = 1, SubType = 0, Status = 0 Feature Bits [40 41 42 44 45 47 48 58] Controller: null
+    #2: MediaPlayerInfo com.google.android.googlequicksearchbox (as 'Google') Type = 1, SubType = 0, Status = 0 Feature Bits [40 41 42 44 45 47 48 58] Controller: null
+    #3: MediaPlayerInfo com.google.android.youtube (as 'YouTube') Type = 1, SubType = 0, Status = 0 Feature Bits [40 41 42 44 45 47 48 58] Controller: null
+  
+  AddressedPlayer info:
+  mLastTrackIdSent: -1
+  mNowPlayingList: 0 elements
+  
+  Runtime Blacklisted Devices (absolute volume):
+    None
+
+Profile: HidHostService
+  mTargetDevice: null
+  mInputDevices:
+
+Profile: PanService
+  mMaxPanDevices: 5
+  mPanIfName: bt-pan
+  mTetherOn: false
+  mPanDevices:
+
+Profile: BluetoothMapService
+  mRemoteDevice: null
+  sRemoteDeviceName: null
+  mState: 0
+  mAppObserver: com.android.bluetooth.map.BluetoothMapAppObserver@1a616ea
+  mIsWaitingAuthorization: false
+  mRemoveTimeoutMsg: false
+  mPermission: 0
+  mAccountChanged: false
+  mBluetoothMnsObexClient: null
+  mMasInstanceMap:
+    null : MasId: 0 Uri:null SMS/MMS:true
+  mEnabledAccounts:
+
+Profile: BluetoothOppService
+
+Profile: BluetoothPbapService
+
+Connection Events:
+  09-13 02:01:42.467 BLE-CONNECTED           04:ca:8f:3c:8f:e9 NF 2_8FE9  status = Success
+  09-13 02:01:37.938 CLASSICAL-CONNECTED     04:ca:8f:3c:8f:e9 NF 2_8FE9  status = Success
+  09-13 02:01:36.456 BLE-DISCONNECTED        04:ca:8f:3c:8f:e9 NF 2_8FE9  status = Local Host Terminated
+  09-13 02:01:30.442 BLE-CONNECTED           04:ca:8f:3c:8f:e9 NF 2_8FE9  status = Success
+
+Bond Events: 
+  Total Number of events: 0
+
+Discovery Events: 
+  Total Number of Discovery Times: 0
+
+A2DP State:
+  TxQueue:
+  Counts (enqueue/dequeue/readbuf)                        : 0 / 0 / 0
+  Last update time ago in ms (enqueue/dequeue/readbuf)    : 0 / 0 / 0
+  Frames per packet (total/max/ave)                       : 0 / 0 / 0
+  Counts (flushed/dropped/dropouts)                       : 0 / 0 / 0
+  Counts (max dropped)                                    : 0
+  Last update time ago in ms (flushed/dropped)            : 0 / 0
+  Counts (underflow)                                      : 0
+  Bytes (underflow)                                       : 0
+  Last update time ago in ms (underflow)                  : 0
+  Enqueue deviation counts (overdue/premature)            : 0 / 0
+  Enqueue overdue scheduling time in ms (total/max/ave)   : 0 / 0 / 0
+  Enqueue premature scheduling time in ms (total/max/ave) : 0 / 0 / 0
+  Dequeue deviation counts (overdue/premature)            : 0 / 0
+  Dequeue overdue scheduling time in ms (total/max/ave)   : 0 / 0 / 0
+  Dequeue premature scheduling time in ms (total/max/ave) : 0 / 0 / 0
+
+Bluetooth Config:
+  Config Source: Original file
+  Devices loaded: 32
+  File created/tagged: 2021-07-03 15:49:00
+  File source: Backup
+[Info]
+FileSource = Backup
+TimeCreated = 2021-07-03 15:49:00
+
+[Metrics]
+Salt256Bit = f2a35c12a19a09b00b89b0d10e2b1c9eb026a7e3bb4ac3fadbe3a56f3f891aa7
+
+[Adapter]
+Address = 22:22:f7:b7:69:73
+LE_LOCAL_KEY_IRK =  
+LE_LOCAL_KEY_IR =  
+LE_LOCAL_KEY_DHK =  
+LE_LOCAL_KEY_ER =  
+ScanMode = 1
+DiscoveryTimeout = 600
+Name = Redmi 9 Power
+
+[20:cd:6e]
+Name = Realme narzo 20
+AvrcpCtVersion = 259
+AvrcpFeatures = 2
+Timestamp = 1721384480
+DevClass = 5898764
+DevType = 1
+AddrType = 0
+
+[18:ab:1d]
+Name = Meenu's Galaxy M02s
+AvrcpCtVersion = 262
+AvrcpFeatures = 2
+Timestamp = 1761995493
+DevClass = 5898764
+DevType = 1
+AddrType = 0
+
+[20:cd:6e]
+Name = realme narzo 20
+AvrcpCtVersion = 259
+AvrcpFeatures = 2
+Timestamp = 1784700401
+DevClass = 5898764
+DevType = 1
+AddrType = 0
+
+[56:c3:68]
+Name = A005
+AvrcpCtVersion = 261
+AvrcpFeatures = 1
+Codecs = SBC,SBC
+
+[1b:a0:0a]
+Name = Airdopes 131
+AvrcpCtVersion = 261
+AvrcpFeatures = 1
+Codecs = SBC,SBC
+
+[90:36:a2]
+Name = Bluetooth music
+AvrcpCtVersion = 261
+AvrcpFeatures = 1
+Codecs = SBC
+
+[29:cf:fb]
+Name = DZ09
+AvrcpCtVersion = 259
+AvrcpFeatures = 15
+Codecs = SBC
+
+[b4:9a:95]
+Name = realme Buds Wireless 2 Neo
+AvrcpCtVersion = 262
+AvrcpFeatures = 15
+Codecs = SBC,AAC
+
+[df:e9:84]
+Name = Airdopes 131
+AvrcpCtVersion = 261
+AvrcpFeatures = 1
+Codecs = SBC,AAC
+
+[f0:e4:ae]
+Name = Airdopes 131
+AvrcpCtVersion = 261
+AvrcpFeatures = 1
+Codecs = SBC,AAC
+
+[d8:57:ef]
+Name = boAt Stone 260
+AvrcpCtVersion = 261
+AvrcpFeatures = 1
+Codecs = SBC,SBC
+Timestamp = 1678255983
+DevClass = 3408900
+DevType = 1
+AddrType = 0
+Manufacturer = 1494
+LmpVer = 8
+LmpSubVer = 12576
+LinkKeyType =  
+PinLength = 0
+LinkKey =  
+VendorID = 1494
+ProductID = 10
+ProductVersion = 576
+A2dpVersion = 256
+AvdtpVersion = 256
+HfpVersion = 261
+Service = 0000111e-0000-1000-8000-00805f9b34fb 0000110b-0000-1000-8000-00805f9b34fb 0000110e-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb
+
+[2c:3b:70]
+Name = MEENU
+AvrcpCtVersion = 262
+AvrcpFeatures = 2
+Timestamp = 1788971955
+DevClass = 2752780
+DevType = 1
+AddrType = 0
+
+[c2:53:9b]
+Name = Airdopes 131
+AvrcpCtVersion = 261
+AvrcpFeatures = 1
+Codecs = SBC,AAC
+
+[27:8e:56]
+Name = HOPPUP SYNC
+AvrcpCtVersion = 261
+AvrcpFeatures = 1
+Codecs = SBC,SBC
+
+[c8:3d:dc]
+Name = Redmi Note 7S
+AvrcpCtVersion = 259
+AvrcpFeatures = 2
+
+[a6:57:ae]
+Name = Airdopes 131
+AvrcpCtVersion = 261
+AvrcpFeatures = 1
+Codecs = SBC,AAC
+
+[41:42:fb]
+Name = BLITZ 1508
+AvrcpCtVersion = 262
+AvrcpFeatures = 1
+Codecs = SBC
+Manufacturer = 1602
+LmpVer = 9
+LmpSubVer = 3
+DevClass = 7936
+DevType = 1
+LinkKeyType =  
+PinLength = 0
+LinkKey =  
+AddrType = 0
+A2dpVersion = 258
+AvdtpVersion = 259
+AvrcpTgVersion = 262
+Service = 0000110b-0000-1000-8000-00805f9b34fb 0000110e-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb
+
+[70:2e:5d]
+Name = Airdopes 131
+AvrcpCtVersion = 261
+AvrcpFeatures = 1
+Codecs = SBC,AAC
+Manufacturer = 1494
+LmpVer = 10
+LmpSubVer = 8891
+Timestamp = 1748776106
+DevClass = 2360324
+DevType = 1
+AddrType = 0
+LinkKeyType =  
+PinLength = 0
+LinkKey =  
+VendorID = 1494
+ProductID = 10
+ProductVersion = 576
+A2dpVersion = 259
+AvdtpVersion = 259
+HfpVersion = 261
+AvrcpTgVersion = 261
+Service = 0000111e-0000-1000-8000-00805f9b34fb 0000110b-0000-1000-8000-00805f9b34fb 0000110e-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb
+
+[40:8e:17]
+Timestamp = 1688129678
+Name = I0JaTTf8n14AAAAAAAAAHCJ6ED8tz4uQ8WE3n7u5TGz2CkdJT05FRSBNQVg
+DevClass = 5898764
+DevType = 1
+AddrType = 0
+Manufacturer = 492
+LmpVer = 8
+LmpSubVer = 1280
+LinkKeyType =  
+PinLength = 0
+LinkKey =  
+VendorID = 224
+ProductID = 4608
+ProductVersion = 5174
+AvrcpCtVersion = 259
+AvrcpFeatures = 2
+AvrcpTgVersion = 260
+Service = 0000110a-0000-1000-8000-00805f9b34fb 00001105-0000-1000-8000-00805f9b34fb 00001115-0000-1000-8000-00805f9b34fb 00001116-0000-1000-8000-00805f9b34fb 0000110e-0000-1000-8000-00805f9b34fb 0000112f-0000-1000-8000-00805f9b34fb 00001112-0000-1000-8000-00805f9b34fb 0000111f-0000-1000-8000-00805f9b34fb 00001132-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb
+
+[2d:a0:0d]
+Name = Noise lcon 2_Phone
+AvrcpCtVersion = 261
+AvrcpFeatures = 1
+
+[33:33:22]
+Name = boAt Rockerz 510
+AvrcpCtVersion = 262
+AvrcpFeatures = 3
+Codecs = SBC,AAC
+Timestamp = 1779716342
+DevClass = 2360324
+DevType = 1
+AddrType = 0
+Manufacturer = 688
+LmpVer = 9
+LmpSubVer = 801
+LinkKeyType =  
+PinLength = 0
+LinkKey =  
+A2dpVersion = 259
+AvdtpVersion = 259
+HfpVersion = 263
+AvrcpTgVersion = 262
+Service = 0000111e-0000-1000-8000-00805f9b34fb 0000110b-0000-1000-8000-00805f9b34fb 0000110e-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb
+
+[f5:1e:4e]
+Timestamp = 1722009807
+Name = FB BSW049
+DevType = 2
+AddrType = 0
+DevClass = 7936
+LE_KEY_PENC =  
+LE_KEY_PID =  
+LE_KEY_LENC =  
+
+[QuickConnectDeviceList]
+AttSecurelevel0Devices = 18:ef:3a:5f:5f:a1,74:bd:00:4c:6a:68,7f:27:12:d8:e2:b8,14:0a:29:93:1d:c6,4a:44:67:7f:c2:1a,6a:00:68:7e:c9:25,50:29:41:46:82:a9,74:96:d0:f9:b8:bb,61:cb:81:1d:30:ec,4d:7e:b5:56:ce:96,55:92:92:a2:d5:85,74:5c:e7:89:d7:d7,66:e3:49:8f:6a:5f,7b:98:3b:a0:4f:c4,5e:fe:59:a4:69:7b,77:57:e6:b0:a8:7f,7e:f6:72:4e:78:87,73:2c:74:d2:8d:97,41:c6:2e:0b:16:2f,14:0a:29:ad:ce:e5,48:73:cb:cb:67:23,14:0a:29:93:9a:82,57:bd:25:7d:52:59,6f:29:e6:b3:17:78,44:e2:ac:58:cc:c9,7c:1c:f6:21:a9:50,74:3a:85:eb:e3:96,48:73:cb:af:ea:a8,6a:84:23:7e:a8:8c,71:a5:4b:07:36:6e,77:62:29:5a:73:39,40:aa:06:44:c8:29,5b:41:9d:e6:39:34,14:0a:29:ce:72:57,6a:87:19:53:c3:5a,73:56:7b:8f:00:80,59:f9:96:27:ed:c2,43:28:f1:84:d9:d4,76:3f:1d:d1:5c:cd,60:0f:ac:7f:bd:4c,75:ea:8e:c2:d3:18,47:f2:88:5e:a3:a3,6e:db:f4:6c:c4:dd,40:3e:56:2d:e2:53,56:4c:c9:71:57:e3,6f:59:06:fa:c2:b0,57:88:f7:fc:73:e4,63:f6:de:3d:f2:8a,14:0a:29:a0:a0:f3,5d:c2:e0:7a:b7:6e,42:b2:2b:49:c2:4e,7f:2d:3b:b1:5c:45,57:91:00:dd:5c:7d,5b:0e:60:5f:02:2a,6e:67:27:36:d4:f8,53:e5:38:60:be:8f,4e:48:92:82:24:9e,70:b6:6b:2f:70:0d,79:ca:9c:3f:ce:ff,5a:e2:6f:1d:44:c6,54:f2:8d:5e:b0:2b,55:ba:4f:b0:a2:51,63:9f:44:af:a5:86,74:0f:7f:47:0a:ab,49:0f:35:2c:2e:a0,63:8f:0e:4c:1a:55,548:73:cb:10:81:69
+
+[24:03:05]
+Name = Rockerz 450 Pro
+AvrcpCtVersion = 262
+AvrcpFeatures = 3
+Codecs = SBC,AAC
+
+[9c:0c:35]
+Timestamp = 1749135741
+Name = ABBLE
+DevClass = 1280
+DevType = 2
+AddrType = 1
+LE_KEY_PENC =  
+LE_KEY_LENC =  
+LE_KEY_LCSRK =  
+LE_KEY_LID =  
+
+[41:42:ff]
+Timestamp = 1731642603
+Name = ZEB-MIST
+DevClass = 2360324
+DevType = 1
+AddrType = 0
+Manufacturer = 1602
+LmpVer = 12
+LmpSubVer = 3
+LinkKeyType =  
+PinLength = 0
+LinkKey =  
+A2dpVersion = 259
+AvdtpVersion = 259
+HfpVersion = 263
+AvrcpCtVersion = 262
+AvrcpFeatures = 1
+AvrcpTgVersion = 262
+Service = 0000111e-0000-1000-8000-00805f9b34fb 0000110b-0000-1000-8000-00805f9b34fb 0000110e-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb
+Codecs = SBC,AAC
+
+[InternalBleSRAList]
+BleConnDirectStaticRandomDevices = ed:c3:81:b0:76:cc
+
+[41:42:f4]
+Timestamp = 1745816582
+Name = Airdopes 91 Prime
+DevClass = 2360324
+DevType = 1
+AddrType = 0
+Manufacturer = 1602
+LmpVer = 13
+LmpSubVer = 5
+LinkKeyType =  
+PinLength = 0
+LinkKey =  
+A2dpVersion = 260
+AvdtpVersion = 259
+HfpVersion = 263
+AvrcpCtVersion = 262
+AvrcpFeatures = 1
+AvrcpTgVersion = 262
+Service = 00001101-0000-1000-8000-00805f9b34fb 0000111e-0000-1000-8000-00805f9b34fb 0000110b-0000-1000-8000-00805f9b34fb 0000110e-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb
+Codecs = SBC,AAC
+
+[41:42:55]
+Name = Number Navo Buds X1
+AvrcpCtVersion = 262
+AvrcpFeatures = 1
+Codecs = SBC,AAC
+
+[1b:31:29]
+Name = Stone 358
+AvrcpCtVersion = 261
+AvrcpFeatures = 1
+Codecs = SBC,SBC
+Manufacturer = 1494
+LmpVer = 9
+LmpSubVer = 12576
+DevClass = 3408900
+DevType = 1
+LinkKeyType =  
+PinLength = 0
+LinkKey =  
+AddrType = 0
+VendorID = 1494
+ProductID = 10
+ProductVersion = 576
+A2dpVersion = 256
+AvdtpVersion = 256
+HfpVersion = 261
+AvrcpTgVersion = 261
+Service = 00001101-0000-1000-8000-00805f9b34fb 0000111e-0000-1000-8000-00805f9b34fb 0000110b-0000-1000-8000-00805f9b34fb 0000110e-0000-1000-8000-00805f9b34fb 00001124-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb
+HidAttrMask = 32887
+HidSubClass = 128
+HidAppId = 1
+HidVendorId = 1494
+HidProductId = 10
+HidVersion = 576
+HidCountryCode = 33
+HidSSRMaxLatency = 65535
+HidSSRMinTimeout = 65535
+HidDescriptor = 050c0901a1018502751095021501268c0219012a8c028100c0050c0901a1018503150025017501950d0a23020a21020ab10109b809b609cd09b509e209ea09e909300a07030a080381029501750b8103c0
+
+[e8:26:cf]
+Timestamp = 1761557000
+Name = JBL Go 3
+DevClass = 2360340
+DevType = 1
+AddrType = 0
+Manufacturer = 129
+LmpVer = 10
+LmpSubVer = 5075
+LinkKeyType =  
+PinLength = 0
+LinkKey =  
+A2dpVersion = 259
+AvdtpVersion = 259
+AvrcpCtVersion = 262
+AvrcpFeatures = 3
+AvrcpTgVersion = 262
+Service = 0000110b-0000-1000-8000-00805f9b34fb 0000110e-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb
+Codecs = SBC
+
+[34:75:63]
+Name = JioSTB81952Android TV
+AvrcpCtVersion = 259
+AvrcpFeatures = 2
+DevClass = 3802168
+DevType = 3
+LinkKeyType =  
+PinLength = 0
+LinkKey =  
+AddrType = 0
+VendorID = 224
+ProductID = 4608
+ProductVersion = 5174
+AvrcpTgVersion = 261
+Service = 00001101-0000-1000-8000-00805f9b34fb 0000110a-0000-1000-8000-00805f9b34fb 00001105-0000-1000-8000-00805f9b34fb 00001115-0000-1000-8000-00805f9b34fb 00001116-0000-1000-8000-00805f9b34fb 0000110e-0000-1000-8000-00805f9b34fb 0000112f-0000-1000-8000-00805f9b34fb 00001112-0000-1000-8000-00805f9b34fb 0000111f-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 8980f798-0614-11ea-8d71-362b9e155667
+Timestamp = 1786357524
+Manufacturer = 93
+LmpVer = 8
+LmpSubVer = 34672
+
+[41:42:38]
+Timestamp = 1788503110
+Name = Airpods Pro
+DevClass = 2360324
+DevType = 1
+AddrType = 0
+Manufacturer = 76
+LmpVer = 14
+LmpSubVer = 3
+LinkKeyType =  
+PinLength = 0
+LinkKey =  
+VendorID = 76
+ProductID = 8212
+ProductVersion = 19483
+A2dpVersion = 260
+AvdtpVersion = 259
+HfpVersion = 263
+AvrcpCtVersion = 262
+AvrcpFeatures = 1
+AvrcpTgVersion = 262
+Service = 0000111e-0000-1000-8000-00805f9b34fb 0000110b-0000-1000-8000-00805f9b34fb 0000110e-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 74ec2172-0bad-4d01-8f77-997b2be0722a
+Codecs = SBC,AAC
+
+[04:ca:8f]
+Name = NF 2_8FE9
+DevClass = 2360352
+DevType = 3
+AddrType = 0
+Manufacturer = 1494
+LmpVer = 12
+LmpSubVer = 8891
+Timestamp = 1788971955
+LinkKeyType =  
+PinLength = 0
+LinkKey =  
+VendorID = 1494
+ProductID = 10
+ProductVersion = 576
+HfpVersion = 264
+Service = 00001101-0000-1000-8000-00805f9b34fb 0000111e-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb fe010000-1234-5678-abcd-00805f9b34fb
+
+[45:de:9f]
+Name = Mivi SuperPods Ha
+DevClass = 7936
+DevType = 2
+AddrType = 1
+
+[51:27:7a]
+Name = OnePlus Nord Buds 3r
+DevClass = 7936
+DevType = 2
+AddrType = 1
+
+[38:53:f6]
+DevType = 2
+AddrType = 1
+
+[6e:bb:22]
+DevType = 2
+AddrType = 1
+
+[6b:f0:e7]
+DevType = 2
+AddrType = 1
+
+[25:f0:9c]
+DevType = 2
+AddrType = 1
+
+[1e:67:ac]
+DevType = 2
+AddrType = 1
+
+[6c:16:89]
+DevType = 2
+AddrType = 1
+
+[1d:14:a0]
+DevType = 2
+AddrType = 1
+
+[65:d3:c1]
+DevType = 2
+AddrType = 1
+
+[46:1e:4d]
+DevType = 2
+AddrType = 1
+
+[21:fe:7e]
+DevType = 2
+AddrType = 1
+
+[2f:19:ff]
+DevType = 2
+AddrType = 1
+
+[c8:a4:c6]
+Name = realme Buds T200x(BLE)
+DevClass = 7936
+DevType = 2
+AddrType = 1
+
+
+Bluetooth HF Client BTA Statistics
+
+Bluetooth Wakelock Statistics:
+  Is acquired                    : false
+  Acquired/released count        : 198 / 198
+  Acquired/released error count  : 0 / 0
+  Last acquire/release error code: 0 / 0
+  Last acquired time (ms)        : 0
+  Acquired time min/max/avg (ms) : 0 / 3135 / 56
+  Total acquired time (ms)       : 11197
+  Total run time (ms)            : 159395
+
+Bluetooth Memory Allocation Statistics:
+  Total allocated/free/used counts : 0 / 0 / 0
+  Total allocated/free/used octets : 0 / 0 / 0
+
+Bluetooth Alarms Statistics:
+  Total Alarms: 1
+
+  Alarm : btm_ble_addr.refresh_raddr_timer (SINGLE)
+    Action counts (sched/resched/exec/cancel)      : 1 / 0 / 0 / 0
+    Deviation counts (overdue/premature)           : 0 / 0
+    Time in ms (since creation/interval/remaining) : 158545 / 784185 / 625640
+    Callback execution time in ms (total/max/avg)  : 0 / 0 / 0
+    Overdue scheduling time in ms (total/max/avg)  : 0 / 0 / 0
+    Premature scheduling time in ms (total/max/avg): 0 / 0 / 0
+
+Hearing Aid Manager:
+  Hearing Aid Audio HAL:
+    Counts (underflow)                                      : 0
+    Bytes (underflow)                                       : 0
+    Last update time ago in ms (underflow)                  : 0
+
+
+connection_manager state:
+
+	no Low Energy connection attempts
+
+BT Quality Report Events: 
+Event queue is empty.
+--- BEGIN:BTSNOOP_LOG_SUMMARY (50941 bytes in) ---
+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
+--- END:BTSNOOP_LOG_SUMMARY ---
+
+Bluetooth FW:
+Open Fail

@@ -1,0 +1,571 @@
+--------- beginning of system
+09-13 06:39:24.248 W/BpBinder( 6268): Slow Binder: BpBinder transact took 219 ms, interface=android.content.pm.IPackageManager, code=5 oneway=false
+09-13 08:48:23.896 W/BpBinder( 6268): Slow Binder: BpBinder transact took 323 ms, interface=android.app.IActivityManager, code=30 oneway=false
+09-13 08:48:23.898 W/BpBinder( 6268): Slow Binder: BpBinder transact took 325 ms, interface=android.app.IActivityManager, code=67 oneway=false
+09-13 09:08:20.240 W/BpBinder( 6268): Slow Binder: BpBinder transact took 359 ms, interface=android.app.IActivityManager, code=32 oneway=false
+09-13 09:39:15.548 W/Looper  ( 6268): PerfMonitor doFrame : time=396ms vsyncFrame=0 latency=2ms procState=-1 historyMsgCount=2 (msgIndex=1 wall=396ms seq=57471 late=2ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=2 wall=396ms seq=57471 late=2ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 12:22:06.518 W/BpBinder( 6268): Slow Binder: BpBinder transact took 214 ms, interface=com.google.android.gms.common.internal.IGmsServiceBroker, code=46 oneway=false
+09-13 13:29:13.547 W/Looper  ( 6268): PerfMonitor doFrame : time=313ms vsyncFrame=0 latency=2ms procState=-1 historyMsgCount=1 (msgIndex=1 wall=313ms seq=61908 late=2ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 13:29:55.477 W/Looper  ( 6268): PerfMonitor looperActivity : package=com.noisefit/.ui.SplashActivity time=1ms latency=615ms running=0ms  procState=-1  historyMsgCount=4 (msgIndex=2 wall=615ms seq=61967 h=android.app.ActivityThread$H w=159) (msgIndex=3 wall=615ms seq=61967 h=android.app.ActivityThread$H w=159) (msgIndex=4 wall=615ms seq=61967 h=android.app.ActivityThread$H w=159)
+09-13 13:29:55.816 W/Looper  ( 6268): PerfMonitor doFrame : time=335ms vsyncFrame=0 latency=7ms procState=-1 historyMsgCount=15 (msgIndex=4 wall=335ms seq=61977 late=7ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=5 wall=335ms seq=61977 late=7ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=6 wall=335ms seq=61977 late=7ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 13:53:15.371 W/Activity( 6268): PerfMonitor: Slow Operation: Activity com.noisefit/.ui.SplashActivity onDestroy took 121ms
+09-13 13:58:46.104 W/Activity( 6268): PerfMonitor: Slow Operation: Activity com.noisefit/.DefaultLauncher onCreate took 1035ms
+09-13 13:58:46.265 W/Looper  ( 6268): PerfMonitor longMsg : seq=62708 plan=13:58:44.874 late=0ms wall=1390ms running=0ms h=android.app.ActivityThread$H w=159 procState=-1
+09-13 13:58:46.267 W/Looper  ( 6268): PerfMonitor looperActivity : package=com.noisefit/.DefaultLauncher time=0ms latency=1391ms running=0ms  procState=-1  historyMsgCount=4 (msgIndex=1 wall=1390ms seq=62708 h=android.app.ActivityThread$H w=159) (msgIndex=3 wall=1390ms seq=62708 h=android.app.ActivityThread$H w=159) (msgIndex=4 wall=1390ms seq=62708 h=android.app.ActivityThread$H w=159)
+09-13 13:58:47.520 W/BpBinder( 6268): Slow Binder: BpBinder transact took 568 ms, interface=com.google.android.gms.measurement.internal.IMeasurementService, code=14 oneway=false
+09-13 13:58:49.121 W/Activity( 6268): PerfMonitor: Slow Operation: Activity com.noisefit/.MainActivity onCreate took 696ms
+09-13 13:58:49.226 W/Looper  ( 6268): PerfMonitor looperActivity : package=com.noisefit/.MainActivity time=0ms latency=853ms running=0ms  procState=-1  historyMsgCount=3 (msgIndex=3 wall=843ms seq=62766 h=android.app.ActivityThread$H w=159)
+09-13 13:58:49.647 W/Looper  ( 6268): PerfMonitor doFrame : time=415ms vsyncFrame=0 latency=350ms procState=-1 historyMsgCount=16 (msgIndex=3 wall=843ms seq=62766 h=android.app.ActivityThread$H w=159)
+09-13 13:58:49.730 W/Looper  ( 6268): PerfMonitor doFrame : time=8ms vsyncFrame=0 latency=472ms procState=-1 historyMsgCount=35 (msgIndex=16 wall=70ms seq=62794 h=android.os.Handler c=kotlinx.coroutines.internal.DispatchedContinuation)
+09-13 13:58:50.723 W/BpBinder( 6268): Slow Binder: BpBinder transact took 969 ms, interface=com.android.vending.billing.IInAppBillingService, code=1 oneway=false
+09-13 13:58:51.230 W/Looper  ( 6268): PerfMonitor doFrame : time=580ms vsyncFrame=0 latency=18ms procState=-1 historyMsgCount=1 (msgIndex=1 wall=580ms seq=62876 late=18ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 13:58:56.419 W/Looper  ( 6268): PerfMonitor doFrame : time=402ms vsyncFrame=0 latency=0ms procState=-1 historyMsgCount=3 (msgIndex=1 wall=402ms seq=63271 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=2 wall=402ms seq=63271 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=3 wall=402ms seq=63271 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 13:58:56.503 W/Looper  ( 6268): PerfMonitor doFrame : time=84ms vsyncFrame=0 latency=336ms procState=-1 historyMsgCount=4 (msgIndex=1 wall=84ms seq=63272 late=336ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=2 wall=84ms seq=63272 late=336ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=3 wall=84ms seq=63272 late=336ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=4 wall=84ms seq=63272 late=336ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 13:58:57.264 W/Looper  ( 6268): PerfMonitor doFrame : time=510ms vsyncFrame=0 latency=3ms procState=-1 historyMsgCount=4 (msgIndex=1 wall=510ms seq=63296 late=3ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=4 wall=510ms seq=63296 late=3ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 13:58:57.285 W/Looper  ( 6268): PerfMonitor doFrame : time=12ms vsyncFrame=0 latency=506ms procState=-1 historyMsgCount=3
+09-13 14:01:21.938 W/Activity( 6268): PerfMonitor: Slow Operation: Activity com.noisefit/.MainActivity onPause took 439ms
+09-13 14:01:22.063 W/Looper  ( 6268): PerfMonitor doFrame : time=86ms vsyncFrame=0 latency=546ms procState=-1 historyMsgCount=34 (msgIndex=1 wall=86ms seq=72368 late=546ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=2 wall=86ms seq=72368 late=546ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=3 wall=86ms seq=72368 late=546ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=4 wall=86ms seq=72368 late=546ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=5 wall=86ms seq=72368 late=546ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=6 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=7 wall=86ms seq=72368 late=546ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=8 wall=86ms seq=72368 late=546ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=9 wall=86ms seq=72368 late=546ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=10 wall=86ms seq=72368 late=546ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=11 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=12 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=13 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=14 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=15 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=16 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=17 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=18 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=19 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=20 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=21 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=22 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=23 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=24 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=25 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=26 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=27 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=28 wall=86ms seq=72368 late=546ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=29 wall=86ms seq=72368 late=546ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=30 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159)
+09-13 14:01:22.247 W/Looper  ( 6268): PerfMonitor looperActivity : package=com.noisefit/.MainActivity time=183ms latency=608ms running=0ms  procState=-1  historyMsgCount=35 (msgIndex=1 wall=86ms seq=72368 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=2 wall=86ms seq=72368 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=3 wall=86ms seq=72368 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=4 wall=86ms seq=72368 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=5 wall=86ms seq=72368 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=6 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=7 wall=86ms seq=72368 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=8 wall=86ms seq=72368 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=9 wall=86ms seq=72368 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=10 wall=86ms seq=72368 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=11 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=12 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=13 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=14 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=15 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=16 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=17 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=18 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=19 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=20 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=21 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=22 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=23 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=24 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=25 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=26 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=27 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=28 wall=86ms seq=72368 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=29 wall=86ms seq=72368 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=30 wall=500ms seq=72363 h=android.app.ActivityThread$H w=159) (msgIndex=35 wall=86ms seq=72368 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 14:01:53.117 W/Looper  ( 6268): PerfMonitor doFrame : time=362ms vsyncFrame=0 latency=1ms procState=-1 historyMsgCount=1 (msgIndex=1 wall=362ms seq=72414 late=1ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 14:01:53.522 W/Activity( 6268): PerfMonitor: Slow Operation: Activity com.noisefit/.MainActivity onStart took 400ms
+09-13 14:01:54.009 W/Looper  ( 6268): PerfMonitor looperActivity : package=com.noisefit/.MainActivity time=891ms latency=355ms running=0ms  procState=-1  historyMsgCount=22 (msgIndex=2 wall=891ms seq=72416 late=355ms h=android.app.ActivityThread$H w=159) (msgIndex=4 wall=362ms seq=72414 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=6 wall=891ms seq=72416 late=355ms h=android.app.ActivityThread$H w=159) (msgIndex=7 wall=891ms seq=72416 late=355ms h=android.app.ActivityThread$H w=159) (msgIndex=8 wall=362ms seq=72414 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=9 wall=891ms seq=72416 late=355ms h=android.app.ActivityThread$H w=159) (msgIndex=10 wall=362ms seq=72414 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=11 wall=891ms seq=72416 late=355ms h=android.app.ActivityThread$H w=159) (msgIndex=12 wall=891ms seq=72416 late=355ms h=android.app.ActivityThread$H w=159) (msgIndex=13 wall=891ms seq=72416 late=355ms h=android.app.ActivityThread$H w=159) (msgIndex=14 wall=891ms seq=72416 late=355ms h=android.app.ActivityThread$H w=159) (msgIndex=15 wall=891ms seq=72416 late=355ms h=android.app.ActivityThread$H w=159) (msgIndex=16 wall=891ms seq=72416 late=355ms h=android.app.ActivityThread$H w=159) (msgIndex=17 wall=891ms seq=72416 late=355ms h=android.app.ActivityThread$H w=159) (msgIndex=18 wall=891ms seq=72416 late=355ms h=android.app.ActivityThread$H w=159) (msgIndex=19 wall=891ms seq=72416 late=355ms h=android.app.ActivityThread$H w=159) (msgIndex=20 wall=362ms seq=72414 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=21 wall=362ms seq=72414 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 14:01:54.332 W/Looper  ( 6268): PerfMonitor doFrame : time=323ms vsyncFrame=0 latency=888ms procState=-1 historyMsgCount=1 (msgIndex=1 wall=323ms seq=72417 late=888ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 14:01:54.430 W/Looper  ( 6268): PerfMonitor doFrame : time=90ms vsyncFrame=0 latency=318ms procState=-1 historyMsgCount=19 (msgIndex=1 wall=90ms seq=72435 late=318ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=2 wall=90ms seq=72435 late=318ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 14:01:56.884 W/Looper  ( 6268): PerfMonitor doFrame : time=311ms vsyncFrame=0 latency=0ms procState=-1 historyMsgCount=24 (msgIndex=1 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=2 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=3 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=4 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=5 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=6 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=7 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=8 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=9 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=10 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=11 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=12 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=13 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=14 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=15 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=16 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=17 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=18 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=19 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=20 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=21 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=22 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=23 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=24 wall=311ms seq=72561 h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 14:02:02.656 W/Looper  ( 6268): PerfMonitor doFrame : time=7ms vsyncFrame=0 latency=359ms procState=-1 historyMsgCount=1
+09-13 14:02:13.564 W/BpBinder( 6268): Slow Binder: BpBinder transact took 374 ms, interface=android.app.IActivityManager, code=6 oneway=false
+09-13 14:02:13.972 W/BpBinder( 6268): Slow Binder: BpBinder transact took 781 ms, interface=android.app.IActivityManager, code=6 oneway=false
+09-13 14:06:38.231 W/Activity( 6268): PerfMonitor: Slow Operation: Activity com.noisefit/.MainActivity onPause took 138ms
+--------- beginning of main
+09-13 14:25:02.423 I/com.noisefit( 6268): Background young concurrent copying GC freed 15MB AllocSpace bytes, 2(40KB) LOS objects, 48% free, 16MB/32MB, paused 329us,119us total 157.538ms
+09-13 14:25:02.428 W/com.noisefit( 6268): Reducing the number of considered missed Gc histogram windows from 103 to 100
+09-13 14:27:00.283 D/AppScoutStateMachine( 6268): 6268-ScoutStateMachinecreated
+09-13 14:27:00.614 W/Activity( 6268): PerfMonitor: Slow Operation: Activity com.noisefit/.MainActivity onStart took 258ms
+09-13 14:27:00.667 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_GzipInterceptor /v1/getAndroidInboxMessages POST intercept(): Adding Gzip Headers to the Request
+09-13 14:27:00.667 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v1/getAndroidInboxMessages POST intercept(): Will try server call 
+09-13 14:27:00.667 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v1/getAndroidInboxMessages POST intercept(): Request url: https://sdk-03.moengage.com/v1/getAndroidInboxMessages
+09-13 14:27:00.667 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v1/getAndroidInboxMessages POST intercept(): Connection opened: 1789289820667
+09-13 14:27:00.667 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v1/getAndroidInboxMessages POST addHeaders() MOE-APPKEY : S4HG31W6YBX0D91BTHQSQV1A
+09-13 14:27:00.667 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v1/getAndroidInboxMessages POST addHeaders() Accept-Encoding : gzip
+09-13 14:27:00.685 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_GzipInterceptor /v3/campaigns/inapp/live POST intercept(): Adding Gzip Headers to the Request
+09-13 14:27:00.686 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v3/campaigns/inapp/live POST intercept(): Will try server call 
+09-13 14:27:00.686 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v3/campaigns/inapp/live POST intercept(): Request url: https://sdk-03.moengage.com/v3/campaigns/inapp/live?unique_id=20d95601-ab0c-4f25-b239-6b02dc4fe7cb&sdk_ver=130002&os=ANDROID&inapp_ver=8.2.0&push_opt_in_status=true&device_type=MOBILE
+09-13 14:27:00.686 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v3/campaigns/inapp/live POST intercept(): Connection opened: 1789289820686
+09-13 14:27:00.686 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v3/campaigns/inapp/live POST addHeaders() MOE-APPKEY : S4HG31W6YBX0D91BTHQSQV1A
+09-13 14:27:00.686 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v3/campaigns/inapp/live POST addHeaders() Accept-Encoding : gzip
+09-13 14:27:00.736 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v1/getAndroidInboxMessages POST addBody(): Request Body: 
+09-13 14:27:00.736 D/MoEngage( 6268):  {
+09-13 14:27:00.736 D/MoEngage( 6268):     "query_params": {
+09-13 14:27:00.736 D/MoEngage( 6268):         "os": "ANDROID",
+09-13 14:27:00.736 D/MoEngage( 6268):         "app_id": "S4HG31W6YBX0D91BTHQSQV1A",
+09-13 14:27:00.736 D/MoEngage( 6268):         "sdk_ver": "130002",
+09-13 14:27:00.736 D/MoEngage( 6268):         "unique_id": "20d95601-ab0c-4f25-b239-6b02dc4fe7cb",
+09-13 14:27:00.736 D/MoEngage( 6268):         "device_ts": "1789289820619",
+09-13 14:27:00.736 D/MoEngage( 6268):         "device_tz_offset": "19800000",
+09-13 14:27:00.736 D/MoEngage( 6268):         "app_ver": "839",
+09-13 14:27:00.736 D/MoEngage( 6268):         "app_version_name": "5.3.9",
+09-13 14:27:00.736 D/MoEngage( 6268):         "moe_push_ser": "FCM",
+09-13 14:27:00.736 D/MoEngage( 6268):         "on_app_open": true,
+09-13 14:27:00.736 D/MoEngage( 6268):         "model": "M2010J19SI",
+09-13 14:27:00.736 D/MoEngage( 6268):         "last_updated": "1789288126815"
+09-13 14:27:00.736 D/MoEngage( 6268):     }
+09-13 14:27:00.736 D/MoEngage( 6268): }
+09-13 14:27:00.739 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v3/campaigns/inapp/live POST addBody(): Request Body: 
+09-13 14:27:00.739 D/MoEngage( 6268):  {
+09-13 14:27:00.739 D/MoEngage( 6268):     "query_params": {
+09-13 14:27:00.739 D/MoEngage( 6268):         "os": "ANDROID",
+09-13 14:27:00.739 D/MoEngage( 6268):         "app_id": "S4HG31W6YBX0D91BTHQSQV1A",
+09-13 14:27:00.739 D/MoEngage( 6268):         "sdk_ver": "130002",
+09-13 14:27:00.739 D/MoEngage( 6268):         "unique_id": "20d95601-ab0c-4f25-b239-6b02dc4fe7cb",
+09-13 14:27:00.739 D/MoEngage( 6268):         "device_ts": "1789289820685",
+09-13 14:27:00.739 D/MoEngage( 6268):         "device_tz_offset": "19800000",
+09-13 14:27:00.739 D/MoEngage( 6268):         "app_ver": "839",
+09-13 14:27:00.739 D/MoEngage( 6268):         "app_version_name": "5.3.9",
+09-13 14:27:00.739 D/MoEngage( 6268):         "moe_push_ser": "FCM"
+09-13 14:27:00.739 D/MoEngage( 6268):     }
+09-13 14:27:00.739 D/MoEngage( 6268): }
+09-13 14:27:00.771 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:00.771 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:00.772 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:00.772 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:00.783 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v1/getAndroidInboxMessages POST getResponse(): Code: 200 body: 
+09-13 14:27:00.783 D/MoEngage( 6268):  {}
+09-13 14:27:00.783 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v1/getAndroidInboxMessages POST getResponse(): Connection Response stream read complete: 1789289820783)}
+09-13 14:27:00.783 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v1/getAndroidInboxMessages POST intercept(): Connection disconnected: 1789289820783 milliseconds
+09-13 14:27:00.783 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v1/getAndroidInboxMessages POST intercept(): Connect to disconnect time: 116 milliseconds
+09-13 14:27:00.783 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v1/getAndroidInboxMessages POST intercept(): Connection Stream read to disconnected time: 0 milliseconds
+09-13 14:27:00.785 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v3/campaigns/inapp/live POST getResponse(): Code: 200 body: 
+09-13 14:27:00.785 D/MoEngage( 6268):  {
+09-13 14:27:00.785 D/MoEngage( 6268):     "campaigns": [],
+09-13 14:27:00.785 D/MoEngage( 6268):     "min_delay_btw_inapps": 900,
+09-13 14:27:00.785 D/MoEngage( 6268):     "sync_interval": 900,
+09-13 14:27:00.785 D/MoEngage( 6268):     "fc_settings": {}
+09-13 14:27:00.785 D/MoEngage( 6268): }
+09-13 14:27:00.785 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v3/campaigns/inapp/live POST getResponse(): Connection Response stream read complete: 1789289820785)}
+09-13 14:27:00.785 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v3/campaigns/inapp/live POST intercept(): Connection disconnected: 1789289820785 milliseconds
+09-13 14:27:00.785 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v3/campaigns/inapp/live POST intercept(): Connect to disconnect time: 99 milliseconds
+09-13 14:27:00.785 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v3/campaigns/inapp/live POST intercept(): Connection Stream read to disconnected time: 0 milliseconds
+09-13 14:27:00.786 D/FirebaseSessions( 6268): App foregrounded on com.noisefit
+09-13 14:27:00.845 E/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A InApp_8.2.0_ViewBuilder showGeneralInApp() : No suitable campaign found
+09-13 14:27:00.872 D/class com.facebook.appevents.gps.ara.GpsAraTriggersManager( 6268): OUTCOME_RECEIVER_TRIGGER_FAILURE
+09-13 14:27:00.921 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:00.921 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:00.923 D/WM-SystemJobScheduler( 6268): Scheduling work ID 8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4Job ID 274
+09-13 14:27:00.933 D/WM-GreedyScheduler( 6268): Starting work for 8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4
+09-13 14:27:00.939 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4, generation=0)
+09-13 14:27:01.027 W/Looper  ( 6268): PerfMonitor doFrame : time=188ms vsyncFrame=0 latency=482ms procState=-1 historyMsgCount=2 (msgIndex=1 wall=188ms seq=90139 late=482ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 14:27:01.033 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.MasterWorker
+09-13 14:27:01.033 D/ fcm token:( 6268): eqRjoXl1RliGqfVuv6OeSh:APA91bHlttDJIzyqs-3Zd4FuUcVE9Xeeh7gJAJ0tDAY-Vhu1Z2GEnkiHRE82HU8AIV4rM4ylvEcZ9sqjQvwAUt9u-D1Rn6w9i1Tl2FecrYc_AWa2eU-4qtM
+09-13 14:27:01.050 I/WM-Processor( 6268): Moving WorkSpec (8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4) to the foreground
+09-13 14:27:01.066 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4, generation=0)
+09-13 14:27:01.079 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4, generation=0) is already enqueued for processing
+09-13 14:27:01.083 D/DecorView[]( 6268): onWindowFocusChanged hasWindowFocus true
+09-13 14:27:01.090 I/WM-SystemFgDispatcher( 6268): Started foreground service Intent { act=ACTION_START_FOREGROUND cmp=com.noisefit/androidx.work.impl.foreground.SystemForegroundService (has extras) }
+09-13 14:27:01.092 D/WM-SystemFgDispatcher( 6268): Notifying with (id:1006, workSpecId: 8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4, notificationType :1)
+09-13 14:27:01.107 D/WM-SystemFgDispatcher( 6268): Notifying with (id:1006, workSpecId: 8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4, notificationType :1)
+09-13 14:27:01.115 D/WM-SystemJobScheduler( 6268): Scheduling work ID b2ac64c5-a7c5-4126-a802-af882cd063f8Job ID 275
+09-13 14:27:01.122 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=b2ac64c5-a7c5-4126-a802-af882cd063f8, generation=0)
+09-13 14:27:01.124 D/WM-GreedyScheduler( 6268): Starting work for b2ac64c5-a7c5-4126-a802-af882cd063f8
+09-13 14:27:01.127 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=b2ac64c5-a7c5-4126-a802-af882cd063f8, generation=0)
+09-13 14:27:01.128 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=b2ac64c5-a7c5-4126-a802-af882cd063f8, generation=0) is already enqueued for processing
+09-13 14:27:01.132 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.SyncDataWork
+09-13 14:27:01.143 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4, tags={ com.noisefit.receiver.workManager.MasterWorker,ForegroundMasterDataWork } ]
+09-13 14:27:01.155 D/WM-Processor( 6268): Processor 8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4 executed; reschedule = false
+09-13 14:27:01.155 D/WM-SystemJobService( 6268): 8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4 executed on JobScheduler
+09-13 14:27:01.155 D/WM-SystemFgDispatcher( 6268): Removing Notification (id: 1006, workSpecId: WorkGenerationalId(workSpecId=8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4, generation=0), notificationType: 1
+09-13 14:27:01.172 D/WM-GreedyScheduler( 6268): Cancelling work ID 8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4
+09-13 14:27:01.202 I/WM-SystemFgDispatcher( 6268): Stopping foreground service
+09-13 14:27:01.202 D/WM-SystemFgService( 6268): Shutting down.
+09-13 14:27:01.211 D/WM-SystemJobService( 6268): onStopJob for WorkGenerationalId(workSpecId=8f7c96b5-b5c9-46fb-95c6-eccdf0c4ffa4, generation=0)
+09-13 14:27:05.554 W/RenderInspector( 6268): DequeueBuffer time out on com.noisefit/com.noisefit.MainActivity, count=1, avg=17 ms, max=17 ms.
+09-13 14:27:05.564 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=b2ac64c5-a7c5-4126-a802-af882cd063f8, tags={ com.noisefit.receiver.workManager.SyncDataWork } ]
+09-13 14:27:05.565 I/WM-WorkerWrapper( 6268): Setting status to enqueued for ee217488-5542-4bdc-bbf8-175749d8c18c
+09-13 14:27:05.585 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:05.585 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:05.592 D/WM-Processor( 6268): Processor b2ac64c5-a7c5-4126-a802-af882cd063f8 executed; reschedule = false
+09-13 14:27:05.595 D/WM-SystemJobService( 6268): b2ac64c5-a7c5-4126-a802-af882cd063f8 executed on JobScheduler
+09-13 14:27:05.610 D/WM-GreedyScheduler( 6268): Cancelling work ID b2ac64c5-a7c5-4126-a802-af882cd063f8
+09-13 14:27:05.613 D/WM-SystemJobService( 6268): onStopJob for WorkGenerationalId(workSpecId=b2ac64c5-a7c5-4126-a802-af882cd063f8, generation=0)
+09-13 14:27:05.621 D/WM-SystemJobScheduler( 6268): Scheduling work ID ee217488-5542-4bdc-bbf8-175749d8c18cJob ID 276
+09-13 14:27:05.634 D/WM-GreedyScheduler( 6268): Starting work for ee217488-5542-4bdc-bbf8-175749d8c18c
+09-13 14:27:05.637 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=ee217488-5542-4bdc-bbf8-175749d8c18c, generation=0)
+09-13 14:27:05.661 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.ActivitySyncWork
+09-13 14:27:05.661 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=ee217488-5542-4bdc-bbf8-175749d8c18c, generation=0)
+09-13 14:27:05.663 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=ee217488-5542-4bdc-bbf8-175749d8c18c, generation=0) is already enqueued for processing
+09-13 14:27:06.704 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=24 latency=0 timeout=600 status=0
+09-13 14:27:07.264 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=24 latency=0 timeout=600 status=0
+09-13 14:27:07.973 I/com.noisefit( 6268): Background young concurrent copying GC freed 12MB AllocSpace bytes, 61(1604KB) LOS objects, 43% free, 18MB/32MB, paused 1.163ms,124us total 121.527ms
+09-13 14:27:08.000 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:08.000 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:08.521 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=ee217488-5542-4bdc-bbf8-175749d8c18c, tags={ com.noisefit.receiver.workManager.ActivitySyncWork } ]
+09-13 14:27:08.523 D/WM-Processor( 6268): Processor ee217488-5542-4bdc-bbf8-175749d8c18c executed; reschedule = false
+09-13 14:27:08.523 D/WM-SystemJobService( 6268): ee217488-5542-4bdc-bbf8-175749d8c18c executed on JobScheduler
+09-13 14:27:08.527 D/WM-GreedyScheduler( 6268): Cancelling work ID ee217488-5542-4bdc-bbf8-175749d8c18c
+09-13 14:27:10.579 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:10.579 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:13.636 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=48 latency=8 timeout=600 status=0
+09-13 14:27:15.350 W/RenderInspector( 6268): DequeueBuffer time out on com.noisefit/com.noisefit.MainActivity, count=1, avg=17 ms, max=17 ms.
+09-13 14:27:36.356 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:36.356 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:36.367 D/WM-SystemJobScheduler( 6268): Scheduling work ID 41c85434-0aba-48bb-b24f-ba931d858186Job ID 277
+09-13 14:27:36.373 D/WM-GreedyScheduler( 6268): Starting work for 41c85434-0aba-48bb-b24f-ba931d858186
+09-13 14:27:36.375 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=41c85434-0aba-48bb-b24f-ba931d858186, generation=0)
+09-13 14:27:36.381 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.MasterWorker
+09-13 14:27:36.381 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=41c85434-0aba-48bb-b24f-ba931d858186, generation=0)
+09-13 14:27:36.385 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=41c85434-0aba-48bb-b24f-ba931d858186, generation=0) is already enqueued for processing
+09-13 14:27:36.397 D/WM-SystemJobScheduler( 6268): Scheduling work ID 77ec7137-3b92-431d-9876-132ef20cb794Job ID 278
+09-13 14:27:36.404 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=77ec7137-3b92-431d-9876-132ef20cb794, generation=0)
+09-13 14:27:36.405 D/WM-GreedyScheduler( 6268): Starting work for 77ec7137-3b92-431d-9876-132ef20cb794
+09-13 14:27:36.407 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=77ec7137-3b92-431d-9876-132ef20cb794, generation=0)
+09-13 14:27:36.408 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=77ec7137-3b92-431d-9876-132ef20cb794, generation=0) is already enqueued for processing
+09-13 14:27:36.409 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=41c85434-0aba-48bb-b24f-ba931d858186, tags={ com.noisefit.receiver.workManager.MasterWorker,ManualMasterDataWork } ]
+09-13 14:27:36.412 D/WM-Processor( 6268): Processor 41c85434-0aba-48bb-b24f-ba931d858186 executed; reschedule = false
+09-13 14:27:36.412 D/WM-SystemJobService( 6268): 41c85434-0aba-48bb-b24f-ba931d858186 executed on JobScheduler
+09-13 14:27:36.418 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.SyncDataWork
+09-13 14:27:36.418 D/WM-GreedyScheduler( 6268): Cancelling work ID 41c85434-0aba-48bb-b24f-ba931d858186
+09-13 14:27:40.474 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=24 latency=0 timeout=600 status=0
+09-13 14:27:40.829 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=77ec7137-3b92-431d-9876-132ef20cb794, tags={ com.noisefit.receiver.workManager.SyncDataWork } ]
+09-13 14:27:40.831 I/WM-WorkerWrapper( 6268): Setting status to enqueued for 87185504-d8cf-42ba-af32-0b1b5577075f
+09-13 14:27:40.843 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:40.843 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:40.850 D/WM-Processor( 6268): Processor 77ec7137-3b92-431d-9876-132ef20cb794 executed; reschedule = false
+09-13 14:27:40.850 D/WM-SystemJobService( 6268): 77ec7137-3b92-431d-9876-132ef20cb794 executed on JobScheduler
+09-13 14:27:40.854 D/WM-GreedyScheduler( 6268): Cancelling work ID 77ec7137-3b92-431d-9876-132ef20cb794
+09-13 14:27:40.861 D/WM-SystemJobScheduler( 6268): Scheduling work ID 87185504-d8cf-42ba-af32-0b1b5577075fJob ID 279
+09-13 14:27:40.867 D/WM-GreedyScheduler( 6268): Starting work for 87185504-d8cf-42ba-af32-0b1b5577075f
+09-13 14:27:40.871 D/WM-SystemJobService( 6268): onStopJob for WorkGenerationalId(workSpecId=77ec7137-3b92-431d-9876-132ef20cb794, generation=0)
+09-13 14:27:40.871 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=87185504-d8cf-42ba-af32-0b1b5577075f, generation=0)
+09-13 14:27:40.874 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=87185504-d8cf-42ba-af32-0b1b5577075f, generation=0)
+09-13 14:27:40.878 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=87185504-d8cf-42ba-af32-0b1b5577075f, generation=0) is already enqueued for processing
+09-13 14:27:40.896 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.ActivitySyncWork
+09-13 14:27:43.016 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:43.016 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:43.063 I/com.noisefit( 6268): Waiting for a blocking GC ProfileSaver
+09-13 14:27:43.263 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=87185504-d8cf-42ba-af32-0b1b5577075f, tags={ com.noisefit.receiver.workManager.ActivitySyncWork } ]
+09-13 14:27:43.278 D/WM-Processor( 6268): Processor 87185504-d8cf-42ba-af32-0b1b5577075f executed; reschedule = false
+09-13 14:27:43.278 D/WM-SystemJobService( 6268): 87185504-d8cf-42ba-af32-0b1b5577075f executed on JobScheduler
+09-13 14:27:43.282 D/WM-GreedyScheduler( 6268): Cancelling work ID 87185504-d8cf-42ba-af32-0b1b5577075f
+09-13 14:27:45.074 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=48 latency=8 timeout=600 status=0
+09-13 14:27:45.093 I/TRuntime.CctTransportBackend( 6268): Making request to: https://firebaselogging-pa.googleapis.com/v1/firelog/legacy/batchlog
+09-13 14:27:45.524 I/TRuntime.CctTransportBackend( 6268): Status Code: 200
+09-13 14:27:45.837 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:45.837 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:49.112 W/Looper  ( 6268): PerfMonitor doFrame : time=5ms vsyncFrame=0 latency=373ms procState=-1 historyMsgCount=2
+09-13 14:27:53.601 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:53.601 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:53.735 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:53.735 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:53.780 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:53.780 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:54.759 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:54.759 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:54.788 D/WM-SystemJobScheduler( 6268): Scheduling work ID 3ac3a549-7819-4c7a-b077-d7c144434beeJob ID 280
+09-13 14:27:54.799 D/WM-GreedyScheduler( 6268): Starting work for 3ac3a549-7819-4c7a-b077-d7c144434bee
+09-13 14:27:54.800 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=3ac3a549-7819-4c7a-b077-d7c144434bee, generation=0)
+09-13 14:27:54.815 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.MasterWorker
+09-13 14:27:54.815 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=3ac3a549-7819-4c7a-b077-d7c144434bee, generation=0)
+09-13 14:27:54.816 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=3ac3a549-7819-4c7a-b077-d7c144434bee, generation=0) is already enqueued for processing
+09-13 14:27:54.826 D/WM-SystemJobScheduler( 6268): Scheduling work ID 5c44f2b0-adc9-458a-b655-28de733c9df2Job ID 281
+09-13 14:27:54.830 D/WM-GreedyScheduler( 6268): Starting work for 5c44f2b0-adc9-458a-b655-28de733c9df2
+09-13 14:27:54.830 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=5c44f2b0-adc9-458a-b655-28de733c9df2, generation=0)
+09-13 14:27:54.831 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=5c44f2b0-adc9-458a-b655-28de733c9df2, generation=0)
+09-13 14:27:54.832 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=3ac3a549-7819-4c7a-b077-d7c144434bee, tags={ com.noisefit.receiver.workManager.MasterWorker,ManualMasterDataWork } ]
+09-13 14:27:54.832 D/WM-Processor( 6268): Processor 3ac3a549-7819-4c7a-b077-d7c144434bee executed; reschedule = false
+09-13 14:27:54.832 D/WM-SystemJobService( 6268): 3ac3a549-7819-4c7a-b077-d7c144434bee executed on JobScheduler
+09-13 14:27:54.833 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=5c44f2b0-adc9-458a-b655-28de733c9df2, generation=0) is already enqueued for processing
+09-13 14:27:54.838 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.SyncDataWork
+09-13 14:27:54.840 D/WM-GreedyScheduler( 6268): Cancelling work ID 3ac3a549-7819-4c7a-b077-d7c144434bee
+09-13 14:27:57.336 I/com.noisefit( 6268): NativeAlloc concurrent copying GC freed 11MB AllocSpace bytes, 53(1124KB) LOS objects, 49% free, 19MB/39MB, paused 204us,187us total 198.959ms
+09-13 14:27:57.814 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=24 latency=0 timeout=600 status=0
+09-13 14:27:58.469 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=5c44f2b0-adc9-458a-b655-28de733c9df2, tags={ com.noisefit.receiver.workManager.SyncDataWork } ]
+09-13 14:27:58.475 I/WM-WorkerWrapper( 6268): Setting status to enqueued for 2d50f5b0-d616-4fb5-add0-16aac65c27b8
+09-13 14:27:58.481 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:27:58.481 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:27:58.487 D/WM-Processor( 6268): Processor 5c44f2b0-adc9-458a-b655-28de733c9df2 executed; reschedule = false
+09-13 14:27:58.487 D/WM-SystemJobService( 6268): 5c44f2b0-adc9-458a-b655-28de733c9df2 executed on JobScheduler
+09-13 14:27:58.492 D/WM-GreedyScheduler( 6268): Cancelling work ID 5c44f2b0-adc9-458a-b655-28de733c9df2
+09-13 14:27:58.495 D/WM-SystemJobScheduler( 6268): Scheduling work ID 2d50f5b0-d616-4fb5-add0-16aac65c27b8Job ID 282
+09-13 14:27:58.507 D/WM-GreedyScheduler( 6268): Starting work for 2d50f5b0-d616-4fb5-add0-16aac65c27b8
+09-13 14:27:58.511 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=2d50f5b0-d616-4fb5-add0-16aac65c27b8, generation=0)
+09-13 14:27:58.516 D/WM-SystemJobService( 6268): onStopJob for WorkGenerationalId(workSpecId=5c44f2b0-adc9-458a-b655-28de733c9df2, generation=0)
+09-13 14:27:58.527 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=2d50f5b0-d616-4fb5-add0-16aac65c27b8, generation=0)
+09-13 14:27:58.527 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.ActivitySyncWork
+09-13 14:27:58.528 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=2d50f5b0-d616-4fb5-add0-16aac65c27b8, generation=0) is already enqueued for processing
+09-13 14:28:00.524 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:00.524 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:00.644 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_GzipInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST intercept(): Adding Gzip Headers to the Request
+09-13 14:28:00.644 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST intercept(): Will try server call 
+09-13 14:28:00.644 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST intercept(): Request url: https://sdk-03.moengage.com/v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A
+09-13 14:28:00.644 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST intercept(): Connection opened: 1789289880644
+09-13 14:28:00.645 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST addHeaders() MOE-APPKEY : S4HG31W6YBX0D91BTHQSQV1A
+09-13 14:28:00.645 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST addHeaders() MOE-REQUEST-ID : b818c60983c510a76d3c5691366eec419120c47dc976265ffb752ea9027e7232
+09-13 14:28:00.645 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST addHeaders() Accept-Encoding : gzip
+09-13 14:28:00.648 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST addBody(): Request Body: 
+09-13 14:28:00.648 D/MoEngage( 6268):  {
+09-13 14:28:00.648 D/MoEngage( 6268):     "viewsCount": 1,
+09-13 14:28:00.648 D/MoEngage( 6268):     "viewsInfo": [
+09-13 14:28:00.648 D/MoEngage( 6268):         {
+09-13 14:28:00.648 D/MoEngage( 6268):             "EVENT_ATTRS": "{}",
+09-13 14:28:00.648 D/MoEngage( 6268):             "EVENT_G_TIME": "1789289820682",
+09-13 14:28:00.648 D/MoEngage( 6268):             "EVENT_L_TIME": "13:9:2026:14:27:0",
+09-13 14:28:00.648 D/MoEngage( 6268):             "EVENT_ACTION": "EVENT_ACTION_ACTIVITY_START"
+09-13 14:28:00.648 D/MoEngage( 6268):         }
+09-13 14:28:00.648 D/MoEngage( 6268):     ],
+09-13 14:28:00.648 D/MoEngage( 6268):     "meta": {
+09-13 14:28:00.648 D/MoEngage( 6268):         "bid": "1789289880627-a95415f8-2413-4494-bbff-1e0bdae697bf",
+09-13 14:28:00.648 D/MoEngage( 6268):         "request_time": "2026-09-13T08:58:00.627Z",
+09-13 14:28:00.648 D/MoEngage( 6268):         "b_num": 78,
+09-13 14:28:00.648 D/MoEngage( 6268):         "source": [],
+09-13 14:28:00.648 D/MoEngage( 6268):         "session": {
+09-13 14:28:00.648 D/MoEngage( 6268):             "session_id": "23dfbd2f-c476-43c7-8073-c73b60a5422e",
+09-13 14:28:00.648 D/MoEngage( 6268):             "start_time": "2026-09-13T08:31:22.511Z"
+09-13 14:28:00.648 D/MoEngage( 6268):         },
+09-13 14:28:00.648 D/MoEngage( 6268):         "appState": "foreground",
+09-13 14:28:00.648 D/MoEngage( 6268):         "t_p": "a_fg_pf"
+09-13 14:28:00.648 D/MoEngage( 6268):     },
+09-13 14:28:00.648 D/MoEngage( 6268):     "identifiers": {
+09-13 14:28:00.648 D/MoEngage( 6268):         "moe_user_id": "49988078"
+09-13 14:28:00.648 D/MoEngage( 6268):     },
+09-13 14:28:00.648 D/MoEngage( 6268):     "query_params": {
+09-13 14:28:00.648 D/MoEngage( 6268):         "os": "ANDROID",
+09-13 14:28:00.648 D/MoEngage( 6268):         "app_id": "S4HG31W6YBX0D91BTHQSQV1A",
+09-13 14:28:00.648 D/MoEngage( 6268):         "sdk_ver": "130002",
+09-13 14:28:00.648 D/MoEngage( 6268):         "unique_id": "20d95601-ab0c-4f25-b239-6b02dc4fe7cb",
+09-13 14:28:00.648 D/MoEngage( 6268):         "device_ts": "1789289880641",
+09-13 14:28:00.648 D/MoEngage( 6268):         "device_tz_offset": "19800000",
+09-13 14:28:00.648 D/MoEngage( 6268):         "app_ver": "839",
+09-13 14:28:00.648 D/MoEngage( 6268):         "app_version_name": "5.3.9",
+09-13 14:28:00.648 D/MoEngage( 6268):         "moe_push_ser": "FCM",
+09-13 14:28:00.648 D/MoEngage( 6268):         "device_tz": "Asia\/Kolkata",
+09-13 14:28:00.648 D/MoEngage( 6268):         "push_id": "eqRjoXl1RliGqfVuv6OeSh:APA91bHlttDJIzyqs-3Zd4FuUcVE9Xeeh7gJAJ0tDAY-Vhu1Z2GEnkiHRE82HU8AIV4rM4ylvEcZ9sqjQvwAUt9u-D1Rn6w9i1Tl2FecrYc_AWa2eU-4qtM",
+09-13 14:28:00.648 D/MoEngage( 6268):         "os_ver": "31",
+09-13 14:28:00.648 D/MoEngage( 6268):         "model": "M2010J19SI",
+09-13 14:28:00.648 D/MoEngage( 6268):         "networkType": "wifi",
+09-13 14:28:00.648 D/MoEngage( 6268):         "moe_drm_id": "9395e8831a01a2475ace162f37cca01282d9abf62e4c3225c78978e968609982",
+09-13 14:28:00.648 D/MoEngage( 6268):         "manufacturer": "Xiaomi"
+09-13 14:28:00.648 D/MoEngage( 6268):     }
+09-13 14:28:00.648 D/MoEngage( 6268): }
+09-13 14:28:00.733 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST getInputStream(): Decoding Request Body With Gzip
+09-13 14:28:00.733 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST getResponse(): Code: 200 body: 
+09-13 14:28:00.733 D/MoEngage( 6268):  {
+09-13 14:28:00.733 D/MoEngage( 6268):     "status": "success",
+09-13 14:28:00.733 D/MoEngage( 6268):     "message": "Your request has been accepted and will be processed soon."
+09-13 14:28:00.733 D/MoEngage( 6268): }
+09-13 14:28:00.733 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST getResponse(): Connection Response stream read complete: 1789289880733)}
+09-13 14:28:00.733 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST intercept(): Connection disconnected: 1789289880733 milliseconds
+09-13 14:28:00.734 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST intercept(): Connect to disconnect time: 89 milliseconds
+09-13 14:28:00.734 D/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_RestClient_CallServerInterceptor /v2/sdk/report/S4HG31W6YBX0D91BTHQSQV1A POST intercept(): Connection Stream read to disconnected time: 0 milliseconds
+09-13 14:28:00.832 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=2d50f5b0-d616-4fb5-add0-16aac65c27b8, tags={ com.noisefit.receiver.workManager.ActivitySyncWork } ]
+09-13 14:28:00.833 D/WM-Processor( 6268): Processor 2d50f5b0-d616-4fb5-add0-16aac65c27b8 executed; reschedule = false
+09-13 14:28:00.833 D/WM-SystemJobService( 6268): 2d50f5b0-d616-4fb5-add0-16aac65c27b8 executed on JobScheduler
+09-13 14:28:00.836 D/WM-GreedyScheduler( 6268): Cancelling work ID 2d50f5b0-d616-4fb5-add0-16aac65c27b8
+09-13 14:28:02.477 W/RenderInspector( 6268): DequeueBuffer time out on com.noisefit/com.noisefit.MainActivity, count=1, avg=16 ms, max=16 ms.
+09-13 14:28:02.532 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=48 latency=8 timeout=600 status=0
+09-13 14:28:03.473 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:03.473 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:28.762 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:28.762 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:28.880 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:28.880 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:28.932 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:28.932 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:30.208 I/com.noisefit( 6268): NativeAlloc concurrent copying GC freed 15MB AllocSpace bytes, 92(2096KB) LOS objects, 49% free, 22MB/45MB, paused 160us,119us total 195.858ms
+09-13 14:28:31.385 I/Choreographer( 6268): Skipped 31 frames!  The application may be doing too much work on its main thread.
+09-13 14:28:31.410 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:31.410 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:31.514 W/Looper  ( 6268): PerfMonitor doFrame : time=128ms vsyncFrame=0 latency=526ms procState=-1 historyMsgCount=34 (msgIndex=1 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=2 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=3 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=4 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=5 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=6 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=7 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=8 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=9 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=10 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=11 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=12 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=13 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=14 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=15 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=16 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=17 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=18 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=19 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=20 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=21 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=22 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=23 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=24 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=25 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=26 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=27 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=28 wall=128ms seq=96402 late=526ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer
+09-13 14:28:31.521 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:31.521 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:31.560 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:31.560 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:34.710 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=24 latency=0 timeout=600 status=0
+09-13 14:28:35.280 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=24 latency=0 timeout=600 status=0
+09-13 14:28:36.401 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:36.401 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:38.865 W/RenderInspector( 6268): DequeueBuffer time out on com.noisefit/com.noisefit.MainActivity, count=1, avg=16 ms, max=16 ms.
+09-13 14:28:41.640 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=48 latency=8 timeout=600 status=0
+09-13 14:28:43.604 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:43.604 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:44.335 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:44.335 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:44.354 D/WM-SystemJobScheduler( 6268): Scheduling work ID 84db9bb1-a5f7-42f5-892d-8bdd0e0d4d99Job ID 283
+09-13 14:28:44.359 D/WM-GreedyScheduler( 6268): Starting work for 84db9bb1-a5f7-42f5-892d-8bdd0e0d4d99
+09-13 14:28:44.360 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=84db9bb1-a5f7-42f5-892d-8bdd0e0d4d99, generation=0)
+09-13 14:28:44.375 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=84db9bb1-a5f7-42f5-892d-8bdd0e0d4d99, generation=0)
+09-13 14:28:44.375 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.MasterWorker
+09-13 14:28:44.376 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=84db9bb1-a5f7-42f5-892d-8bdd0e0d4d99, generation=0) is already enqueued for processing
+09-13 14:28:44.382 D/WM-SystemJobScheduler( 6268): Scheduling work ID c8e19c3e-1920-4848-ac3e-0807fc139a88Job ID 284
+09-13 14:28:44.389 D/WM-GreedyScheduler( 6268): Starting work for c8e19c3e-1920-4848-ac3e-0807fc139a88
+09-13 14:28:44.390 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=c8e19c3e-1920-4848-ac3e-0807fc139a88, generation=0)
+09-13 14:28:44.394 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=c8e19c3e-1920-4848-ac3e-0807fc139a88, generation=0)
+09-13 14:28:44.395 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.SyncDataWork
+09-13 14:28:44.395 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=c8e19c3e-1920-4848-ac3e-0807fc139a88, generation=0) is already enqueued for processing
+09-13 14:28:44.397 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=84db9bb1-a5f7-42f5-892d-8bdd0e0d4d99, tags={ com.noisefit.receiver.workManager.MasterWorker,ManualMasterDataWork } ]
+09-13 14:28:44.412 D/WM-Processor( 6268): Processor 84db9bb1-a5f7-42f5-892d-8bdd0e0d4d99 executed; reschedule = false
+09-13 14:28:44.412 D/WM-SystemJobService( 6268): 84db9bb1-a5f7-42f5-892d-8bdd0e0d4d99 executed on JobScheduler
+09-13 14:28:44.416 D/WM-GreedyScheduler( 6268): Cancelling work ID 84db9bb1-a5f7-42f5-892d-8bdd0e0d4d99
+09-13 14:28:44.434 D/WM-SystemJobService( 6268): onStopJob for WorkGenerationalId(workSpecId=84db9bb1-a5f7-42f5-892d-8bdd0e0d4d99, generation=0)
+09-13 14:28:44.684 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:44.684 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:44.745 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:44.745 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:45.301 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:45.301 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:45.571 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:45.571 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:47.216 I/com.noisefit( 6268): Compiler allocated 4540KB to compile void com.zhapp.ble.parsing.FitnessParsing.parsingFitness(com.zh.ble.wear.protobuf.WearProtos$SEWear)
+09-13 14:28:48.782 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=c8e19c3e-1920-4848-ac3e-0807fc139a88, tags={ com.noisefit.receiver.workManager.SyncDataWork } ]
+09-13 14:28:48.783 I/WM-WorkerWrapper( 6268): Setting status to enqueued for 49a80a53-08d4-49e7-8d49-9a6cdcf1bc22
+09-13 14:28:48.792 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:48.792 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:48.800 D/WM-Processor( 6268): Processor c8e19c3e-1920-4848-ac3e-0807fc139a88 executed; reschedule = false
+09-13 14:28:48.800 D/WM-SystemJobService( 6268): c8e19c3e-1920-4848-ac3e-0807fc139a88 executed on JobScheduler
+09-13 14:28:48.803 D/WM-GreedyScheduler( 6268): Cancelling work ID c8e19c3e-1920-4848-ac3e-0807fc139a88
+09-13 14:28:48.806 D/WM-SystemJobScheduler( 6268): Scheduling work ID 49a80a53-08d4-49e7-8d49-9a6cdcf1bc22Job ID 285
+09-13 14:28:48.811 D/WM-GreedyScheduler( 6268): Starting work for 49a80a53-08d4-49e7-8d49-9a6cdcf1bc22
+09-13 14:28:48.813 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=49a80a53-08d4-49e7-8d49-9a6cdcf1bc22, generation=0)
+09-13 14:28:48.822 D/WM-SystemJobService( 6268): onStopJob for WorkGenerationalId(workSpecId=c8e19c3e-1920-4848-ac3e-0807fc139a88, generation=0)
+09-13 14:28:48.822 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=49a80a53-08d4-49e7-8d49-9a6cdcf1bc22, generation=0)
+09-13 14:28:48.825 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=49a80a53-08d4-49e7-8d49-9a6cdcf1bc22, generation=0) is already enqueued for processing
+09-13 14:28:48.837 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.ActivitySyncWork
+09-13 14:28:49.260 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=24 latency=0 timeout=600 status=0
+09-13 14:28:50.134 I/com.noisefit( 6268): NativeAlloc concurrent copying GC freed 15MB AllocSpace bytes, 85(1940KB) LOS objects, 47% free, 26MB/50MB, paused 150us,99us total 229.622ms
+09-13 14:28:51.353 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=49a80a53-08d4-49e7-8d49-9a6cdcf1bc22, tags={ com.noisefit.receiver.workManager.ActivitySyncWork } ]
+09-13 14:28:51.354 D/WM-Processor( 6268): Processor 49a80a53-08d4-49e7-8d49-9a6cdcf1bc22 executed; reschedule = false
+09-13 14:28:51.354 D/WM-SystemJobService( 6268): 49a80a53-08d4-49e7-8d49-9a6cdcf1bc22 executed on JobScheduler
+09-13 14:28:51.356 D/WM-GreedyScheduler( 6268): Cancelling work ID 49a80a53-08d4-49e7-8d49-9a6cdcf1bc22
+09-13 14:28:52.859 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=48 latency=8 timeout=600 status=0
+09-13 14:28:57.911 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:57.911 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:58.026 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:58.026 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:58.077 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:58.077 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:58.905 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:28:58.905 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:28:58.923 D/WM-SystemJobScheduler( 6268): Scheduling work ID 93fd95b2-8a84-4fe5-ae90-ad76d4a6b9f8Job ID 286
+09-13 14:28:58.936 D/WM-GreedyScheduler( 6268): Starting work for 93fd95b2-8a84-4fe5-ae90-ad76d4a6b9f8
+09-13 14:28:58.937 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=93fd95b2-8a84-4fe5-ae90-ad76d4a6b9f8, generation=0)
+09-13 14:28:58.938 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=93fd95b2-8a84-4fe5-ae90-ad76d4a6b9f8, generation=0)
+09-13 14:28:58.939 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=93fd95b2-8a84-4fe5-ae90-ad76d4a6b9f8, generation=0) is already enqueued for processing
+09-13 14:28:58.942 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.MasterWorker
+09-13 14:28:58.956 D/WM-SystemJobScheduler( 6268): Scheduling work ID fb93eb2d-0932-4f5c-834e-8001774f0049Job ID 287
+09-13 14:28:58.960 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=fb93eb2d-0932-4f5c-834e-8001774f0049, generation=0)
+09-13 14:28:58.962 D/WM-GreedyScheduler( 6268): Starting work for fb93eb2d-0932-4f5c-834e-8001774f0049
+09-13 14:28:58.963 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=fb93eb2d-0932-4f5c-834e-8001774f0049, generation=0)
+09-13 14:28:58.963 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=fb93eb2d-0932-4f5c-834e-8001774f0049, generation=0) is already enqueued for processing
+09-13 14:28:58.964 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=93fd95b2-8a84-4fe5-ae90-ad76d4a6b9f8, tags={ com.noisefit.receiver.workManager.MasterWorker,ManualMasterDataWork } ]
+09-13 14:28:58.965 D/WM-Processor( 6268): Processor 93fd95b2-8a84-4fe5-ae90-ad76d4a6b9f8 executed; reschedule = false
+09-13 14:28:58.965 D/WM-SystemJobService( 6268): 93fd95b2-8a84-4fe5-ae90-ad76d4a6b9f8 executed on JobScheduler
+09-13 14:28:58.970 D/WM-GreedyScheduler( 6268): Cancelling work ID 93fd95b2-8a84-4fe5-ae90-ad76d4a6b9f8
+09-13 14:28:58.971 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.SyncDataWork
+09-13 14:29:01.866 W/RenderInspector( 6268): DequeueBuffer time out on com.noisefit/com.noisefit.MainActivity, count=1, avg=16 ms, max=16 ms.
+09-13 14:29:02.077 D/DecorView[]( 6268): onWindowFocusChanged hasWindowFocus false
+09-13 14:29:02.515 D/FirebaseSessions( 6268): App backgrounded on com.noisefit
+09-13 14:29:02.598 W/Activity( 6268): PerfMonitor: Slow Operation: Activity com.noisefit/.MainActivity onPause took 104ms
+09-13 14:29:02.807 E/com.noisefit( 6268): hiddenapi: Accessing hidden field Landroid/view/inputmethod/InputMethodManager;->mCurRootView:Landroid/view/ViewRootImpl; (runtime_flags=0, domain=platform, api=blocked) from Lcom/blankj/utilcode/util/KeyboardUtils; (domain=app, TargetSdkVersion=36) using reflection: denied
+09-13 14:29:03.193 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=fb93eb2d-0932-4f5c-834e-8001774f0049, tags={ com.noisefit.receiver.workManager.SyncDataWork } ]
+09-13 14:29:03.195 I/WM-WorkerWrapper( 6268): Setting status to enqueued for 98b316f7-7183-4bf7-ac30-3b87d6796fe7
+09-13 14:29:03.207 D/WM-Processor( 6268): Processor fb93eb2d-0932-4f5c-834e-8001774f0049 executed; reschedule = false
+09-13 14:29:03.208 D/WM-SystemJobService( 6268): fb93eb2d-0932-4f5c-834e-8001774f0049 executed on JobScheduler
+09-13 14:29:03.226 D/WM-GreedyScheduler( 6268): Cancelling work ID fb93eb2d-0932-4f5c-834e-8001774f0049
+09-13 14:29:03.231 D/onAppBackground()( 6268): BaseData(accountMeta=AccountMeta(appId='S4HG31W6YBX0D91BTHQSQV1A'))
+09-13 14:29:03.235 D/WM-SystemJobScheduler( 6268): Scheduling work ID 98b316f7-7183-4bf7-ac30-3b87d6796fe7Job ID 288
+09-13 14:29:03.297 D/WM-GreedyScheduler( 6268): Starting work for 98b316f7-7183-4bf7-ac30-3b87d6796fe7
+09-13 14:29:03.299 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=98b316f7-7183-4bf7-ac30-3b87d6796fe7, generation=0)
+09-13 14:29:03.302 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=98b316f7-7183-4bf7-ac30-3b87d6796fe7, generation=0)
+09-13 14:29:03.308 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.ActivitySyncWork
+09-13 14:29:03.310 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=98b316f7-7183-4bf7-ac30-3b87d6796fe7, generation=0) is already enqueued for processing
+09-13 14:29:03.684 D/AppScoutStateMachine( 6268): 6268-ScoutStateMachinecreated
+09-13 14:29:03.824 D/IS_CTS_MODE( 6268): false
+09-13 14:29:03.824 D/MULTI_WINDOW_SWITCH_ENABLED( 6268): false
+09-13 14:29:03.854 D/DecorView[]( 6268): getWindowModeFromSystem  windowmode is 1
+09-13 14:29:04.070 D/FirebaseSessions( 6268): App foregrounded on com.noisefit
+09-13 14:29:04.128 W/Looper  ( 6268): PerfMonitor looperActivity : package=com.noisefit/.DefaultLauncher time=0ms latency=476ms running=0ms  procState=-1  historyMsgCount=3 (msgIndex=2 wall=475ms seq=98897 late=1ms h=android.app.ActivityThread$H w=159)
+09-13 14:29:04.212 D/ fcm token:( 6268): eqRjoXl1RliGqfVuv6OeSh:APA91bHlttDJIzyqs-3Zd4FuUcVE9Xeeh7gJAJ0tDAY-Vhu1Z2GEnkiHRE82HU8AIV4rM4ylvEcZ9sqjQvwAUt9u-D1Rn6w9i1Tl2FecrYc_AWa2eU-4qtM
+09-13 14:29:04.244 D/DecorView[]( 6268): onWindowFocusChanged hasWindowFocus true
+09-13 14:29:05.282 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=24 latency=0 timeout=600 status=0
+09-13 14:29:05.582 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=24 latency=0 timeout=600 status=0
+09-13 14:29:05.649 D/WM-SystemJobScheduler( 6268): Scheduling work ID 5a1696ff-71b7-4da0-8c9b-5de3c5d0e504Job ID 289
+09-13 14:29:05.666 D/FirebaseSessions( 6268): App backgrounded on com.noisefit
+09-13 14:29:05.675 D/WM-GreedyScheduler( 6268): Starting work for 5a1696ff-71b7-4da0-8c9b-5de3c5d0e504
+09-13 14:29:05.677 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=5a1696ff-71b7-4da0-8c9b-5de3c5d0e504, generation=0)
+09-13 14:29:05.696 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=5a1696ff-71b7-4da0-8c9b-5de3c5d0e504, generation=0)
+09-13 14:29:05.698 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=5a1696ff-71b7-4da0-8c9b-5de3c5d0e504, generation=0) is already enqueued for processing
+09-13 14:29:05.919 D/IS_CTS_MODE( 6268): false
+09-13 14:29:05.919 D/MULTI_WINDOW_SWITCH_ENABLED( 6268): false
+09-13 14:29:05.920 D/DecorView[]( 6268): getWindowModeFromSystem  windowmode is 1
+09-13 14:29:05.984 E/FA      ( 6268): Name must consist of letters, digits or _ (underscores). Type, name: event param, paired_watchname,
+09-13 14:29:06.017 W/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A Core_DataTrackingHandler trackUpdate() : Update already tracked for this version. Will not track again
+09-13 14:29:06.017 D/FirebaseSessions( 6268): App foregrounded on com.noisefit
+09-13 14:29:06.024 E/MoEngage( 6268): S4HG31W6YBX0D91BTHQSQV1A InApp_8.2.0_ViewBuilder showGeneralInApp() : No suitable campaign found
+09-13 14:29:06.031 D/DecorView[]( 6268): getWindowModeFromSystem  windowmode is 1
+09-13 14:29:06.031 D/DecorView[]( 6268): updateDecorCaptionStatus displayWindowDecor is false
+09-13 14:29:06.190 W/Looper  ( 6268): PerfMonitor looperActivity : package=com.noisefit/.MainActivity time=0ms latency=508ms running=0ms  procState=-1  historyMsgCount=7 (msgIndex=5 wall=339ms seq=98945 h=android.app.ActivityThread$H w=159) (msgIndex=6 wall=153ms seq=98946 h=android.view.Choreographer$FrameHandler w=0)
+09-13 14:29:06.191 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.RescueServiceInBgWorker
+09-13 14:29:06.239 I/aidlServiceConnection( 6268): onServiceConnected
+09-13 14:29:06.242 D/DecorView[]( 6268): onWindowFocusChanged hasWindowFocus false
+09-13 14:29:06.342 D/DecorView[]( 6268): onWindowFocusChanged hasWindowFocus true
+09-13 14:29:06.398 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=5a1696ff-71b7-4da0-8c9b-5de3c5d0e504, tags={ com.noisefit.receiver.workManager.RescueServiceInBgWorker,RescueServiceInBgWorker } ]
+09-13 14:29:06.421 D/WM-Processor( 6268): Processor 5a1696ff-71b7-4da0-8c9b-5de3c5d0e504 executed; reschedule = false
+09-13 14:29:06.421 D/WM-SystemJobService( 6268): 5a1696ff-71b7-4da0-8c9b-5de3c5d0e504 executed on JobScheduler
+09-13 14:29:06.447 D/WM-GreedyScheduler( 6268): Cancelling work ID 5a1696ff-71b7-4da0-8c9b-5de3c5d0e504
+09-13 14:29:06.484 I/com.noisefit( 6268): Background young concurrent copying GC freed 16MB AllocSpace bytes, 124(3504KB) LOS objects, 36% free, 32MB/50MB, paused 1.599ms,209us total 363.208ms
+09-13 14:29:06.562 W/BpBinder( 6268): Slow Binder: BpBinder transact took 293 ms, interface=com.android.vending.billing.IInAppBillingService, code=1 oneway=false
+09-13 14:29:06.804 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:06.804 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:07.030 W/Looper  ( 6268): PerfMonitor doFrame : time=379ms vsyncFrame=0 latency=1ms procState=-1
+09-13 14:29:07.032 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=98b316f7-7183-4bf7-ac30-3b87d6796fe7, tags={ com.noisefit.receiver.workManager.ActivitySyncWork } ]
+09-13 14:29:07.078 E/com.noisefit( 6268): hiddenapi: Accessing hidden field Landroid/view/inputmethod/InputMethodManager;->mCurRootView:Landroid/view/ViewRootImpl; (runtime_flags=0, domain=platform, api=blocked) from Lcom/blankj/utilcode/util/KeyboardUtils; (domain=app, TargetSdkVersion=36) using reflection: denied
+09-13 14:29:07.095 D/WM-Processor( 6268): Processor 98b316f7-7183-4bf7-ac30-3b87d6796fe7 executed; reschedule = false
+09-13 14:29:07.096 D/WM-SystemJobService( 6268): 98b316f7-7183-4bf7-ac30-3b87d6796fe7 executed on JobScheduler
+09-13 14:29:07.112 D/WM-GreedyScheduler( 6268): Cancelling work ID 98b316f7-7183-4bf7-ac30-3b87d6796fe7
+09-13 14:29:08.222 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:08.222 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:10.562 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=48 latency=8 timeout=600 status=0
+09-13 14:29:10.950 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:10.950 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:11.117 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:11.117 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:11.192 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:11.192 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:11.367 I/com.noisefit( 6268): Background concurrent copying GC freed 14MB AllocSpace bytes, 27(604KB) LOS objects, 43% free, 31MB/55MB, paused 414us,195us total 332.786ms
+09-13 14:29:14.924 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=24 latency=0 timeout=600 status=0
+09-13 14:29:15.939 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:15.939 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:19.560 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=48 latency=8 timeout=600 status=0
+09-13 14:29:26.661 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:26.661 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:26.683 D/WM-SystemJobScheduler( 6268): Scheduling work ID 166164a7-f2ce-446d-ae0c-8ad13eb88dacJob ID 290
+09-13 14:29:26.693 D/WM-GreedyScheduler( 6268): Starting work for 166164a7-f2ce-446d-ae0c-8ad13eb88dac
+09-13 14:29:26.695 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=166164a7-f2ce-446d-ae0c-8ad13eb88dac, generation=0)
+09-13 14:29:26.701 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=166164a7-f2ce-446d-ae0c-8ad13eb88dac, generation=0)
+09-13 14:29:26.703 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.MasterWorker
+09-13 14:29:26.705 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=166164a7-f2ce-446d-ae0c-8ad13eb88dac, generation=0) is already enqueued for processing
+09-13 14:29:26.716 D/WM-SystemJobScheduler( 6268): Scheduling work ID d319a5cc-298c-4941-94c7-3436b6e26cbbJob ID 291
+09-13 14:29:26.720 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=d319a5cc-298c-4941-94c7-3436b6e26cbb, generation=0)
+09-13 14:29:26.722 D/WM-GreedyScheduler( 6268): Starting work for d319a5cc-298c-4941-94c7-3436b6e26cbb
+09-13 14:29:26.725 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=d319a5cc-298c-4941-94c7-3436b6e26cbb, generation=0)
+09-13 14:29:26.727 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=d319a5cc-298c-4941-94c7-3436b6e26cbb, generation=0) is already enqueued for processing
+09-13 14:29:26.734 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.SyncDataWork
+09-13 14:29:26.735 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=166164a7-f2ce-446d-ae0c-8ad13eb88dac, tags={ com.noisefit.receiver.workManager.MasterWorker,ManualMasterDataWork } ]
+09-13 14:29:26.737 D/WM-Processor( 6268): Processor 166164a7-f2ce-446d-ae0c-8ad13eb88dac executed; reschedule = false
+09-13 14:29:26.737 D/WM-SystemJobService( 6268): 166164a7-f2ce-446d-ae0c-8ad13eb88dac executed on JobScheduler
+09-13 14:29:26.742 D/WM-GreedyScheduler( 6268): Cancelling work ID 166164a7-f2ce-446d-ae0c-8ad13eb88dac
+09-13 14:29:30.664 W/Looper  ( 6268): PerfMonitor doFrame : time=4ms vsyncFrame=0 latency=321ms procState=-1 historyMsgCount=1
+09-13 14:29:30.839 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=24 latency=0 timeout=600 status=0
+09-13 14:29:31.033 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=d319a5cc-298c-4941-94c7-3436b6e26cbb, tags={ com.noisefit.receiver.workManager.SyncDataWork } ]
+09-13 14:29:31.036 I/WM-WorkerWrapper( 6268): Setting status to enqueued for c902de91-1531-481d-aeb6-dc43a795fa11
+09-13 14:29:31.046 D/WM-Processor( 6268): Processor d319a5cc-298c-4941-94c7-3436b6e26cbb executed; reschedule = false
+09-13 14:29:31.046 D/WM-SystemJobService( 6268): d319a5cc-298c-4941-94c7-3436b6e26cbb executed on JobScheduler
+09-13 14:29:31.053 D/WM-GreedyScheduler( 6268): Cancelling work ID d319a5cc-298c-4941-94c7-3436b6e26cbb
+09-13 14:29:31.061 D/WM-SystemJobScheduler( 6268): Scheduling work ID c902de91-1531-481d-aeb6-dc43a795fa11Job ID 292
+09-13 14:29:31.064 D/WM-SystemJobService( 6268): onStopJob for WorkGenerationalId(workSpecId=d319a5cc-298c-4941-94c7-3436b6e26cbb, generation=0)
+09-13 14:29:31.083 D/WM-GreedyScheduler( 6268): Starting work for c902de91-1531-481d-aeb6-dc43a795fa11
+09-13 14:29:31.084 D/WM-Processor( 6268): Processor: processing WorkGenerationalId(workSpecId=c902de91-1531-481d-aeb6-dc43a795fa11, generation=0)
+09-13 14:29:31.085 D/WM-SystemJobService( 6268): onStartJob for WorkGenerationalId(workSpecId=c902de91-1531-481d-aeb6-dc43a795fa11, generation=0)
+09-13 14:29:31.088 D/WM-WorkerWrapper( 6268): Starting work for com.noisefit.receiver.workManager.ActivitySyncWork
+09-13 14:29:31.089 D/WM-Processor( 6268): Work WorkGenerationalId(workSpecId=c902de91-1531-481d-aeb6-dc43a795fa11, generation=0) is already enqueued for processing
+09-13 14:29:32.407 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:32.407 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:32.538 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:32.538 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:32.586 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:32.586 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:33.402 I/WM-WorkerWrapper( 6268): Worker result SUCCESS for Work [ id=c902de91-1531-481d-aeb6-dc43a795fa11, tags={ com.noisefit.receiver.workManager.ActivitySyncWork } ]
+09-13 14:29:33.405 D/WM-Processor( 6268): Processor c902de91-1531-481d-aeb6-dc43a795fa11 executed; reschedule = false
+09-13 14:29:33.405 D/WM-SystemJobService( 6268): c902de91-1531-481d-aeb6-dc43a795fa11 executed on JobScheduler
+09-13 14:29:33.409 D/WM-GreedyScheduler( 6268): Cancelling work ID c902de91-1531-481d-aeb6-dc43a795fa11
+09-13 14:29:33.960 I/com.noisefit( 6268): NativeAlloc concurrent copying GC freed 28MB AllocSpace bytes, 92(2032KB) LOS objects, 50% free, 21MB/43MB, paused 183us,231us total 217.864ms
+09-13 14:29:35.110 I/Choreographer( 6268): Skipped 32 frames!  The application may be doing too much work on its main thread.
+09-13 14:29:35.122 W/com.noisefit( 6268): Missing inline cache for void androidx.navigation.internal.NavControllerImpl.R1()
+09-13 14:29:35.123 W/com.noisefit( 6268): Missing inline cache for void androidx.navigation.internal.NavControllerImpl.R1()
+09-13 14:29:35.123 W/com.noisefit( 6268): Missing inline cache for void androidx.navigation.internal.NavControllerImpl.R1()
+09-13 14:29:35.134 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:35.134 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:35.248 W/Looper  ( 6268): PerfMonitor doFrame : time=138ms vsyncFrame=0 latency=537ms procState=-1 historyMsgCount=6 (msgIndex=1 wall=138ms seq=101677 late=537ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=2 wall=138ms seq=101677 late=537ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=3 wall=138ms seq=101677 late=537ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=4 wall=138ms seq=101677 late=537ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+09-13 14:29:35.255 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:35.255 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:35.289 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:35.289 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:35.300 I/OpenGLRenderer( 6268): Davey! duration=715ms; Flags=0, FrameTimelineVsyncId=1756126, IntendedVsync=32207247511595, Vsync=32207780844907, InputEventId=916167217, HandleInputStart=32207784703389, AnimationStart=32207784705785, PerformTraversalsStart=32207784759431, DrawStart=32207916445524, FrameDeadline=32207280844927, FrameInterval=32207784582504, FrameStartTime=16666666, SyncQueued=32207921491514, SyncStart=32207921564639, IssueDrawCommandsStart=32207922285368, SwapBuffers=32207950868858, FrameCompleted=32207963265733, DequeueBufferDuration=26666, QueueBufferDuration=705365, GpuCompleted=32207963265733, SwapBuffersCompleted=32207952445524, DisplayPresentTime=32204929401515, 
+09-13 14:29:37.407 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:37.407 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:37.524 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:37.524 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:37.567 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:37.567 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:41.518 D/BluetoothGatt( 6268): onConnectionUpdated() - Device=04:CA:8F:3C:8F:E9 interval=48 latency=8 timeout=600 status=0
+09-13 14:29:42.395 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:42.395 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:44.391 I/com.noisefit( 6268): NativeAlloc concurrent copying GC freed 14MB AllocSpace bytes, 46(984KB) LOS objects, 49% free, 24MB/48MB, paused 173us,102us total 223.579ms
+09-13 14:29:48.266 I/TRuntime.CctTransportBackend( 6268): Making request to: https://firebaselogging-pa.googleapis.com/v1/firelog/legacy/batchlog
+09-13 14:29:48.858 I/TRuntime.CctTransportBackend( 6268): Status Code: 200
+09-13 14:29:48.874 I/TRuntime.CctTransportBackend( 6268): Making request to: https://firebaselogging.googleapis.com/v0cc/log/batch?format=json_proto3
+09-13 14:29:49.091 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:49.091 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:49.132 I/TRuntime.CctTransportBackend( 6268): Status Code: 200
+09-13 14:29:49.204 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:49.204 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
+09-13 14:29:49.242 W/Glide   ( 6268): Load failed for [null] with dimensions [0x0]
+09-13 14:29:49.242 W/Glide   ( 6268): class com.bumptech.glide.load.engine.GlideException: Received null model
