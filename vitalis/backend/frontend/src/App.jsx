@@ -20,6 +20,24 @@ const menu = [
     { title: "SYSTEM", items: ["Device", "Settings"] }
 ];
 
+const VOICE_LANGUAGES = [
+    ["en-IN", "English (India)"], ["hi-IN", "हिन्दी"], ["bn-IN", "বাংলা"],
+    ["te-IN", "తెలుగు"], ["mr-IN", "मराठी"], ["ta-IN", "தமிழ்"],
+    ["gu-IN", "ગુજરાતી"], ["kn-IN", "ಕನ್ನಡ"], ["ml-IN", "മലയാളം"],
+    ["pa-IN", "ਪੰਜਾਬੀ"], ["ur-IN", "اردو"], ["or-IN", "ଓଡ଼ିଆ"],
+    ["as-IN", "অসমীয়া"], ["ne-NP", "नेपाली"], ["sa-IN", "संस्कृतम्"],
+    ["ar-SA", "العربية"], ["zh-CN", "中文"], ["fr-FR", "Français"],
+    ["de-DE", "Deutsch"], ["es-ES", "Español"], ["pt-BR", "Português"],
+    ["ru-RU", "Русский"], ["ja-JP", "日本語"], ["ko-KR", "한국어"],
+    ["id-ID", "Bahasa Indonesia"], ["it-IT", "Italiano"], ["nl-NL", "Nederlands"],
+    ["tr-TR", "Türkçe"], ["pl-PL", "Polski"], ["sv-SE", "Svenska"],
+    ["da-DK", "Dansk"], ["no-NO", "Norsk"], ["fi-FI", "Suomi"],
+    ["cs-CZ", "Čeština"], ["el-GR", "Ελληνικά"], ["he-IL", "עברית"],
+    ["th-TH", "ไทย"], ["vi-VN", "Tiếng Việt"], ["fil-PH", "Filipino"],
+    ["ms-MY", "Bahasa Melayu"], ["uk-UA", "Українська"], ["ro-RO", "Română"],
+    ["hu-HU", "Magyar"], ["sw-KE", "Kiswahili"], ["af-ZA", "Afrikaans"]
+];
+
 function App() {
     const [user, setUser] = useState(null);
     const [authLoading, setAuthLoading] = useState(true);
@@ -212,36 +230,6 @@ function AuthScreen({ onLogin }) {
     );
 }
 
-function getRiskReasons(health, environment, score, projectedScore = score) {
-    const reasons = [];
-    const heartRate = Number(health?.heartRate || 0);
-    const spo2 = Number(health?.spo2 || 0);
-    const activity = String(health?.activity || "").toLowerCase();
-    const bodyTemperature = Number(health?.bodyTemperature || 0);
-    const temperature = Number(environment?.ambientTemperature ?? environment?.temperature ?? 0);
-    const humidity = Number(environment?.humidity || 0);
-    const aqi = Number(environment?.aqi || 0);
-    const pm25 = Number(environment?.pm25 || 0);
-
-    if (heartRate >= 120) reasons.push(`Heart rate is elevated at ${Math.round(heartRate)} BPM.`);
-    else if (heartRate >= 105 && activity.includes("high")) reasons.push(`Heart rate is elevated during high activity at ${Math.round(heartRate)} BPM.`);
-    if (spo2 > 0 && spo2 <= 92) reasons.push(`SpO₂ is low at ${Math.round(spo2)}%.`);
-    else if (spo2 > 0 && spo2 <= 94) reasons.push(`SpO₂ is below the preferred range at ${Math.round(spo2)}%.`);
-    if (bodyTemperature >= 38) reasons.push(`Body temperature is elevated at ${bodyTemperature.toFixed(1)} °C.`);
-    if (temperature >= 40) reasons.push(`Ambient temperature is extreme at ${temperature.toFixed(1)} °C.`);
-    else if (temperature >= 35) reasons.push(`Ambient temperature is high at ${temperature.toFixed(1)} °C.`);
-    if (humidity >= 85 && temperature >= 30) reasons.push(`High humidity (${Math.round(humidity)}%) may increase heat stress.`);
-    if (aqi >= 200) reasons.push(`AQI is very high at ${Math.round(aqi)}.`);
-    else if (aqi >= 150) reasons.push(`AQI is high at ${Math.round(aqi)}.`);
-    if (pm25 >= 55) reasons.push(`PM2.5 exposure is elevated at ${pm25.toFixed(1)} μg/m³.`);
-    if (projectedScore > score + 2) reasons.push(`The AI risk trend is rising and projects a higher risk score within the next 5 minutes.`);
-    if (!reasons.length && score >= 40) reasons.push(`Multiple health and environmental signals are contributing to the combined AI risk score.`);
-    if (!reasons.length) reasons.push(`No single threshold dominates; the AI is combining the available health and environmental signals.`);
-
-    return reasons;
-}
-
-
 function DashboardApp({ user, onLogout }) {
     const [page, setPage] = useState("Dashboard");
     const [health, setHealth] = useState(null);
@@ -340,13 +328,40 @@ function DashboardApp({ user, onLogout }) {
         }
     }, []);
 
-    function speak(message, force = false) {
+    async function speak(message, force = false, language = voiceLanguage) {
         if (!force && !voiceMode) return;
         if (!("speechSynthesis" in window)) return;
 
-        const utterance = new SpeechSynthesisUtterance(message);
-        utterance.lang = "en-IN";
-        utterance.rate = 0.92;
+        const targetLanguage = language || voiceLanguage || "en-IN";
+        const targetCode = targetLanguage.split("-")[0];
+        let spokenMessage = message;
+
+        if (targetCode !== "en") {
+            try {
+                const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${encodeURIComponent(targetCode)}&dt=t&q=${encodeURIComponent(message)}`;
+                const response = await fetch(url);
+                if (response.ok) {
+                    const data = await response.json();
+                    const translated = Array.isArray(data?.[0])
+                        ? data[0].map((part) => part?.[0] || "").join("").trim()
+                        : "";
+                    if (translated) spokenMessage = translated;
+                }
+            } catch (error) {
+                console.warn("VITALIS translation fallback:", error);
+            }
+        }
+
+        const voices = window.speechSynthesis.getVoices();
+        const exactVoice = voices.find((voice) => voice.lang?.toLowerCase() === targetLanguage.toLowerCase());
+        const regionalVoice = voices.find((voice) => voice.lang?.toLowerCase().startsWith(`${targetCode}-`));
+        const baseVoice = voices.find((voice) => voice.lang?.toLowerCase() === targetCode);
+        const selectedVoice = exactVoice || regionalVoice || baseVoice;
+
+        const utterance = new SpeechSynthesisUtterance(spokenMessage);
+        utterance.lang = selectedVoice?.lang || targetLanguage;
+        utterance.voice = selectedVoice || null;
+        utterance.rate = 0.90;
         utterance.pitch = 1;
         utterance.volume = 1;
 
@@ -567,7 +582,34 @@ function DashboardApp({ user, onLogout }) {
             )
         );
     }
+    function getRiskReasons(health, environment, score, projectedScore = score) {
+        const reasons = [];
+        const heartRate = Number(health?.heartRate || 0);
+        const spo2 = Number(health?.spo2 || 0);
+        const activity = String(health?.activity || "").toLowerCase();
+        const bodyTemperature = Number(health?.bodyTemperature || 0);
+        const temperature = Number(environment?.ambientTemperature ?? environment?.temperature ?? 0);
+        const humidity = Number(environment?.humidity || 0);
+        const aqi = Number(environment?.aqi || 0);
+        const pm25 = Number(environment?.pm25 || 0);
 
+        if (heartRate >= 120) reasons.push(`Heart rate is elevated at ${Math.round(heartRate)} BPM.`);
+        else if (heartRate >= 105 && activity.includes("high")) reasons.push(`Heart rate is elevated during high activity at ${Math.round(heartRate)} BPM.`);
+        if (spo2 > 0 && spo2 <= 92) reasons.push(`SpO₂ is low at ${Math.round(spo2)}%.`);
+        else if (spo2 > 0 && spo2 <= 94) reasons.push(`SpO₂ is below the preferred range at ${Math.round(spo2)}%.`);
+        if (bodyTemperature >= 38) reasons.push(`Body temperature is elevated at ${bodyTemperature.toFixed(1)} °C.`);
+        if (temperature >= 40) reasons.push(`Ambient temperature is extreme at ${temperature.toFixed(1)} °C.`);
+        else if (temperature >= 35) reasons.push(`Ambient temperature is high at ${temperature.toFixed(1)} °C.`);
+        if (humidity >= 85 && temperature >= 30) reasons.push(`High humidity (${Math.round(humidity)}%) may increase heat stress.`);
+        if (aqi >= 200) reasons.push(`AQI is very high at ${Math.round(aqi)}.`);
+        else if (aqi >= 150) reasons.push(`AQI is high at ${Math.round(aqi)}.`);
+        if (pm25 >= 55) reasons.push(`PM2.5 exposure is elevated at ${pm25.toFixed(1)} μg/m³.`);
+        if (projectedScore > score + 2) reasons.push(`The AI risk trend is rising and projects a higher risk score within the next 5 minutes.`);
+        if (!reasons.length && score >= 40) reasons.push(`Multiple health and environmental signals are contributing to the combined AI risk score.`);
+        if (!reasons.length) reasons.push(`No single threshold dominates; the AI is combining the available health and environmental signals.`);
+
+        return reasons;
+    }
 
     function getImmediateAdvice(health, environment, score) {
         const heartRate = Number(health?.heartRate || 0);
@@ -1606,6 +1648,7 @@ function SafetyMap({ speak }) {
     const [loading, setLoading] = useState(true);
     const [voiceListening, setVoiceListening] = useState(false);
     const [error, setError] = useState("");
+    const [voiceLanguage, setVoiceLanguage] = useState(localStorage.getItem("vitalis_voice_language") || "en-IN");
 
     useEffect(() => {
         if (!navigator.geolocation) {
@@ -1731,7 +1774,15 @@ function SafetyMap({ speak }) {
                             emergencyPhone: tags['emergency_phone'] || tags['emergency:phone'] || tags['contact:emergency_phone'] || "",
                             ambulancePhone: tags.ambulance || tags['contact:ambulance'] || "",
                             operator: tags.operator || "",
-                            website: tags.website || tags['contact:website'] || ""
+                            website: tags.website || tags['contact:website'] || "",
+                            distanceKm: (() => {
+                                const R = 6371;
+                                const dLat = (lat - location.lat) * Math.PI / 180;
+                                const dLng = (lng - location.lng) * Math.PI / 180;
+                                const a = Math.sin(dLat / 2) ** 2 +
+                                    Math.cos(location.lat * Math.PI / 180) * Math.cos(lat * Math.PI / 180) * Math.sin(dLng / 2) ** 2;
+                                return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                            })()
                         };
                     })
                     .filter(Boolean)
@@ -1743,9 +1794,7 @@ function SafetyMap({ speak }) {
                         ) === index
                     )
                     .sort((a, b) => {
-                        const da = Math.hypot(a.lat - location.lat, a.lng - location.lng);
-                        const db = Math.hypot(b.lat - location.lat, b.lng - location.lng);
-                        return da - db;
+                        return a.distanceKm - b.distanceKm;
                     });
 
                 setPlaces(mapped);
@@ -1760,6 +1809,33 @@ function SafetyMap({ speak }) {
         loadPlaces();
     }, [location]);
 
+    function formatDistance(distanceKm) {
+        if (distanceKm == null || Number.isNaN(Number(distanceKm))) return "distance unavailable";
+        const value = Number(distanceKm);
+        if (value < 1) return `${Math.round(value * 1000)} meters`;
+        return `${value.toFixed(1)} kilometers`;
+    }
+
+    function announceNearbyPlaces() {
+        if (!visiblePlaces.length) {
+            speak("No nearby hospitals or safe places were found in the current search area.", true, voiceLanguage);
+            return;
+        }
+
+        const hospitals = visiblePlaces.filter((place) => place.type === "hospital").slice(0, 5);
+        const safePlaces = visiblePlaces.filter((place) => place.type === "safe").slice(0, 5);
+        const parts = [];
+
+        if (hospitals.length) {
+            parts.push("Nearby hospitals are: " + hospitals.map((place, index) => `${index + 1}. ${place.name}, ${formatDistance(place.distanceKm)} away`).join(". "));
+        }
+        if (safePlaces.length) {
+            parts.push("Nearby safe places are: " + safePlaces.map((place, index) => `${index + 1}. ${place.name}, ${formatDistance(place.distanceKm)} away`).join(". "));
+        }
+
+        speak(parts.join(". "), true, voiceLanguage);
+    }
+
     function startVoiceSearch() {
         const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -1769,19 +1845,19 @@ function SafetyMap({ speak }) {
         }
 
         const recognition = new Recognition();
-        recognition.lang = "en-IN";
+        recognition.lang = voiceLanguage;
         recognition.interimResults = false;
         recognition.maxAlternatives = 1;
 
         setVoiceListening(true);
-        speak("Tell me what you need. You can say hospital, safe place, or safety map.", true);
+        speak("Tell me what you need. You can say hospital, safe place, or safety map.", true, voiceLanguage);
 
         recognition.onresult = (event) => {
             const command = event.results[0][0].transcript.toLowerCase();
 
             if (command.includes("hospital") || command.includes("medical")) {
                 setFilter("hospital");
-                speak("Showing nearby hospitals.", true);
+                speak("Showing nearby hospitals.", true, voiceLanguage);
             } else if (
                 command.includes("safe place") ||
                 command.includes("safe zone") ||
@@ -1789,17 +1865,17 @@ function SafetyMap({ speak }) {
                 command.includes("assembly")
             ) {
                 setFilter("safe");
-                speak("Showing nearby safe places and shelters.", true);
+                speak("Showing nearby safe places and shelters.", true, voiceLanguage);
             } else if (command.includes("safety map") || command.includes("map")) {
                 setFilter("all");
-                speak("Showing the safety map.", true);
+                speak("Showing the safety map.", true, voiceLanguage);
             } else {
-                speak("I could not understand that. Try saying hospital or safe place.", true);
+                speak("I could not understand that. Try saying hospital or safe place.", true, voiceLanguage);
             }
         };
 
         recognition.onerror = () => {
-            speak("Voice search could not be completed. Please try again.", true);
+            speak("Voice search could not be completed. Please try again.", true, voiceLanguage);
         };
 
         recognition.onend = () => setVoiceListening(false);
@@ -1886,6 +1962,25 @@ function SafetyMap({ speak }) {
                 <button className="voice-map-button" onClick={startVoiceSearch}>
                     {voiceListening ? "LISTENING..." : "VOICE SEARCH"}
                 </button>
+                <button className="voice-map-button announce" onClick={announceNearbyPlaces}>
+                    READ NEARBY DISTANCES
+                </button>
+                <label className="voice-language-control">
+                    <span>VOICE LANGUAGE</span>
+                    <select
+                        value={voiceLanguage}
+                        onChange={(event) => {
+                            const next = event.target.value;
+                            setVoiceLanguage(next);
+                            localStorage.setItem("vitalis_voice_language", next);
+                            speak("Voice language updated.", true, next);
+                        }}
+                    >
+                        {VOICE_LANGUAGES.map(([code, label]) => (
+                            <option value={code} key={code}>{label}</option>
+                        ))}
+                    </select>
+                </label>
             </div>
 
             {error && <div className="safety-inline-warning">{error}</div>}
@@ -1936,6 +2031,7 @@ function SafetyMap({ speak }) {
                                 <Popup>
                                     <div className="map-popup-title">{place.name}</div>
                                     <div className="map-popup-type">{place.type === "hospital" ? "HOSPITAL" : "SHELTER / SAFE PLACE"}</div>
+                                    <div className="map-popup-distance">{formatDistance(place.distanceKm)} away</div>
                                     <div className="map-popup-address">{place.address}</div>
                                     {place.operator && <div className="map-popup-meta">Operator: {place.operator}</div>}
                                     {place.type === "hospital" && (place.emergencyPhone || place.phone) && (
@@ -1994,6 +2090,7 @@ function SafetyMap({ speak }) {
                             <div className="place-info">
                                 <strong className="place-name">{place.name}</strong>
                                 <span>{place.type === "hospital" ? "Hospital" : "Shelter / Safe Place"}</span>
+                                <strong className="place-distance">{formatDistance(place.distanceKm)} away</strong>
                                 <small>{place.address}</small>
                                 {place.operator && <small>Operator: {place.operator}</small>}
                                 {place.type === "hospital" && place.emergencyPhone && <small className="place-phone">Emergency: {place.emergencyPhone}</small>}

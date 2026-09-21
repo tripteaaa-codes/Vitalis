@@ -1,153 +1,126 @@
-// const axios = require("axios");
-
-// const API_URL = "http://localhost:5000/api/health/readings";
-
-// const USER_ID = "e133e0f7-5f25-4c71-a012-59ddd3cc3309";
-
-// let scenario = "NORMAL";
-// let step = 0;
-
-// function generateReading() {
-//     step++;
-
-//     let heartRate;
-//     let spo2;
-//     let bodyTemperature;
-//     let activity;
-
-//     if (scenario === "NORMAL") {
-//         heartRate = 70 + Math.random() * 15;
-//         spo2 = 97 + Math.random() * 2;
-//         bodyTemperature = 36.5 + Math.random() * 0.5;
-//         activity = 20 + Math.random() * 30;
-//     }
-
-//     else if (scenario === "HEATWAVE") {
-//         heartRate = 80 + step * 7 + Math.random() * 5;
-//         spo2 = 98 - step * 0.4;
-//         bodyTemperature = 36.8 + step * 0.35;
-//         activity = 40 + step * 5;
-//     }
-
-//     else if (scenario === "RECOVERY") {
-//         heartRate = Math.max(72, 115 - step * 6);
-//         spo2 = Math.min(99, 94 + step * 0.8);
-//         bodyTemperature = Math.max(36.6, 38.5 - step * 0.3);
-//         activity = Math.max(20, 70 - step * 5);
-//     }
-
-//     return {
-//         userId: USER_ID,
-//         heartRate: Number(heartRate.toFixed(1)),
-//         spo2: Number(spo2.toFixed(1)),
-//         bodyTemperature: Number(bodyTemperature.toFixed(1)),
-//         activity: Number(activity.toFixed(1))
-//     };
-// }
-
-// async function sendReading() {
-//     const reading = generateReading();
-
-//     console.log("Sending:", reading);
-
-//     try {
-//         const response = await axios.post(
-//             API_URL,
-//             reading,
-//             {
-//                 headers: {
-//                     "Content-Type": "application/json"
-//                 }
-//             }
-//         );
-
-//         console.log(
-//             `[${scenario}]`,
-//             `HR: ${reading.heartRate}`,
-//             `| SpO2: ${reading.spo2}`,
-//             `| Temp: ${reading.bodyTemperature}`,
-//             `| Activity: ${reading.activity}`
-//         );
-
-//     } catch (error) {
-//         console.error(
-//             "Failed to send reading:",
-//             error.response?.data || error.message
-//         );
-//     }
-// }
-
-// console.log("VITALIS Health Sensor Simulator");
-// console.log("Scenario:", scenario);
-// console.log("User:", USER_ID);
-// console.log("-----------------------------------");
-
-// sendReading();
-
-// setInterval(sendReading, 3000);
-
 const axios = require("axios");
 
-const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = process.env.VITALIS_API_URL || "http://localhost:5000/api";
+const EMAIL = process.env.VITALIS_EMAIL || "test@vitalis.com";
+const PASSWORD = process.env.VITALIS_PASSWORD || "vitalis123";
+const INTERVAL_MS = 3000;
 
-const email = "test@vitalis.com";
-const password = "vitalis123";
+const scenarios = {
+    GOOD: {
+        heartRate: [68, 80], spo2: [97, 99], bodyTemperature: [36.4, 37.0], activity: [45, 75]
+    },
+    MODERATE: {
+        heartRate: [82, 94], spo2: [95, 97], bodyTemperature: [37.0, 37.4], activity: [30, 60]
+    },
+    ELEVATED: {
+        heartRate: [96, 110], spo2: [91, 94], bodyTemperature: [37.5, 38.0], activity: [15, 45]
+    },
+    HIGH_RISK: {
+        heartRate: [116, 130], spo2: [87, 91], bodyTemperature: [38.1, 39.0], activity: [5, 25]
+    },
+    EARLY_WARNING: {
+        heartRate: [0, 0], spo2: [0, 0], bodyTemperature: [0, 0], activity: [0, 0]
+    }
+};
+
+const selectedScenario = (process.env.SCENARIO || "GOOD").toUpperCase();
+
+if (selectedScenario !== "CYCLE" && !scenarios[selectedScenario]) {
+    throw new Error(`Unknown SCENARIO: ${selectedScenario}. Use GOOD, MODERATE, ELEVATED, HIGH_RISK, EARLY_WARNING, or CYCLE.`);
+}
 
 let token = null;
+let scenarioIndex = 0;
+let readingsInScenario = 0;
+let earlyWarningStep = 0;
+const scenarioNames = ["GOOD", "MODERATE", "ELEVATED", "HIGH_RISK"];
+
+function random(min, max) {
+    return Math.round((Math.random() * (max - min) + min) * 10) / 10;
+}
+
+function activeScenarioName() {
+    return selectedScenario === "CYCLE"
+        ? scenarioNames[scenarioIndex]
+        : selectedScenario;
+}
+
+function generateReading() {
+    const scenarioName = activeScenarioName();
+
+    // Each reading worsens slightly. The dashboard's existing trend logic
+    // projects that slope forward five minutes for the jury demonstration.
+    if (scenarioName === "EARLY_WARNING") {
+        earlyWarningStep = Math.min(earlyWarningStep + 1, 12);
+
+        return {
+            scenarioName,
+            heartRate: 76 + earlyWarningStep * 3,
+            spo2: Number(Math.max(92, 98 - earlyWarningStep * 0.45).toFixed(1)),
+            bodyTemperature: Number(Math.min(38.3, 36.6 + earlyWarningStep * 0.14).toFixed(1)),
+            activity: Math.max(20, 62 - earlyWarningStep * 3)
+        };
+    }
+
+    const range = scenarios[scenarioName];
+
+    return {
+        scenarioName,
+        heartRate: random(...range.heartRate),
+        spo2: random(...range.spo2),
+        bodyTemperature: random(...range.bodyTemperature),
+        activity: random(...range.activity)
+    };
+}
 
 async function login() {
     const response = await axios.post(`${BASE_URL}/users/login`, {
-        email,
-        password
+        email: EMAIL,
+        password: PASSWORD
     });
 
     token = response.data.token;
     console.log("Health simulator authenticated successfully.");
 }
 
-function random(min, max) {
-    return Math.round((Math.random() * (max - min) + min) * 10) / 10;
-}
-
 async function sendHealthReading() {
-    const reading = {
-        heartRate: random(72, 88),
-        spo2: random(97, 99),
-        bodyTemperature: random(36.4, 37.1),
-        activity: random(20, 70)
-    };
+    const reading = generateReading();
+    const { scenarioName, ...healthReading } = reading;
 
     try {
-        await axios.post(
-            `${BASE_URL}/health/readings`,
-            reading,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            }
-        );
+        await axios.post(`${BASE_URL}/health/readings`, healthReading, {
+            headers: { Authorization: `Bearer ${token}` }
+        });
 
         console.log(
-            `[HEALTH] HR: ${reading.heartRate} BPM | SpO2: ${reading.spo2}% | Temp: ${reading.bodyTemperature}°C | Activity: ${reading.activity}`
+            `[${scenarioName}] HR: ${reading.heartRate} BPM | ` +
+            `SpO2: ${reading.spo2}% | Temp: ${reading.bodyTemperature}°C | ` +
+            `Activity: ${reading.activity}`
         );
+
+        if (selectedScenario === "CYCLE") {
+            readingsInScenario++;
+            if (readingsInScenario === 5) {
+                scenarioIndex = (scenarioIndex + 1) % scenarioNames.length;
+                readingsInScenario = 0;
+            }
+        }
     } catch (error) {
-        console.log(
-            "Health reading failed:",
-            error.response?.data || error.message
-        );
+        console.error("Health reading failed:", error.response?.data || error.message);
     }
 }
 
 async function start() {
     console.log("VITALIS Health Sensor Simulator");
+    console.log(`Scenario: ${selectedScenario}`);
     console.log("Starting live health stream...");
 
     await login();
-
     await sendHealthReading();
-
-    setInterval(sendHealthReading, 3000);
+    setInterval(sendHealthReading, INTERVAL_MS);
 }
 
-start();
+start().catch((error) => {
+    console.error("Simulator failed to start:", error.response?.data || error.message);
+    process.exit(1);
+});

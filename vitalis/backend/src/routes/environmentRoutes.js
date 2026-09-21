@@ -4,6 +4,74 @@ import { authenticateToken } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
+router.get("/live", async (req, res) => {
+    try {
+        const weatherResponse = await fetch(
+            "https://api.open-meteo.com/v1/forecast?latitude=12.9716&longitude=77.5946&current=temperature_2m,relative_humidity_2m&timezone=Asia%2FKolkata"
+        );
+
+        const airResponse = await fetch(
+            "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=12.9716&longitude=77.5946&current=pm2_5,us_aqi&timezone=Asia%2FKolkata"
+        );
+
+        if (!weatherResponse.ok || !airResponse.ok) {
+            throw new Error("Live environment API failed");
+        }
+
+        const weather = await weatherResponse.json();
+        const air = await airResponse.json();
+
+        const temperature = weather.current.temperature_2m;
+        const humidity = weather.current.relative_humidity_2m;
+        const aqi = air.current.us_aqi;
+        const pm25 = air.current.pm2_5;
+
+        let score = 100;
+
+        if (aqi > 300) score -= 80;
+        else if (aqi > 200) score -= 60;
+        else if (aqi > 150) score -= 45;
+        else if (aqi > 100) score -= 30;
+        else if (aqi > 50) score -= 15;
+
+        if (temperature > 35) score -= 15;
+        else if (temperature > 32) score -= 8;
+
+        if (humidity > 80 || humidity < 25) score -= 8;
+
+        score = Math.max(0, score);
+
+        let rating;
+
+        if (score >= 90) rating = "EXCELLENT";
+        else if (score >= 75) rating = "GOOD";
+        else if (score >= 55) rating = "MODERATE";
+        else if (score >= 35) rating = "POOR";
+        else rating = "VERY POOR";
+
+        res.json({
+            location: "Bengaluru",
+            ambientTemperature: temperature,
+            humidity,
+            aqi,
+            pm25,
+            environmentScore: score,
+            rating,
+            source: "Open-Meteo / CAMS",
+            live: true,
+            timestamp: new Date().toISOString()
+        });
+
+    } catch (error) {
+        console.error("Live environment error:", error);
+
+        res.status(500).json({
+            error: "Failed to fetch live environment data",
+            details: error.message
+        });
+    }
+});
+
 router.post(
     "/readings",
     authenticateToken,
@@ -11,6 +79,7 @@ router.post(
         try {
             const {
                 temperature,
+                ambientTemperature,
                 humidity,
                 aqi,
                 pm25,
@@ -23,7 +92,7 @@ router.post(
                 await prisma.environmentReading.create({
                     data: {
                         userId,
-                        temperature,
+                        temperature: ambientTemperature ?? temperature,
                         humidity,
                         aqi,
                         pm25,
@@ -32,8 +101,7 @@ router.post(
                 });
 
             res.status(201).json({
-                message:
-                    "Environment reading saved successfully",
+                message: "Environment reading saved successfully",
                 reading
             });
 
@@ -44,8 +112,7 @@ router.post(
             );
 
             res.status(500).json({
-                error:
-                    "Failed to record environment reading",
+                error: "Failed to record environment reading",
                 details: error.message
             });
         }
@@ -82,8 +149,7 @@ router.get(
             );
 
             res.status(500).json({
-                error:
-                    "Failed to fetch environment readings",
+                error: "Failed to fetch environment readings",
                 details: error.message
             });
         }
