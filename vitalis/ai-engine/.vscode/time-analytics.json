@@ -1,13 +1,13 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2310477,
+    "totalFocusTime": 2495505,
     "totalActiveTime": 789493
   },
   "files": {
     "app/services/risk_engine.py": {
       "pending": 629701,
-      "focus": 1292849
+      "focus": 1303309
     },
     "app/test_risk.py": {
       "pending": 5891,
@@ -19,11 +19,11 @@
     },
     "app/test_anomaly.py": {
       "pending": 2747,
-      "focus": 29984
+      "focus": 30893
     },
     "app/main.py": {
       "pending": 51211,
-      "focus": 216933
+      "focus": 232750
     },
     "app/services/data_loader.py": {
       "pending": 0,
@@ -32,6 +32,10 @@
     "app/__init__.py": {
       "pending": 0,
       "focus": 10963
+    },
+    "venv/pyvenv.cfg": {
+      "pending": 0,
+      "focus": 27370
     }
   },
   "deleted": {
