@@ -1,0 +1,7 @@
+.vscode/
+android/*.apk
+android/*.jadx
+android/*.zip
+android/VITALIS_capture/
+android/noise_arm64/
+android/noise_extract/
