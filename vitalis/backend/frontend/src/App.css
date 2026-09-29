@@ -3801,299 +3801,1178 @@ select:focus {
     }
 }
 
-
 /* =========================================================
-   VITALIS 2026 ENHANCED RESILIENCE UI
-   Safety Map + multilingual voice intelligence
+   VITALIS EYE-COMFORT REDESIGN
+   Structured dashboard / all panels
    ========================================================= */
-.safety-toolbar {
-    display: flex;
-    flex-wrap: wrap;
+
+:root {
+    --v-bg: #06101d;
+    --v-bg-soft: #091827;
+    --v-panel: rgba(9, 24, 40, 0.92);
+    --v-panel-2: rgba(7, 20, 34, 0.96);
+    --v-border: rgba(72, 167, 229, 0.22);
+    --v-border-soft: rgba(91, 169, 218, 0.13);
+    --v-text: #f2f7fc;
+    --v-muted: #8fa9bd;
+    --v-dim: #668196;
+    --v-blue: #36a9ff;
+    --v-cyan: #2dd8e6;
+    --v-green: #32e0aa;
+    --v-purple: #9b83ff;
+    --v-warning: #ffc14d;
+    --v-danger: #ff6472;
+}
+
+html,
+body,
+#root {
+    background: var(--v-bg);
+}
+
+body {
+    background:
+        radial-gradient(circle at 78% -8%, rgba(29, 106, 171, 0.20), transparent 34%),
+        radial-gradient(circle at 20% 100%, rgba(22, 105, 113, 0.09), transparent 30%),
+        var(--v-bg);
+}
+
+.app {
+    background:
+        radial-gradient(circle at 72% 0%, rgba(30, 116, 184, 0.08), transparent 32%),
+        var(--v-bg);
+}
+
+/* ---------- SIDEBAR ---------- */
+
+.sidebar {
+    flex-basis: 272px;
+    width: 272px;
+    padding: 24px 16px 18px;
+    border-right: 1px solid rgba(68, 157, 216, 0.16);
+    background:
+        linear-gradient(180deg, rgba(7, 20, 34, 0.99), rgba(5, 15, 27, 0.99));
+}
+
+.brand {
+    gap: 13px;
+    padding: 3px 8px 20px;
+}
+
+.brand-symbol {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    border-color: rgba(48, 177, 255, 0.55);
+    color: #d9f4ff;
+    background: linear-gradient(145deg, rgba(24, 126, 207, 0.25), rgba(16, 61, 101, 0.24));
+    box-shadow:
+        0 0 0 1px rgba(41, 165, 240, 0.10),
+        0 0 28px rgba(38, 165, 245, 0.14);
+    font-size: 20px;
+}
+
+.brand-title {
+    color: #f5fbff;
+    font-size: 21px;
+    letter-spacing: 0.19em;
+}
+
+.brand-subtitle {
+    color: #7290a7;
+    font-size: 8px;
+    letter-spacing: 0.17em;
+}
+
+.live-status {
+    margin: 0 8px 22px;
+    padding: 10px 11px;
+    border-color: rgba(49, 224, 170, 0.20);
+    border-radius: 10px;
+    color: #73d9b8;
+    background: rgba(44, 213, 165, 0.055);
+}
+
+nav {
+    gap: 21px;
+}
+
+.menu-section {
+    gap: 4px;
+}
+
+.menu-title {
+    padding: 0 11px 7px;
+    color: #638198;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+}
+
+.menu-item {
+    min-height: 42px;
+    padding: 0 12px;
+    border-radius: 10px;
+    color: #8da6ba !important;
+    font-size: 12px;
+}
+
+.menu-item:hover {
+    color: #eef8ff !important;
+    background: rgba(63, 165, 229, 0.08);
+}
+
+.menu-item.active {
+    color: #f2faff !important;
+    border-color: rgba(58, 170, 237, 0.24);
+    background: linear-gradient(90deg, rgba(31, 124, 211, 0.30), rgba(26, 87, 139, 0.10));
+    box-shadow:
+        inset 3px 0 0 #43b8ff,
+        0 8px 24px rgba(14, 101, 164, 0.10);
+}
+
+.risk-mini {
+    color: #ffd77c;
+    background: rgba(255, 193, 77, 0.10);
+}
+
+.sidebar-bottom {
+    gap: 11px;
+}
+
+.device-card {
+    padding: 13px;
+    border-color: rgba(75, 158, 210, 0.18);
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(11, 31, 50, 0.90), rgba(7, 20, 34, 0.90));
+}
+
+.device-indicator {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    background: rgba(49, 224, 170, 0.09);
+}
+
+.device-title {
+    color: #b9d8e7;
+}
+
+.device-text {
+    color: #6c899e;
+}
+
+.emergency-button {
+    min-height: 46px;
+    border-radius: 11px;
+    border-color: rgba(255, 91, 106, 0.48);
+    color: #ffe1e3;
+    background: linear-gradient(135deg, rgba(153, 28, 43, 0.27), rgba(79, 16, 25, 0.20));
+    box-shadow: 0 10px 28px rgba(255, 55, 72, 0.06);
+}
+
+.emergency-button:hover {
+    background: linear-gradient(135deg, rgba(175, 35, 50, 0.35), rgba(87, 16, 27, 0.25));
+}
+
+.logout {
+    padding: 4px 10px;
+    color: #6a8296;
+}
+
+/* ---------- TOPBAR ---------- */
+
+.topbar {
+    height: 70px;
+    flex-basis: 70px;
+    padding: 0 32px;
+    border-bottom-color: rgba(69, 158, 217, 0.15);
+    background: rgba(5, 16, 29, 0.88);
+    backdrop-filter: blur(20px);
+}
+
+.breadcrumb {
+    color: #7795ab;
+    letter-spacing: 0.16em;
+}
+
+.breadcrumb span {
+    color: #385066;
+}
+
+.topbar-right {
+    gap: 28px;
+}
+
+.system-status {
+    color: #91afbf;
+}
+
+.user-profile {
+    padding-left: 18px;
+    border-left: 1px solid rgba(75, 158, 210, 0.14);
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-color: rgba(56, 174, 242, 0.28);
+    color: #a8ddff;
+    background: rgba(38, 139, 207, 0.10);
+}
+
+.user-name {
+    color: #eaf6fc;
+    font-size: 11px;
+}
+
+.user-type {
+    color: #6d879b;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+
+.main-scroll {
+    padding: 30px 34px 56px;
+    background:
+        radial-gradient(circle at 78% 8%, rgba(24, 104, 164, 0.055), transparent 28%),
+        transparent;
+}
+
+.dashboard,
+.module-page {
+    width: min(100%, 1480px);
+}
+
+.dashboard-heading {
     align-items: center;
+    gap: 28px;
+    margin-bottom: 26px;
+}
+
+.dashboard-heading h1,
+.module-page > h1 {
+    margin: 7px 0 8px;
+    color: #f5f9fd !important;
+    font-size: clamp(32px, 3.25vw, 46px);
+    line-height: 1;
+    letter-spacing: -0.045em;
+}
+
+.dashboard-heading p,
+.module-page > p {
+    max-width: 760px;
+    color: #91a9bc !important;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.eyebrow {
+    color: #48c5ff !important;
+    font-size: 9px;
+    letter-spacing: 0.19em;
+}
+
+.monitoring-badge {
+    min-width: 190px;
+    justify-content: center;
+    padding: 12px 15px;
+    border-color: rgba(49, 224, 170, 0.22);
+    border-radius: 12px;
+    color: #79dcbf;
+    background: linear-gradient(135deg, rgba(31, 190, 148, 0.08), rgba(13, 81, 72, 0.06));
+}
+
+/* ---------- SECTION STRUCTURE ---------- */
+
+.section {
+    margin-top: 27px;
+}
+
+.section-title {
+    margin-bottom: 11px;
+}
+
+.section-title h2 {
+    color: #b8cad8 !important;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+}
+
+.section-title p {
+    margin-top: 5px;
+    color: #668198 !important;
+    font-size: 10px;
+}
+
+/* ---------- UNIVERSAL PANELS ---------- */
+
+.health-card,
+.panel,
+.chart-panel,
+.twin-panel,
+.system-card {
+    border: 1px solid var(--v-border-soft) !important;
+    background:
+        linear-gradient(145deg, rgba(10, 30, 49, 0.94), rgba(6, 19, 33, 0.97)) !important;
+    box-shadow:
+        0 18px 48px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.health-card:hover,
+.panel:hover,
+.chart-panel:hover,
+.twin-panel:hover,
+.system-card:hover {
+    border-color: rgba(66, 173, 235, 0.30) !important;
+    transform: translateY(-1px);
+    transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+/* ---------- HEALTH CARDS ---------- */
+
+.health-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.health-card {
+    position: relative;
+    min-height: 158px;
+    padding: 18px 19px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.health-card::after {
+    content: "";
+    position: absolute;
+    right: -30px;
+    bottom: -45px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(40, 174, 239, 0.10), transparent 67%);
+    pointer-events: none;
+}
+
+.health-card-top {
+    color: #82a0b5 !important;
+    font-size: 9px;
+    letter-spacing: 0.13em;
+}
+
+.live-label {
+    color: #48d8b0 !important;
+}
+
+.health-value {
+    margin-top: 25px;
+    color: #f2f8fc !important;
+    font-size: clamp(30px, 3vw, 42px);
+    font-weight: 850;
+}
+
+.health-value small {
+    color: #7b95a8 !important;
+    font-size: 10px;
+}
+
+.health-baseline {
+    margin-top: 9px;
+    color: #658096 !important;
+    font-size: 9px;
+}
+
+/* ---------- RISK + ENVIRONMENT ---------- */
+
+.intelligence-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.18fr);
+    gap: 14px;
+    align-items: stretch;
+}
+
+.panel {
+    padding: 21px;
+    border-radius: 15px;
+}
+
+.panel-header {
+    align-items: center;
+}
+
+.panel-label {
+    color: #78a1b8 !important;
+    font-size: 8px;
+    letter-spacing: 0.16em;
+}
+
+.panel h2,
+.twin-panel h2,
+.safety-place-list h2 {
+    color: #e9f5fc !important;
+    font-size: 17px;
+}
+
+.panel-header p {
+    color: #668198 !important;
+    font-size: 10px;
+}
+
+.risk-level,
+.environment-state {
+    padding: 7px 10px;
+    border: 1px solid rgba(49, 224, 170, 0.22);
+    border-radius: 99px;
+    color: #58e0b5;
+    background: rgba(49, 224, 170, 0.07);
+    font-size: 8px;
+    letter-spacing: 0.12em;
+}
+
+.risk-panel.warning .risk-level {
+    border-color: rgba(255, 193, 77, 0.24);
+    color: #ffd36d;
+    background: rgba(255, 193, 77, 0.08);
+}
+
+.risk-panel.critical .risk-level {
+    border-color: rgba(255, 100, 114, 0.30);
+    color: #ff9aa4;
+    background: rgba(255, 100, 114, 0.09);
+}
+
+.risk-score {
+    margin-top: 24px;
+}
+
+.risk-score strong {
+    color: #f2f8fc !important;
+    font-size: 48px;
+    font-weight: 850;
+}
+
+.risk-score span {
+    color: #6e879b !important;
+}
+
+.risk-track {
+    height: 8px;
+    margin-top: 16px;
+    background: #12283b;
+}
+
+.risk-track span {
+    background: linear-gradient(90deg, #2ee0aa, #35bfff) !important;
+}
+
+.risk-panel.warning .risk-track span {
+    background: linear-gradient(90deg, #ffb63f, #ffd66e) !important;
+}
+
+.risk-panel.critical .risk-track span {
+    background: linear-gradient(90deg, #ff5364, #ff8a91) !important;
+}
+
+.risk-note {
+    color: #7893a7 !important;
+    line-height: 1.7;
+}
+
+.environment-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 9px;
-    padding: 12px;
-    margin-bottom: 14px;
-    border: 1px solid rgba(91, 177, 239, .16);
-    border-radius: 16px;
-    background: linear-gradient(135deg, rgba(12, 35, 58, .86), rgba(7, 19, 33, .92));
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 18px 50px rgba(0,0,0,.16);
+    margin-top: 23px;
+}
+
+.environment-metric {
+    min-height: 82px;
+    padding: 13px;
+    border-color: rgba(70, 164, 216, 0.14);
+    border-radius: 10px;
+    background: rgba(14, 44, 67, 0.38);
+}
+
+.environment-metric span {
+    color: #7090a5 !important;
+    font-size: 8px;
+}
+
+.environment-metric strong {
+    margin-top: 10px;
+    color: #e4f2f9 !important;
+    font-size: 18px;
+}
+
+.environment-rating {
+    margin-top: 14px;
+    color: #7090a5 !important;
+}
+
+.environment-rating strong {
+    color: #4ce0b3 !important;
+}
+
+.environment-rating small {
+    color: #617d92 !important;
+}
+
+.source-note,
+.safety-source-note {
+    color: #587287 !important;
+}
+
+/* ---------- RISK TRAJECTORY ---------- */
+
+.chart-panel {
+    min-height: 250px;
+    padding: 20px 22px;
+    border-radius: 15px;
+}
+
+.chart {
+    height: 205px;
+    gap: 12px;
+}
+
+.chart-column {
+    grid-template-rows: 22px 1fr 22px;
+    gap: 7px;
+}
+
+.chart-number,
+.chart-index {
+    color: #68849a !important;
+    font-size: 8px;
+}
+
+.chart-bar {
+    border-radius: 8px 8px 3px 3px;
+    background: rgba(58, 150, 202, 0.06);
+}
+
+.chart-bar span {
+    border-radius: 8px 8px 3px 3px;
+    background: linear-gradient(180deg, #3bc5ff, #155a86) !important;
+    box-shadow: 0 0 16px rgba(48, 184, 240, 0.10);
+}
+
+/* ---------- DIGITAL TWIN ---------- */
+
+.twin-panel {
+    padding: 22px;
+    border-radius: 15px;
+}
+
+.twin-description {
+    gap: 16px;
+}
+
+.twin-mark {
+    width: 56px;
+    height: 56px;
+    flex-basis: 56px;
+    border-radius: 15px;
+    border-color: rgba(59, 180, 239, 0.26);
+    color: #79d6ff;
+    background: rgba(41, 150, 214, 0.09);
+    box-shadow: 0 0 24px rgba(36, 161, 229, 0.07);
+}
+
+.twin-description p {
+    color: #7591a5 !important;
+    font-size: 10px;
+}
+
+.twin-metrics {
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.twin-metric {
+    padding: 14px;
+    border-color: rgba(73, 161, 211, 0.12);
+    border-radius: 10px;
+    background: rgba(9, 31, 49, 0.48);
+}
+
+.twin-metric span,
+.twin-metric small {
+    color: #69859a !important;
+}
+
+.twin-metric strong {
+    color: #cce3ef !important;
+}
+
+/* ---------- SYSTEM STATUS ---------- */
+
+.system-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.system-card {
+    min-height: 94px;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.system-card span {
+    color: #6e8aa0 !important;
+}
+
+.system-card strong {
+    margin-top: 11px;
+    color: #50dfb1 !important;
+    font-size: 12px;
+}
+
+.live-meta {
+    margin-top: 10px;
+    color: #5e7a90 !important;
+}
+
+/* ---------- ALERT ---------- */
+
+.vitalis-alert {
+    position: relative;
+    margin-bottom: 22px;
+    padding: 16px 18px;
+    border: 1px solid rgba(255, 188, 67, 0.30);
+    border-radius: 14px;
+    background: linear-gradient(90deg, rgba(92, 61, 14, 0.22), rgba(39, 29, 12, 0.15));
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.16);
+}
+
+.vitalis-alert > div {
+    display: grid;
+    gap: 5px;
+}
+
+.vitalis-alert strong {
+    color: #ffc65b !important;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+}
+
+.vitalis-alert span {
+    color: #c6b184 !important;
+    font-size: 10px;
+    line-height: 1.65;
+}
+
+.vitalis-alert button {
+    min-width: 72px;
+    padding: 8px 11px;
+    border: 1px solid rgba(255, 193, 77, 0.18);
+    border-radius: 8px;
+    color: #c7b27d;
+    background: rgba(255, 193, 77, 0.05);
+}
+
+/* ---------- MODULE PAGES ---------- */
+
+.module-page {
+    padding-bottom: 20px;
+}
+
+.module-content {
+    margin-top: 25px;
+    gap: 15px;
+}
+
+.detail-panel p,
+.emergency-panel > p,
+.panel > p {
+    color: #7893a8 !important;
+    font-size: 11px;
+    line-height: 1.75;
+}
+
+.guidance-box {
+    border-color: rgba(255, 193, 77, 0.18);
+    border-radius: 11px;
+    background: rgba(255, 193, 77, 0.045);
+}
+
+.guidance-box p {
+    color: #c5a66c !important;
+}
+
+.guidance-list {
+    gap: 9px;
+}
+
+.guidance-list p {
+    border-color: rgba(72, 157, 216, 0.11);
+    border-radius: 9px;
+    color: #7893a7 !important;
+    background: rgba(255, 255, 255, 0.018);
+}
+
+.disaster-grid {
+    gap: 10px;
+}
+
+.disaster-grid > div {
+    border-color: rgba(71, 161, 214, 0.12);
+    background: rgba(12, 39, 59, 0.34);
+}
+
+.disaster-grid span {
+    color: #6c899f !important;
+}
+
+.disaster-grid strong {
+    color: #dbeef6 !important;
+}
+
+.secondary-button {
+    min-height: 42px;
+    border-color: rgba(73, 162, 217, 0.20);
+    border-radius: 10px;
+    color: #a9c7d8;
+    background: rgba(13, 40, 62, 0.72);
+}
+
+.secondary-button:hover {
+    border-color: rgba(72, 179, 239, 0.38);
+    background: rgba(24, 72, 105, 0.72);
+}
+
+/* ---------- EMERGENCY PANEL ---------- */
+
+.emergency-panel {
+    border-color: rgba(255, 88, 103, 0.22) !important;
+}
+
+.emergency-panel .risk-score strong {
+    color: #ff9da5 !important;
+}
+
+/* Inline emergency banner from App.jsx */
+.main-scroll > div[style*="VITALIS EMERGENCY"] {
+    position: sticky !important;
+    top: 0 !important;
+    margin-bottom: 20px !important;
+    padding: 22px !important;
+    border: 1px solid rgba(255, 91, 106, 0.42) !important;
+    border-radius: 16px !important;
+    background: linear-gradient(145deg, rgba(67, 14, 22, 0.97), rgba(31, 8, 14, 0.98)) !important;
+    box-shadow: 0 18px 55px rgba(255, 54, 70, 0.14) !important;
+}
+
+/* ---------- PRE-EMERGENCY ---------- */
+
+.pre-emergency-overlay {
+    background: rgba(2, 9, 17, 0.88);
     backdrop-filter: blur(18px);
 }
-.safety-toolbar .map-filter,
-.safety-toolbar .voice-map-button {
-    min-height: 38px;
-    padding: 0 13px;
-    border: 1px solid rgba(111, 190, 242, .14);
+
+.pre-emergency-card {
+    border-color: rgba(255, 100, 114, 0.38);
+    border-radius: 20px;
+    background: linear-gradient(145deg, #0b1b2b, #07121f);
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.62);
+}
+
+.pre-emergency-countdown {
+    border-color: #ff6975;
+    color: #ff9aa3;
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+    margin-top: 38px;
+    padding: 18px 0 8px;
+    border-top-color: rgba(69, 158, 217, 0.10);
+    color: #4e697d !important;
+}
+
+/* ---------- INPUTS / SETTINGS ---------- */
+
+.setting-row {
+    color: #b6ccda !important;
+}
+
+input,
+textarea,
+select {
+    border-color: rgba(71, 161, 215, 0.20) !important;
     border-radius: 10px;
-    color: #a9c7dd;
-    background: rgba(255,255,255,.025);
-    font-size: 9px;
-    font-weight: 900;
-    letter-spacing: .08em;
-    transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
-}
-.safety-toolbar .map-filter:hover,
-.safety-toolbar .voice-map-button:hover {
-    transform: translateY(-1px);
-    color: #eff9ff;
-    border-color: rgba(91, 190, 248, .42);
-    background: rgba(65, 163, 224, .10);
-    box-shadow: 0 10px 24px rgba(26, 124, 184, .12);
-}
-.safety-toolbar .map-filter.active {
-    color: #eaf8ff;
-    border-color: rgba(80, 184, 245, .45);
-    background: linear-gradient(135deg, rgba(60, 161, 225, .22), rgba(58, 104, 170, .10));
-    box-shadow: 0 8px 24px rgba(44, 144, 207, .14);
-}
-.voice-map-button.announce {
-    border-color: rgba(83, 222, 173, .24);
-    color: #9ee8c8;
-}
-.voice-language-control {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: auto;
-    padding: 5px 7px 5px 10px;
-    border: 1px solid rgba(120, 181, 219, .14);
-    border-radius: 11px;
-    background: rgba(0,0,0,.15);
-}
-.voice-language-control span {
-    color: #6f91a9;
-    font-size: 8px;
-    font-weight: 900;
-    letter-spacing: .12em;
-}
-.voice-language-control select {
-    min-width: 135px;
-    padding: 7px 26px 7px 9px;
-    border: 1px solid rgba(102, 185, 235, .18);
-    border-radius: 8px;
-    outline: none;
-    color: #e7f5ff;
-    background: #0b1a29;
-    font-size: 10px;
-    font-weight: 700;
-}
-.safety-map-wrapper {
-    overflow: hidden;
-    border: 1px solid rgba(74, 171, 229, .17);
-    box-shadow: 0 24px 70px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.03);
-}
-.safety-map-wrapper::after {
-    content: "LIVE LOCATION INTELLIGENCE";
-    position: absolute;
-    z-index: 500;
-    top: 12px;
-    left: 12px;
-    padding: 7px 9px;
-    border: 1px solid rgba(255,255,255,.16);
-    border-radius: 8px;
-    color: #d7efff;
-    background: rgba(4, 15, 25, .78);
-    backdrop-filter: blur(10px);
-    font-size: 8px;
-    font-weight: 900;
-    letter-spacing: .12em;
-    pointer-events: none;
-}
-.safety-place-list {
-    border: 1px solid rgba(74, 171, 229, .16);
-    box-shadow: 0 24px 70px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.025);
-}
-.safety-list-header {
-    background: linear-gradient(180deg, rgba(18, 46, 73, .18), transparent);
-}
-.safety-list-header span {
-    min-width: 34px;
-    text-align: center;
-    padding: 7px 9px;
-    border: 1px solid rgba(76, 178, 236, .18);
-    border-radius: 9px;
-    color: #8ed7ff !important;
-    background: rgba(55, 157, 218, .08);
-}
-.safety-place-card {
-    position: relative;
-    margin: 7px;
-    padding: 13px;
-    border: 1px solid rgba(91, 173, 225, .09);
-    border-radius: 13px;
-    background: linear-gradient(135deg, rgba(20, 48, 74, .40), rgba(8, 23, 38, .30));
-}
-.safety-place-card:hover {
-    transform: translateY(-2px) scale(1.005);
-    border-color: rgba(89, 185, 238, .28);
-    background: linear-gradient(135deg, rgba(25, 62, 94, .52), rgba(8, 24, 40, .38));
-    box-shadow: 0 12px 30px rgba(0,0,0,.15);
-}
-.place-distance {
-    display: inline-flex;
-    width: fit-content;
-    margin-top: 5px;
-    padding: 4px 7px;
-    border-radius: 7px;
-    color: #83e6bd !important;
-    background: rgba(57, 211, 153, .08);
-    font-size: 10px !important;
-    font-weight: 900 !important;
-}
-.place-icon {
-    width: 38px !important;
-    height: 38px !important;
-    border-radius: 11px !important;
-    box-shadow: 0 8px 22px rgba(0,0,0,.18);
-}
-.place-icon.hospital {
-    background: linear-gradient(145deg, rgba(255, 93, 105, .22), rgba(255, 93, 105, .06)) !important;
-}
-.place-icon.safe {
-    background: linear-gradient(145deg, rgba(64, 222, 163, .20), rgba(64, 222, 163, .05)) !important;
-}
-.map-popup-distance {
-    display: inline-block;
-    margin: 2px 0 7px;
-    padding: 4px 7px;
-    border-radius: 6px;
-    color: #16855e;
-    background: #e8fbf4;
-    font-size: 11px;
-    font-weight: 900;
-}
-.leaflet-container {
-    font-family: inherit;
-}
-.leaflet-control-zoom a {
-    color: #dceeff !important;
-    background: #0b1826 !important;
-    border-color: rgba(255,255,255,.12) !important;
-}
-.leaflet-control-attribution {
-    color: #8195a8 !important;
-    background: rgba(5, 13, 22, .72) !important;
-}
-@media (max-width: 760px) {
-    .voice-language-control {
-        width: 100%;
-        margin-left: 0;
-        justify-content: space-between;
-    }
-    .voice-language-control select {
-        flex: 1;
-    }
-    .safety-toolbar .map-filter,
-    .safety-toolbar .voice-map-button {
-        flex: 1 1 145px;
-    }
+    background: rgba(6, 20, 34, 0.88) !important;
 }
 
-/* Global premium depth */
-.panel, .health-card, .twin-panel, .chart-panel, .module-shell {
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.025);
-}
-.panel::before, .health-card::before, .twin-panel::before, .chart-panel::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 85% 0%, rgba(65, 172, 239, .08), transparent 28%);
-    pointer-events: none;
-}
-button {
-    -webkit-tap-highlight-color: transparent;
+/* ---------- FUTURE / OPTIONAL PANEL CLASSES ---------- */
+
+.quick-actions,
+.system-status-panel,
+.environment-panel,
+.risk-analysis-panel,
+.health-intelligence-panel,
+.activity-panel,
+.status-panel {
+    border: 1px solid var(--v-border-soft);
+    border-radius: 15px;
+    background: linear-gradient(145deg, rgba(10, 30, 49, 0.94), rgba(6, 19, 33, 0.97));
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.20);
 }
 
+.quick-actions {
+    display: grid;
+    gap: 10px;
+    padding: 18px;
+}
 
-/* VITALIS MULTILINGUAL SAFETY MAP - PREMIUM LAYER */
-.safety-toolbar {
-    position: relative;
-    overflow: hidden;
-    padding: 12px;
-    border: 1px solid rgba(91, 176, 255, .16);
-    border-radius: 16px;
-    background: linear-gradient(135deg, rgba(13, 31, 51, .94), rgba(7, 17, 29, .94));
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 18px 50px rgba(0,0,0,.22);
-}
-.safety-toolbar::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(circle at 12% 0%, rgba(72,169,255,.13), transparent 28%);
-}
-.voice-language-control {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    min-height: 38px;
-    padding: 5px 8px 5px 12px;
-    border: 1px solid rgba(72,169,255,.22);
-    border-radius: 11px;
-    background: rgba(5,14,24,.78);
-    box-shadow: 0 8px 25px rgba(0,0,0,.18);
-}
-.voice-language-control span {
-    color: #7fa0bb;
-    font-size: 9px;
-    font-weight: 900;
-    letter-spacing: .13em;
-}
-.voice-language-control select {
-    min-width: 155px;
-    padding: 8px 28px 8px 10px;
-    border: 1px solid rgba(255,255,255,.09);
-    border-radius: 8px;
-    outline: none;
-    color: #eef7ff;
-    background: #0b1827;
-    font-size: 11px;
-    font-weight: 800;
+.quick-actions button {
+    min-height: 44px;
+    padding: 0 14px;
+    border: 1px solid rgba(70, 165, 219, 0.18);
+    border-radius: 10px;
+    color: #b8d4e2;
+    background: rgba(12, 39, 60, 0.60);
     cursor: pointer;
 }
-.voice-language-control select:focus {
-    border-color: rgba(72,169,255,.55);
-    box-shadow: 0 0 0 3px rgba(72,169,255,.09);
+
+.quick-actions button:hover {
+    border-color: rgba(66, 181, 239, 0.38);
+    background: rgba(21, 67, 98, 0.72);
 }
-.voice-map-button.announce {
-    border-color: rgba(56,224,160,.28);
-    background: linear-gradient(135deg, rgba(56,224,160,.14), rgba(34,123,104,.08));
-    box-shadow: 0 10px 28px rgba(56,224,160,.07);
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1250px) {
+    .sidebar {
+        flex-basis: 250px;
+        width: 250px;
+    }
+
+    .health-grid,
+    .system-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .intelligence-grid {
+        grid-template-columns: 1fr;
+    }
 }
-.voice-map-button.announce:hover {
-    border-color: rgba(56,224,160,.55);
-    transform: translateY(-2px);
+
+@media (max-width: 900px) {
+    .main-scroll {
+        padding: 24px 18px 50px;
+    }
+
+    .topbar {
+        padding: 0 20px;
+    }
+
+    .dashboard-heading {
+        display: block;
+    }
+
+    .monitoring-badge {
+        margin-top: 16px;
+    }
+
+    .environment-grid,
+    .twin-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
-.safety-place-card {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(83,164,224,.12) !important;
-    background: linear-gradient(145deg, rgba(12,31,51,.92), rgba(7,18,30,.92)) !important;
-    box-shadow: 0 14px 36px rgba(0,0,0,.17);
+
+@media (max-width: 680px) {
+    .sidebar {
+        flex-basis: 220px;
+        width: 220px;
+    }
+
+    .topbar-right {
+        gap: 12px;
+    }
+
+    .system-status {
+        display: none;
+    }
+
+    .user-profile {
+        padding-left: 0;
+        border-left: 0;
+    }
+
+    .health-grid,
+    .environment-grid,
+    .twin-metrics,
+    .system-grid,
+    .disaster-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-heading h1,
+    .module-page > h1 {
+        font-size: 34px;
+    }
+
+    .panel,
+    .chart-panel,
+    .twin-panel {
+        padding: 17px;
+    }
 }
-.safety-place-card::after {
-    content: "";
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    right: -85px;
-    top: -85px;
+
+@media (max-width: 520px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-scroll {
+        padding: 20px 14px 42px;
+    }
+
+    .topbar {
+        padding: 0 14px;
+    }
+
+    .breadcrumb {
+        font-size: 9px;
+    }
+
+    .user-name,
+    .user-type {
+        display: none;
+    }
+}
+
+.community-reviews-section {
+    margin-top: 28px;
+}
+
+.community-reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 28px;
+    margin-bottom: 22px;
+}
+
+.community-reviews-header h2 {
+    margin: 8px 0 8px;
+    font-size: clamp(26px, 3vw, 42px);
+    letter-spacing: -0.03em;
+}
+
+.community-reviews-header p {
+    max-width: 680px;
+    margin: 0;
+    line-height: 1.65;
+    opacity: .72;
+}
+
+.community-review-count {
+    min-width: 170px;
+    padding: 18px 20px;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.035);
+}
+
+.community-review-count strong {
+    display: block;
+    font-size: 30px;
+}
+
+.community-review-count span {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    opacity: .62;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.community-reviews-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, .82fr) minmax(0, 1.5fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.review-form,
+.review-card {
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.035);
+}
+
+.review-form {
+    padding: 24px;
+    position: sticky;
+    top: 20px;
+}
+
+.review-form h3 {
+    margin: 8px 0 20px;
+    font-size: 24px;
+}
+
+.review-form label {
+    display: block;
+    margin-top: 14px;
+    font-size: 11px;
+    letter-spacing: .08em;
+    opacity: .78;
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 7px;
+    padding: 12px 13px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 0;
+    background: rgba(0,0,0,.18);
+    color: inherit;
+    font: inherit;
+    outline: none;
+}
+
+.review-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.review-form input:focus,
+.review-form select:focus,
+.review-form textarea:focus {
+    border-color: rgba(255,255,255,.38);
+}
+
+.review-submit-button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 13px 16px;
+    border: 1px solid rgba(255,255,255,.22);
+    background: rgba(255,255,255,.09);
+    color: inherit;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: .07em;
+}
+
+.review-submit-button:hover {
+    background: rgba(255,255,255,.15);
+}
+
+.review-success {
+    margin-top: 12px;
+    padding: 11px 12px;
+    border: 1px solid rgba(100,220,160,.28);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.reviews-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.review-card {
+    padding: 20px;
+    min-height: 180px;
+}
+
+.review-card-top {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.review-avatar {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.15);
     border-radius: 50%;
-    background: rgba(72,169,255,.06);
-    pointer-events: none;
+    font-weight: 700;
 }
-.safety-place-card:hover {
-    transform: translateY(-4px) !important;
-    border-color: rgba(72,169,255,.34) !important;
-    box-shadow: 0 20px 48px rgba(0,0,0,.27), 0 0 0 1px rgba(72,169,255,.05);
+
+.review-person {
+    min-width: 0;
+    flex: 1;
 }
-.place-name {
-    text-shadow: 0 1px 14px rgba(72,169,255,.08);
+
+.review-person strong,
+.review-person span {
+    display: block;
 }
-@media (max-width: 800px) {
-    .voice-language-control { width: 100%; justify-content: space-between; }
-    .voice-language-control select { flex: 1; min-width: 0; }
+
+.review-person strong {
+    font-size: 14px;
+}
+
+.review-person span {
+    margin-top: 3px;
+    font-size: 11px;
+    opacity: .58;
+}
+
+.review-stars {
+    white-space: nowrap;
+    font-size: 13px;
+    letter-spacing: 1px;
+    opacity: .85;
+}
+
+.review-card p {
+    margin: 18px 0;
+    line-height: 1.65;
+    font-size: 14px;
+    opacity: .82;
+}
+
+.prototype-badge {
+    display: inline-block;
+    padding: 5px 8px;
+    border: 1px solid rgba(255,255,255,.10);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    opacity: .62;
+}
+
+.user-review-badge {
+    opacity: .78;
+}
+
+@media (max-width: 900px) {
+    .community-reviews-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .review-form {
+        position: static;
+    }
+}
+
+@media (max-width: 640px) {
+    .community-reviews-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .reviews-list {
+        grid-template-columns: 1fr;
+    }
+
+    .review-card-top {
+        align-items: flex-start;
+    }
+
+    .review-stars {
+        margin-left: auto;
+    }
 }

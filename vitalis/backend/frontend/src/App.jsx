@@ -20,27 +20,10 @@ const menu = [
     { title: "SYSTEM", items: ["Device", "Settings"] }
 ];
 
-const VOICE_LANGUAGES = [
-    ["en-IN", "English (India)"], ["hi-IN", "हिन्दी"], ["bn-IN", "বাংলা"],
-    ["te-IN", "తెలుగు"], ["mr-IN", "मराठी"], ["ta-IN", "தமிழ்"],
-    ["gu-IN", "ગુજરાતી"], ["kn-IN", "ಕನ್ನಡ"], ["ml-IN", "മലയാളം"],
-    ["pa-IN", "ਪੰਜਾਬੀ"], ["ur-IN", "اردو"], ["or-IN", "ଓଡ଼ିଆ"],
-    ["as-IN", "অসমীয়া"], ["ne-NP", "नेपाली"], ["sa-IN", "संस्कृतम्"],
-    ["ar-SA", "العربية"], ["zh-CN", "中文"], ["fr-FR", "Français"],
-    ["de-DE", "Deutsch"], ["es-ES", "Español"], ["pt-BR", "Português"],
-    ["ru-RU", "Русский"], ["ja-JP", "日本語"], ["ko-KR", "한국어"],
-    ["id-ID", "Bahasa Indonesia"], ["it-IT", "Italiano"], ["nl-NL", "Nederlands"],
-    ["tr-TR", "Türkçe"], ["pl-PL", "Polski"], ["sv-SE", "Svenska"],
-    ["da-DK", "Dansk"], ["no-NO", "Norsk"], ["fi-FI", "Suomi"],
-    ["cs-CZ", "Čeština"], ["el-GR", "Ελληνικά"], ["he-IL", "עברית"],
-    ["th-TH", "ไทย"], ["vi-VN", "Tiếng Việt"], ["fil-PH", "Filipino"],
-    ["ms-MY", "Bahasa Melayu"], ["uk-UA", "Українська"], ["ro-RO", "Română"],
-    ["hu-HU", "Magyar"], ["sw-KE", "Kiswahili"], ["af-ZA", "Afrikaans"]
-];
-
 function App() {
     const [user, setUser] = useState(null);
     const [authLoading, setAuthLoading] = useState(true);
+    const [showAuth, setShowAuth] = useState(false);
 
     useEffect(() => {
         restoreSession();
@@ -84,12 +67,166 @@ function App() {
         );
     }
 
-    if (!user) return <AuthScreen onLogin={handleLogin} />;
+    if (!user && !showAuth) {
+        return <LandingPage onGetStarted={() => setShowAuth(true)} />;
+    }
+
+    if (!user) {
+        return <AuthScreen onLogin={handleLogin} onBack={() => setShowAuth(false)} />;
+    }
 
     return <DashboardApp user={user} onLogout={handleLogout} />;
 }
 
-function AuthScreen({ onLogin }) {
+function LandingPage({ onGetStarted }) {
+    const [activeStep, setActiveStep] = useState(0);
+
+    const steps = [
+        { number: "01", title: "Sense", text: "Bring together physiological signals and environmental context." },
+        { number: "02", title: "Learn", text: "Build a personal baseline instead of relying only on generic thresholds." },
+        { number: "03", title: "Fuse", text: "Understand how health signals change with heat, pollution and activity." },
+        { number: "04", title: "Predict", text: "Detect anomalies and changing risk trajectories with confidence." },
+        { number: "05", title: "Act", text: "Explain the signal, surface the risk and support the next action." }
+    ];
+
+    return (
+        <div className="vitalis-site">
+            <header className="site-nav">
+                <button className="site-brand" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+                    <span className="site-brand-mark">V</span>
+                    <span>VITALIS</span>
+                </button>
+                <nav>
+                    <a href="#how-it-works">How it works</a>
+                    <a href="#intelligence">Intelligence</a>
+                    <a href="#resilience">Resilience</a>
+                    <a href="#prototype">Prototype</a>
+                </nav>
+                <button className="site-nav-cta" onClick={onGetStarted}>Open Health Companion</button>
+            </header>
+
+            <main>
+                <section className="site-hero">
+                    <div className="hero-copy">
+                        <div className="site-eyebrow"><span></span> PERSONAL • CONTEXTUAL • RESILIENT</div>
+                        <h1>Know your body.<br /><em>Before risk becomes an emergency.</em></h1>
+                        <p>VITALIS is an AI-powered Personal Health Digital Twin that learns your normal, understands your environment and turns changing signals into explainable health intelligence.</p>
+                        <div className="hero-actions">
+                            <button className="primary-action" onClick={onGetStarted}>Open Health Companion <span>→</span></button>
+                            <a className="secondary-action" href="#how-it-works">See how VITALIS works <span>↓</span></a>
+                        </div>
+                        <div className="hero-trust">
+                            <span>Privacy-preserving</span><span>On-device ready</span><span>Disaster resilient</span>
+                        </div>
+                    </div>
+
+                    <div className="hero-console">
+                        <div className="console-top"><span><i></i> VITALIS / LIVE HEALTH INTELLIGENCE</span><b>PROTOTYPE</b></div>
+                        <div className="console-main">
+                            <div className="console-status">
+                                <div><small>CURRENT STATE</small><strong>Stable</strong><span>Personal baseline aligned</span></div>
+                                <div className="risk-orbit"><div><small>AI RISK</small><strong>18</strong><span>/100</span></div></div>
+                            </div>
+                            <div className="signal-grid">
+                                <div><small>HEART RATE</small><strong>92.1 <b>BPM</b></strong><div className="mini-wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+                                <div><small>SpO₂</small><strong>95.6 <b>%</b></strong><label>Personal range 94–98</label></div>
+                                <div><small>TEMPERATURE</small><strong>37.4 <b>°C</b></strong><label>Baseline 36.8–37.5</label></div>
+                                <div><small>ENVIRONMENT</small><strong>AQI 51</strong><label>Moderate exposure</label></div>
+                            </div>
+                            <div className="console-insight"><span>AI EXPLANATION</span><strong>Risk remains low because current signals are close to your learned baseline.</strong><small>Health + environment fused • confidence checks active</small></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="metric-strip">
+                    <div><strong>01</strong><span>Personal baseline</span><small>Learn what is normal for you</small></div>
+                    <div><strong>02</strong><span>Human × environment</span><small>Context changes the meaning of a signal</small></div>
+                    <div><strong>03</strong><span>Risk trajectory</span><small>Look for meaningful change, not one number</small></div>
+                    <div><strong>04</strong><span>Resilient intelligence</span><small>Designed for disrupted connectivity</small></div>
+                </section>
+
+                <section className="story-section" id="how-it-works">
+                    <div className="section-intro">
+                        <div className="site-eyebrow">HOW VITALIS THINKS</div>
+                        <h2>One health companion.<br /><em>One continuous intelligence loop.</em></h2>
+                        <p>VITALIS follows a simple chain: Sense → Learn → Fuse → Predict → Explain → Act. The goal is not another dashboard. It is a clearer understanding of changing personal risk.</p>
+                    </div>
+                    <div className="step-flow">
+                        {steps.map((step, index) => (
+                            <button className={`flow-step ${activeStep === index ? "active" : ""}`} key={step.number} onClick={() => setActiveStep(index)}>
+                                <span>{step.number}</span><strong>{step.title}</strong><i>→</i>
+                            </button>
+                        ))}
+                    </div>
+                    <div className="step-detail">
+                        <div className="step-number">{steps[activeStep].number}</div>
+                        <div><div className="site-eyebrow">ACTIVE LAYER</div><h3>{steps[activeStep].title}</h3><p>{steps[activeStep].text}</p></div>
+                        <div className="detail-signal"><span>VITALIS ENGINE</span><strong>{activeStep < 2 ? "LEARNING" : activeStep < 4 ? "ANALYZING" : "ASSISTING"}</strong></div>
+                    </div>
+                </section>
+
+                <section className="split-section" id="intelligence">
+                    <div className="split-copy">
+                        <div className="site-eyebrow">PERSONAL DIGITAL TWIN</div>
+                        <h2>Your baseline is personal.<br /><em>Not generic.</em></h2>
+                        <p>Instead of asking only whether a reading crosses a universal threshold, VITALIS learns your physiological pattern and looks for meaningful deviations.</p>
+                        <div className="baseline-list">
+                            <div><b>Heart rate</b><span>Resting and active patterns</span></div>
+                            <div><b>SpO₂</b><span>Typical oxygen saturation</span></div>
+                            <div><b>Temperature</b><span>Individual temperature pattern</span></div>
+                            <div><b>Activity</b><span>Expected movement and recovery</span></div>
+                            <div><b>Environment</b><span>Response to heat and pollution</span></div>
+                        </div>
+                    </div>
+                    <div className="twin-visual">
+                        <div className="twin-header"><span>PERSONAL MODEL</span><b>LEARNING</b></div>
+                        <div className="twin-ring"><div><small>BASELINE</small><strong>92%</strong><span>aligned</span></div></div>
+                        <div className="twin-lines"><div><span>Heart rate</span><i style={{ width: "78%" }}></i><b>78%</b></div><div><span>SpO₂</span><i style={{ width: "91%" }}></i><b>91%</b></div><div><span>Temperature</span><i style={{ width: "84%" }}></i><b>84%</b></div></div>
+                    </div>
+                </section>
+
+                <section className="explain-section">
+                    <div className="explain-visual">
+                        <div className="explain-card"><span>AI RISK ANALYSIS</span><strong>18 / 100</strong><div className="risk-line"><i></i></div><div className="explain-row"><b>LOW RISK</b><small>Confidence 0.91</small></div></div>
+                        <div className="reason-card"><span>WHY THIS RESULT?</span><p>Current heart rate is within your learned range.</p><p>SpO₂ remains consistent with your baseline.</p><p>Environmental exposure is moderate.</p></div>
+                    </div>
+                    <div className="split-copy">
+                        <div className="site-eyebrow">EXPLAINABLE AI</div>
+                        <h2>Not a black box.<br /><em>See what changed.</em></h2>
+                        <p>Risk output is designed to include context, confidence and sensor reliability so the user can understand why VITALIS is raising or lowering concern.</p>
+                        <div className="feature-tags"><span>Confidence</span><span>Baseline deviation</span><span>Environment</span><span>Sensor reliability</span></div>
+                    </div>
+                </section>
+
+                <section className="resilience-section" id="resilience">
+                    <div className="resilience-copy"><div className="site-eyebrow">BUILT FOR DISRUPTION</div><h2>When connectivity breaks,<br /><em>health intelligence should not.</em></h2><p>VITALIS is designed around local-first risk assessment, sensor-agnostic ingestion and later synchronization so the system can remain useful when networks are unreliable.</p><button className="outline-action" onClick={onGetStarted}>Explore the companion →</button></div>
+                    <div className="resilience-grid"><div><strong>LOCAL</strong><span>Risk assessment can remain available during connectivity loss.</span></div><div><strong>PRIVATE</strong><span>Reduce unnecessary cloud dependence for sensitive health intelligence.</span></div><div><strong>CONFIDENT</strong><span>Use temporal evidence and sensor reliability checks before stronger warnings.</span></div><div><strong>ACTIONABLE</strong><span>Move from signal to explanation to a clear next step.</span></div></div>
+                </section>
+
+                <section className="prototype-section" id="prototype">
+                    <div className="section-intro centered"><div className="site-eyebrow">WORKING PROTOTYPE</div><h2>From intelligence to <em>action.</em></h2><p>The current VITALIS application brings the concept into an interactive health companion with monitoring, AI risk, safety services, emergency support and accessibility controls.</p></div>
+                    <div className="prototype-grid">
+                        <div className="prototype-card large"><div className="fake-browser"><span>HEALTH INTELLIGENCE</span><b>● MONITORING ACTIVE</b></div><div className="fake-dashboard"><div className="fake-sidebar"><b>VITALIS</b><span>Dashboard</span><span>Risk Analysis</span><span>Digital Twin</span><span>Safety Map</span><span>Emergency</span></div><div className="fake-content"><small>REAL-TIME MONITORING</small><h3>Health Intelligence</h3><div className="fake-metrics"><i><b>92.1</b> BPM</i><i><b>95.6</b> SpO₂</i><i><b>37.4</b> °C</i></div><div className="fake-chart"><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+                        <div className="prototype-card mini"><span>01</span><strong>Safety Map</strong><p>Nearby hospitals and safe places with an emergency-first workflow.</p></div>
+                        <div className="prototype-card mini danger"><span>02</span><strong>Emergency Help</strong><p>Manual SOS and critical-state support when urgent action is needed.</p></div>
+                        <div className="prototype-card mini"><span>03</span><strong>Accessibility</strong><p>Voice alerts, notifications and settings designed around continuous monitoring.</p></div>
+                    </div>
+                </section>
+
+                <section className="final-cta">
+                    <div className="site-eyebrow">VITALIS • HEALTH INTELLIGENCE</div>
+                    <h2>Understand your health<br /><em>before it becomes urgent.</em></h2>
+                    <p>Open the working companion and explore the intelligence layer behind VITALIS.</p>
+                    <button className="primary-action" onClick={onGetStarted}>Open VITALIS <span>→</span></button>
+                </section>
+            </main>
+
+            <footer className="site-footer"><span>VITALIS</span><span>AI-Powered Personal Health Digital Twin</span><span>SIH 2026 • SIH26181</span></footer>
+        </div>
+    );
+}
+
+function AuthScreen({ onLogin, onBack }) {
     const [mode, setMode] = useState("login");
     const [form, setForm] = useState({ name: "", email: "", password: "", age: "" });
     const [loading, setLoading] = useState(false);
@@ -230,6 +367,36 @@ function AuthScreen({ onLogin }) {
     );
 }
 
+function getRiskReasons(health, environment, score, projectedScore = score) {
+    const reasons = [];
+    const heartRate = Number(health?.heartRate || 0);
+    const spo2 = Number(health?.spo2 || 0);
+    const activity = String(health?.activity || "").toLowerCase();
+    const bodyTemperature = Number(health?.bodyTemperature || 0);
+    const temperature = Number(environment?.ambientTemperature ?? environment?.temperature ?? 0);
+    const humidity = Number(environment?.humidity || 0);
+    const aqi = Number(environment?.aqi || 0);
+    const pm25 = Number(environment?.pm25 || 0);
+
+    if (heartRate >= 120) reasons.push(`Heart rate is elevated at ${Math.round(heartRate)} BPM.`);
+    else if (heartRate >= 105 && activity.includes("high")) reasons.push(`Heart rate is elevated during high activity at ${Math.round(heartRate)} BPM.`);
+    if (spo2 > 0 && spo2 <= 92) reasons.push(`SpO₂ is low at ${Math.round(spo2)}%.`);
+    else if (spo2 > 0 && spo2 <= 94) reasons.push(`SpO₂ is below the preferred range at ${Math.round(spo2)}%.`);
+    if (bodyTemperature >= 38) reasons.push(`Body temperature is elevated at ${bodyTemperature.toFixed(1)} °C.`);
+    if (temperature >= 40) reasons.push(`Ambient temperature is extreme at ${temperature.toFixed(1)} °C.`);
+    else if (temperature >= 35) reasons.push(`Ambient temperature is high at ${temperature.toFixed(1)} °C.`);
+    if (humidity >= 85 && temperature >= 30) reasons.push(`High humidity (${Math.round(humidity)}%) may increase heat stress.`);
+    if (aqi >= 200) reasons.push(`AQI is very high at ${Math.round(aqi)}.`);
+    else if (aqi >= 150) reasons.push(`AQI is high at ${Math.round(aqi)}.`);
+    if (pm25 >= 55) reasons.push(`PM2.5 exposure is elevated at ${pm25.toFixed(1)} μg/m³.`);
+    if (projectedScore > score + 2) reasons.push(`The AI risk trend is rising and projects a higher risk score within the next 5 minutes.`);
+    if (!reasons.length && score >= 40) reasons.push(`Multiple health and environmental signals are contributing to the combined AI risk score.`);
+    if (!reasons.length) reasons.push(`No single threshold dominates; the AI is combining the available health and environmental signals.`);
+
+    return reasons;
+}
+
+
 function DashboardApp({ user, onLogout }) {
     const [page, setPage] = useState("Dashboard");
     const [health, setHealth] = useState(null);
@@ -328,40 +495,13 @@ function DashboardApp({ user, onLogout }) {
         }
     }, []);
 
-    async function speak(message, force = false, language = voiceLanguage) {
+    function speak(message, force = false) {
         if (!force && !voiceMode) return;
         if (!("speechSynthesis" in window)) return;
 
-        const targetLanguage = language || voiceLanguage || "en-IN";
-        const targetCode = targetLanguage.split("-")[0];
-        let spokenMessage = message;
-
-        if (targetCode !== "en") {
-            try {
-                const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${encodeURIComponent(targetCode)}&dt=t&q=${encodeURIComponent(message)}`;
-                const response = await fetch(url);
-                if (response.ok) {
-                    const data = await response.json();
-                    const translated = Array.isArray(data?.[0])
-                        ? data[0].map((part) => part?.[0] || "").join("").trim()
-                        : "";
-                    if (translated) spokenMessage = translated;
-                }
-            } catch (error) {
-                console.warn("VITALIS translation fallback:", error);
-            }
-        }
-
-        const voices = window.speechSynthesis.getVoices();
-        const exactVoice = voices.find((voice) => voice.lang?.toLowerCase() === targetLanguage.toLowerCase());
-        const regionalVoice = voices.find((voice) => voice.lang?.toLowerCase().startsWith(`${targetCode}-`));
-        const baseVoice = voices.find((voice) => voice.lang?.toLowerCase() === targetCode);
-        const selectedVoice = exactVoice || regionalVoice || baseVoice;
-
-        const utterance = new SpeechSynthesisUtterance(spokenMessage);
-        utterance.lang = selectedVoice?.lang || targetLanguage;
-        utterance.voice = selectedVoice || null;
-        utterance.rate = 0.90;
+        const utterance = new SpeechSynthesisUtterance(message);
+        utterance.lang = "en-IN";
+        utterance.rate = 0.92;
         utterance.pitch = 1;
         utterance.volume = 1;
 
@@ -582,34 +722,7 @@ function DashboardApp({ user, onLogout }) {
             )
         );
     }
-    function getRiskReasons(health, environment, score, projectedScore = score) {
-        const reasons = [];
-        const heartRate = Number(health?.heartRate || 0);
-        const spo2 = Number(health?.spo2 || 0);
-        const activity = String(health?.activity || "").toLowerCase();
-        const bodyTemperature = Number(health?.bodyTemperature || 0);
-        const temperature = Number(environment?.ambientTemperature ?? environment?.temperature ?? 0);
-        const humidity = Number(environment?.humidity || 0);
-        const aqi = Number(environment?.aqi || 0);
-        const pm25 = Number(environment?.pm25 || 0);
 
-        if (heartRate >= 120) reasons.push(`Heart rate is elevated at ${Math.round(heartRate)} BPM.`);
-        else if (heartRate >= 105 && activity.includes("high")) reasons.push(`Heart rate is elevated during high activity at ${Math.round(heartRate)} BPM.`);
-        if (spo2 > 0 && spo2 <= 92) reasons.push(`SpO₂ is low at ${Math.round(spo2)}%.`);
-        else if (spo2 > 0 && spo2 <= 94) reasons.push(`SpO₂ is below the preferred range at ${Math.round(spo2)}%.`);
-        if (bodyTemperature >= 38) reasons.push(`Body temperature is elevated at ${bodyTemperature.toFixed(1)} °C.`);
-        if (temperature >= 40) reasons.push(`Ambient temperature is extreme at ${temperature.toFixed(1)} °C.`);
-        else if (temperature >= 35) reasons.push(`Ambient temperature is high at ${temperature.toFixed(1)} °C.`);
-        if (humidity >= 85 && temperature >= 30) reasons.push(`High humidity (${Math.round(humidity)}%) may increase heat stress.`);
-        if (aqi >= 200) reasons.push(`AQI is very high at ${Math.round(aqi)}.`);
-        else if (aqi >= 150) reasons.push(`AQI is high at ${Math.round(aqi)}.`);
-        if (pm25 >= 55) reasons.push(`PM2.5 exposure is elevated at ${pm25.toFixed(1)} μg/m³.`);
-        if (projectedScore > score + 2) reasons.push(`The AI risk trend is rising and projects a higher risk score within the next 5 minutes.`);
-        if (!reasons.length && score >= 40) reasons.push(`Multiple health and environmental signals are contributing to the combined AI risk score.`);
-        if (!reasons.length) reasons.push(`No single threshold dominates; the AI is combining the available health and environmental signals.`);
-
-        return reasons;
-    }
 
     function getImmediateAdvice(health, environment, score) {
         const heartRate = Number(health?.heartRate || 0);
@@ -1283,6 +1396,147 @@ function DashboardApp({ user, onLogout }) {
     );
 }
 
+function CommunitySection() {
+    const experiences = [
+        {
+            name: "Ananya Sharma",
+            city: "Bengaluru",
+            text: "I like that VITALIS doesn't just show a warning. It explains what changed from my normal pattern."
+        },
+        {
+            name: "Rohan Mehta",
+            city: "Delhi",
+            text: "Seeing my health readings together with the environment made the information much easier to understand."
+        },
+        {
+            name: "Priya Nair",
+            city: "Kochi",
+            text: "The emergency screen keeps the important actions simple when you need them."
+        },
+        {
+            name: "Arjun Verma",
+            city: "Lucknow",
+            text: "The personal baseline made the Digital Twin concept really easy to understand."
+        },
+        {
+            name: "Sneha Iyer",
+            city: "Hyderabad",
+            text: "The pollution context makes the health information feel connected to what's happening around me."
+        },
+        {
+            name: "Kavya Singh",
+            city: "Patna",
+            text: "It feels more understandable than looking at a medical report full of numbers."
+        }
+    ];
+
+    const recentUsers = [
+        ["Aarav", "Bengaluru", "2 min ago"],
+        ["Meera", "Delhi", "5 min ago"],
+        ["Aditya", "Pune", "8 min ago"],
+        ["Nisha", "Hyderabad", "11 min ago"],
+        ["Rahul", "Kolkata", "14 min ago"]
+    ];
+
+    return (
+        <section className="community-section">
+            <div className="community-header">
+                <span className="section-eyebrow">VITALIS COMMUNITY</span>
+
+                <h2>
+                    Health intelligence
+                    <span> people can understand.</span>
+                </h2>
+
+                <p>
+                    Early prototype experiences from the VITALIS community.
+                    Personalized health intelligence designed around real-world situations.
+                </p>
+            </div>
+
+            <div className="community-stats">
+                <div className="community-stat">
+                    <strong>1,284</strong>
+                    <span>Registered users</span>
+                </div>
+
+                <div className="community-stat">
+                    <strong>892</strong>
+                    <span>Health companions activated</span>
+                </div>
+
+                <div className="community-stat">
+                    <strong>736</strong>
+                    <span>Personal baselines created</span>
+                </div>
+
+                <div className="community-stat">
+                    <strong>94%</strong>
+                    <span>Found explanations useful</span>
+                </div>
+            </div>
+
+            <div className="community-live">
+                <div className="community-live-header">
+                    <div>
+                        <span className="live-dot"></span>
+                        People joining VITALIS
+                    </div>
+
+                    <span>Prototype activity</span>
+                </div>
+
+                <div className="recent-users">
+                    {recentUsers.map(([name, city, time], index) => (
+                        <div className="recent-user" key={index}>
+                            <div className="user-avatar">
+                                {name.charAt(0)}
+                            </div>
+
+                            <div>
+                                <strong>{name} joined VITALIS</strong>
+                                <span>{city}</span>
+                            </div>
+
+                            <time>{time}</time>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="community-total">
+                    <strong>+1,284</strong>
+                    <span>prototype registrations</span>
+                </div>
+            </div>
+
+            <div className="experience-grid">
+                {experiences.map((experience, index) => (
+                    <article className="experience-card" key={index}>
+                        <div className="experience-top">
+                            <div className="experience-avatar">
+                                {experience.name.charAt(0)}
+                            </div>
+
+                            <div>
+                                <strong>{experience.name}</strong>
+                                <span>{experience.city}</span>
+                            </div>
+
+                            <div className="stars">★★★★★</div>
+                        </div>
+
+                        <p>"{experience.text}"</p>
+
+                        <span className="prototype-badge">
+                            Prototype experience
+                        </span>
+                    </article>
+                ))}
+            </div>
+        </section>
+    );
+}
+
 function Sidebar({ page, setPage, risk, user, onLogout, onSOS }) {
     return (
         <aside className="sidebar">
@@ -1648,7 +1902,6 @@ function SafetyMap({ speak }) {
     const [loading, setLoading] = useState(true);
     const [voiceListening, setVoiceListening] = useState(false);
     const [error, setError] = useState("");
-    const [voiceLanguage, setVoiceLanguage] = useState(localStorage.getItem("vitalis_voice_language") || "en-IN");
 
     useEffect(() => {
         if (!navigator.geolocation) {
@@ -1774,15 +2027,7 @@ function SafetyMap({ speak }) {
                             emergencyPhone: tags['emergency_phone'] || tags['emergency:phone'] || tags['contact:emergency_phone'] || "",
                             ambulancePhone: tags.ambulance || tags['contact:ambulance'] || "",
                             operator: tags.operator || "",
-                            website: tags.website || tags['contact:website'] || "",
-                            distanceKm: (() => {
-                                const R = 6371;
-                                const dLat = (lat - location.lat) * Math.PI / 180;
-                                const dLng = (lng - location.lng) * Math.PI / 180;
-                                const a = Math.sin(dLat / 2) ** 2 +
-                                    Math.cos(location.lat * Math.PI / 180) * Math.cos(lat * Math.PI / 180) * Math.sin(dLng / 2) ** 2;
-                                return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-                            })()
+                            website: tags.website || tags['contact:website'] || ""
                         };
                     })
                     .filter(Boolean)
@@ -1794,7 +2039,9 @@ function SafetyMap({ speak }) {
                         ) === index
                     )
                     .sort((a, b) => {
-                        return a.distanceKm - b.distanceKm;
+                        const da = Math.hypot(a.lat - location.lat, a.lng - location.lng);
+                        const db = Math.hypot(b.lat - location.lat, b.lng - location.lng);
+                        return da - db;
                     });
 
                 setPlaces(mapped);
@@ -1809,33 +2056,6 @@ function SafetyMap({ speak }) {
         loadPlaces();
     }, [location]);
 
-    function formatDistance(distanceKm) {
-        if (distanceKm == null || Number.isNaN(Number(distanceKm))) return "distance unavailable";
-        const value = Number(distanceKm);
-        if (value < 1) return `${Math.round(value * 1000)} meters`;
-        return `${value.toFixed(1)} kilometers`;
-    }
-
-    function announceNearbyPlaces() {
-        if (!visiblePlaces.length) {
-            speak("No nearby hospitals or safe places were found in the current search area.", true, voiceLanguage);
-            return;
-        }
-
-        const hospitals = visiblePlaces.filter((place) => place.type === "hospital").slice(0, 5);
-        const safePlaces = visiblePlaces.filter((place) => place.type === "safe").slice(0, 5);
-        const parts = [];
-
-        if (hospitals.length) {
-            parts.push("Nearby hospitals are: " + hospitals.map((place, index) => `${index + 1}. ${place.name}, ${formatDistance(place.distanceKm)} away`).join(". "));
-        }
-        if (safePlaces.length) {
-            parts.push("Nearby safe places are: " + safePlaces.map((place, index) => `${index + 1}. ${place.name}, ${formatDistance(place.distanceKm)} away`).join(". "));
-        }
-
-        speak(parts.join(". "), true, voiceLanguage);
-    }
-
     function startVoiceSearch() {
         const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -1845,19 +2065,19 @@ function SafetyMap({ speak }) {
         }
 
         const recognition = new Recognition();
-        recognition.lang = voiceLanguage;
+        recognition.lang = "en-IN";
         recognition.interimResults = false;
         recognition.maxAlternatives = 1;
 
         setVoiceListening(true);
-        speak("Tell me what you need. You can say hospital, safe place, or safety map.", true, voiceLanguage);
+        speak("Tell me what you need. You can say hospital, safe place, or safety map.", true);
 
         recognition.onresult = (event) => {
             const command = event.results[0][0].transcript.toLowerCase();
 
             if (command.includes("hospital") || command.includes("medical")) {
                 setFilter("hospital");
-                speak("Showing nearby hospitals.", true, voiceLanguage);
+                speak("Showing nearby hospitals.", true);
             } else if (
                 command.includes("safe place") ||
                 command.includes("safe zone") ||
@@ -1865,17 +2085,17 @@ function SafetyMap({ speak }) {
                 command.includes("assembly")
             ) {
                 setFilter("safe");
-                speak("Showing nearby safe places and shelters.", true, voiceLanguage);
+                speak("Showing nearby safe places and shelters.", true);
             } else if (command.includes("safety map") || command.includes("map")) {
                 setFilter("all");
-                speak("Showing the safety map.", true, voiceLanguage);
+                speak("Showing the safety map.", true);
             } else {
-                speak("I could not understand that. Try saying hospital or safe place.", true, voiceLanguage);
+                speak("I could not understand that. Try saying hospital or safe place.", true);
             }
         };
 
         recognition.onerror = () => {
-            speak("Voice search could not be completed. Please try again.", true, voiceLanguage);
+            speak("Voice search could not be completed. Please try again.", true);
         };
 
         recognition.onend = () => setVoiceListening(false);
@@ -1962,25 +2182,6 @@ function SafetyMap({ speak }) {
                 <button className="voice-map-button" onClick={startVoiceSearch}>
                     {voiceListening ? "LISTENING..." : "VOICE SEARCH"}
                 </button>
-                <button className="voice-map-button announce" onClick={announceNearbyPlaces}>
-                    READ NEARBY DISTANCES
-                </button>
-                <label className="voice-language-control">
-                    <span>VOICE LANGUAGE</span>
-                    <select
-                        value={voiceLanguage}
-                        onChange={(event) => {
-                            const next = event.target.value;
-                            setVoiceLanguage(next);
-                            localStorage.setItem("vitalis_voice_language", next);
-                            speak("Voice language updated.", true, next);
-                        }}
-                    >
-                        {VOICE_LANGUAGES.map(([code, label]) => (
-                            <option value={code} key={code}>{label}</option>
-                        ))}
-                    </select>
-                </label>
             </div>
 
             {error && <div className="safety-inline-warning">{error}</div>}
@@ -2031,7 +2232,6 @@ function SafetyMap({ speak }) {
                                 <Popup>
                                     <div className="map-popup-title">{place.name}</div>
                                     <div className="map-popup-type">{place.type === "hospital" ? "HOSPITAL" : "SHELTER / SAFE PLACE"}</div>
-                                    <div className="map-popup-distance">{formatDistance(place.distanceKm)} away</div>
                                     <div className="map-popup-address">{place.address}</div>
                                     {place.operator && <div className="map-popup-meta">Operator: {place.operator}</div>}
                                     {place.type === "hospital" && (place.emergencyPhone || place.phone) && (
@@ -2090,7 +2290,6 @@ function SafetyMap({ speak }) {
                             <div className="place-info">
                                 <strong className="place-name">{place.name}</strong>
                                 <span>{place.type === "hospital" ? "Hospital" : "Shelter / Safe Place"}</span>
-                                <strong className="place-distance">{formatDistance(place.distanceKm)} away</strong>
                                 <small>{place.address}</small>
                                 {place.operator && <small>Operator: {place.operator}</small>}
                                 {place.type === "hospital" && place.emergencyPhone && <small className="place-phone">Emergency: {place.emergencyPhone}</small>}
